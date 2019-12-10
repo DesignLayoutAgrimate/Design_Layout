@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>The Farmer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="public/images/icon.png">
+	<!-- <link rel="stylesheet" href="http://code.ionicframework.com/1.3.3/css/ionic.css"> -->
+	<!-- <link rel="stylesheet" href="http://code.ionicframework.com/1.3.3/css/ionic.css"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" rel="stylesheet" />
+	<style>
+	    footer {
+	      background-color: #f2f2f2;
+	      padding: 25px;
+	    }
+
+	    .carousel-inner img {
+	      width: 100%;
+	      min-height: 200px;
+	    }
+	    
+	    /* reponsive_mobile */
+	    @media (max-width: 600px) {
+	      .carousel-caption {
+	        display: none; 
+	      }
+	      #myNavbar{
+	        border-top:2px solid #068142;
+	      }
+	      #search{
+	        display: none;
+	      }
+	      #icon_home{
+	        background-color: white;
+	      }
+	      #navbar{
+	        border-top:2px solid #068142;
+	      }
+	      #button_icon:hover{
+	        background-color: yellow;
+	      }
+	    }
+	    /* reponsive_mobile */
+
+	    /* reponsive_mobile_dropdown_menu */
+	    @media only screen and (min-width: 768px) {
+	      .dropdown:hover .dropdown-menu {
+	        display: block;
+	      }
+	    }
+	    /* reponsive_mobile_dropdown_menu */
+
+	    .responsive {
+	      max-width: 95%;
+	      height: 60px;
+	      margin:5px;
+	    }
+	    .dropdown #button_dropdown{
+	      border-radius: 2px;
+	      background-color:white;
+	    }
+  	</style>
+
+	<script type="text/javascript">
+	    $('.dropdown-toggle').click(function(e) {
+	      if ($(document).width() > 768) {
+	        e.preventDefault();
+	        var url = $(this).attr('href');
+	        if (url !== '#') {
+	          window.location.href = url;
+	        }
+	      }
+	    });
+
+	    $(document).ready(function(){
+	      $(".navbar-toggle").hover(function(){
+	        $(this).css("background-color", "yellow");
+	        }, function(){
+	        $(this).css("background-color", "white");
+	      });
+	    });
+	</script>
+</head>
+
+<body style="font-family: 'Roboto Slab', sans-serif;">
+
+	<style>
+		.navbar-inverse{
+			background-color:#dee3de;
+			border:0px solid white;
+			box-shadow: 0 2px 5px rgba(0,0,0,0.14), 0 2px 5px rgba(0,0,0,0.20);
+		}
+
+		.navbar-inverse .navbar-nav li a{
+			height:70px;
+			color:#349031;
+			font-size:16px;
+			padding-top:22px;
+			font-weight: 700;
+		}
+	</style>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	  	<div class="container">
+		    <div class="navbar-header" id="navbar_border">
+		      	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"
+		      	style="margin-top:20px;border:2px solid #068142;background-color:white;">
+			        <span class="icon-bar" style="background-color:#068142"></span>
+			        <span class="icon-bar" style="background-color:#068142"></span>
+			        <span class="icon-bar" style="background-color:#068142"></span>                        
+		      	</button>
+
+		      	<button type="button" class="navbar-toggle" onclick="openSearch()"
+		      	style="margin-top:20px;border:2px solid #068142;padding:5.2px;background-color:white;">
+		        	<i class="fa fa-search" style="font-size:20px;color:#068142;width:25px;"></i>
+		      	</button>
+
+		      	<a href="index.html">
+		        	<img src="../public/images/LOGO_WEB.png" class="responsive" alt="Logo">
+		      	</a>
+		    </div>
+
+		    <div id="navbar" class="navbar-collapse collapse">
+		      	<ul class="nav navbar-nav">
+
+			        <li style="background-color:#068142;border-radius:2px;">
+			          	<a href="#" style="height:70px;color:white;" id=> 
+			            	<i class="fa fa-home" style="font-size:33px;"></i>
+			          	</a>
+			        </li>
+
+			        <li>
+			          	<a href="#">
+			            	<!-- <img src="./public/core-img/6.png" style="width:25px;height:25px;"> -->
+			            	<span>Kỹ thuật</span>
+			          	</a>
+			        </li>
+
+			        <li>
+			          	<a href="#">
+			            	<!-- <img src="./public/core-img/4.png" style="width:25px;height:25px;"> -->
+			            	<span>Phân bón</span>
+			          	</a>
+			        </li>
+
+			        <li>
+			          	<a href="#">
+			            	<!-- <img src="./public/core-img/3.png" style="width:25px;height:25px;"> -->
+			            	<span>Thuốc</span>
+			          	</a>
+			        </li>
+
+			        <li>
+			          	<a href="#">
+			            	<!-- <img src="./public/core-img/1.png" style="width:25px;height:25px;"> -->
+			            	<span>Luật</span>
+			          	</a>
+			        </li>
+
+			        <li>
+			          	<a href="#">
+			            	<!-- <img src="./public/core-img/5.png" style="width:25px;height:25px;"> -->
+			            	<span>Giá thị trường</span>
+			          	</a>
+			        </li>
+
+			        <li>
+			          	<a href="#" data-toggle="tooltip" title="Tìm kiếm" id="search"> 
+			            	<!-- <img src="../public/images/icon_search.png" style="width:25px;height:25px;"> -->
+			            	<span>Tra cứu</span>
+			          	</a>
+			        </li>
+		      	</ul>
+		      <!-- end_ul -->
+
+		      	<ul class="nav navbar-nav navbar-right">
+		      		<li>
+			          	<a href="#" >
+			            	<img src="./public/image_icon/icon_dang_ky.png" style="width:25px;height:25px;">
+			            	Đăng ký
+			          	</a>
+			        </li>
+
+		        	<li>
+			          	<a href="#" >
+			            	<img src="./public/image_icon/icon_login.png" style="width:25px;height:25px;">
+			            	Đăng nhập
+			          	</a>
+			        </li>
+		      	</ul>
+
+		    </div>
+	    <!--/.nav-collapse -->
+	  </div>
+	</nav>
+	<br><br><br><br><br>
+
+
+	<style>
+		.tra_cuu .ten_tra_cuu h5{
+			font-size: 20px;
+			font-weight: bold;
+			font-family: arial;
+		}
+
+		@media (max-width: 600px){
+			.tra_cuu .ten_tra_cuu .col-md-2,.col-md-3,.col-md-1{
+				margin-top: 20px;
+			}
+		}
+	</style>
+	<div class="row tra_cuu">
+		<div class="container">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align: center;
+      font-family: arial; color:black;">
+				<strong style="font-size: 30px; font-weight: 700;">Góc tra cứu</strong><br>
+				<img src="public/core-img/decor2.png" alt="">
+				<br><br>
+				<div class="row ten_tra_cuu">
+					<div class="col-xs-12 col-sm-12 col-md-1 col-lg-1">
+						
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+						<div class="single-benefits-area wow fadeInUp mb-50" data-wow-delay="100ms">
+							<a href=""><img src="public/core-img/6.png" alt=""></a>
+            				<h5>Kỹ thuật</h5>
+						</div>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+						<div class="single-benefits-area wow fadeInUp mb-50" data-wow-delay="100ms">
+							<a href=""><img src="public/core-img/4.png" alt=""></a>
+            				<h5>Phân bón</h5>
+						</div>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+						<div class="single-benefits-area wow fadeInUp mb-50" data-wow-delay="100ms">
+							<a href=""><img src="public/core-img/3.png" alt=""></a>
+            				<h5>Thuốc bvtv</h5>
+						</div>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+						<div class="single-benefits-area wow fadeInUp mb-50" data-wow-delay="100ms">
+							<a href=""><img src="public/core-img/1.png" alt=""></a>
+            				<h5>Luật</h5>
+						</div>
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+						<div class="single-benefits-area wow fadeInUp mb-50" data-wow-delay="100ms">
+							<a href=""><img src="public/core-img/5.png" alt=""></a>
+            				<h5>Giá cả thị trường</h5>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<br><br>
+
+	<style>
+		.tra_cuu_bvtv p{
+			font-size: 30px;
+			font-weight: bold;
+			font-family: arial;
+			text-align: center;
+			color: red;
+		}
+
+		.tra_cuu_bvtv .tra_cuu_theo_ten h4{
+			padding-left: 10px;
+		}
+	</style>
+	<div class="row tra_cuu_bvtv">
+		<div class="container">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-body">
+
+						<p><strong>Tra cứu thuốc bảo vệ thực vật</strong></p>
+						<br>
+						
+						<style>
+							@media (max-width: 600px){
+								.tra_cuu .btn-success{
+									margin-left: 210px;
+								}
+							}
+						</style>
+						<div class="row tra_cuu">
+
+							<form action="" method="POST" role="form">
+								
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<div class="form-group">
+										<label for="">Tên danh mục</label>
+										<select class="form-control selectpicker" id="select-country" data-live-search="true">
+							                <option>-- Tên danh mục --</option> 
+								           	<option>Thuốc sử dụng trong nông nghiệp</option> 
+								           	<option>Thuốc trừ mối</option> 
+								           	<option>Thuốc bảo quản lâm sản</option> 
+								           	<option>Thuốc khử trùng kho</option> 
+								           	<option>Thuốc sử dụng cho sân golf</option> 
+								           	<option>Thuốc sử lý hạt giống</option> 
+							            </select>
+									</div>
+								</div>
+
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<div class="form-group">
+										<label for="">Tên đối tượng</label>
+										<select class="form-control selectpicker" id="select-country" data-live-search="true">
+							                <option>-- Tên đối tượng --</option> 
+								           	<option>Thuốc trừ sâu</option> 
+								           	<option>Thuốc trừ bệnh</option> 
+								           	<option>Thuốc trừ cỏ</option> 
+								           	<option>Thuốc trừ chuột</option> 
+								           	<option>Thuốc trừ ốc</option> 
+								           	<option>Thuốc điều hòa sinh trưởng</option> 
+								           	<option>Chất dẫn dụ côn trùng</option> 
+								           	<option>Chất hỗ trợ (chất trải)</option>
+							            </select>
+									</div>
+								</div>
+
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<div class="form-group">
+										<label for="">Tên cây trồng</label>
+										<select class="form-control selectpicker" id="select-country" data-live-search="true">
+								           <option>-- Tên cây trồng --</option> 
+								           <option>Aritiso</option> 
+								           <option>Bắp cải</option> 
+								           <option>Bầu</option> 
+								           <option>Bí đao</option> 
+								           <option>Bí đỏ</option> 
+								           <option>Bí xanh</option> 
+								           <option>Bông vải</option> 
+								           <option>Bông xoài</option> 
+								           <option>Bưởi</option> 
+								           <option>Cà chua</option> 
+								           <option>Ca cao</option> 
+								           <option>Cà pháo</option> 
+								           <option>Cà tím</option> 
+								        </select>
+									</div>
+								</div>
+
+
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<div class="form-group">
+										<label for="">Tên dịch hại</label>
+										<select class="form-control selectpicker" id="select-country" data-live-search="true">
+											<option>-- Tên dịch hại --</option> 
+								           	<option>Ấu trùng ve sầu</option> 
+								           	<option>Bạc lá</option> 
+								           	<option>Bạc lá do vi khuẩn</option> 
+								           	<option>Bạch tạng</option> 
+								           	<option>Bệnh chay mủ do Phytophthora</option> 
+								           	<option>Bệnh do Fusarium</option> 
+								           	<option>Bệnh do nấm Phytophthora</option> 
+								           	<option>Bệnh đổ ngã cây con</option> 
+								           	<option>Bệnh dó tuyến trùng</option> 
+								           	<option>Bệnh hoa lá</option> 
+								           	<option>Bệnh loét</option> 
+								           	<option>Biến màu quả</option> 
+								           	<option>Bọ cánh cứng</option>
+										</select>
+									</div>
+								</div>
+
+
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<div class="form-group">
+										<label for="">Nhập tên thuốc bvtv</label>
+										<input type="text" name="" id="input" class="form-control" placeholder="nhập tên thuốc bvtv đầy đủ">
+									</div>
+								</div>
+
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<div class="form-group">
+										<label for="">Nhập mã số thuốc bvtv</label>
+										<input type="text" name="" id="input" class="form-control" placeholder="nhập mã số thuốc bvtv đầy đủ">
+									</div>
+								</div>
+
+								<a style="margin-right: 15px;" href="" class="btn btn-success navbar-right"><span class="glyphicon glyphicon-search"></span> Tra cứu</a>
+
+								<a style="margin-right: 10px;" href="" class="btn btn-default navbar-right"><span class="glyphicon glyphicon-refresh"></span></a>
+							</form>
+
+						</div><hr>
+						
+						<style>
+							.table-customize {
+								margin: 0;
+								border-radius: 4px;
+								overflow: hidden;
+								box-shadow: 0 0 0 1px #ccc inset;
+							}
+							.table-customize > thead > tr {
+								background-color: #535353;
+								border-radius: 3px 3px 0 0;
+							}
+							.table-customize > thead > tr > th {
+								color: #fff;
+								border-bottom: none;
+								padding: 10px 14px;
+								font-size: 14px;
+								font-weight: 400;
+								border: 1px solid rgba(0, 0, 0, 0.2);
+							}
+							.table-customize > thead > tr > th:first-child {
+								border-radius: 3px 0 0 0;
+								border-top: 1px solid rgba(0, 0, 0, 0.2);
+							}
+							.table-customize > thead > tr > th:last-child {
+								border-radius: 0 3px 0 0;
+							}
+							.table-customize > tbody > tr > td {
+								vertical-align: middle;
+								padding: 15px 14px;
+								color: #ccc;
+								font-size: 14px;
+								color: #000;
+								border: 1px solid #ccc;
+							}
+							.table-customize > tbody > tr > td a {
+								text-decoration: none;
+							}
+
+							.table-order > tbody > tr:nth-child(-n + 3) > td:first-child {
+								position: relative;
+								font-size: 10px;
+								font-weight: 700;
+							}
+							.table-order > tbody > tr:nth-child(-n + 3) > td:first-child span {
+								position: absolute;
+								left: 0;
+								right: 0;
+								margin: auto;
+								top: 14px;
+							}
+							.table-order > tbody > tr td:first-child, .table-order > tbody > tr th:first-child {
+								text-align: center;
+							}
+							@media (min-width: 320px) and (max-width: 767px) {
+								.table-responsive,
+								.table-responsive thead,
+								.table-responsive tbody,
+								.table-responsive th,
+								.table-responsive td,
+								.table-responsive tr {
+							    	display: block;
+							  	}
+							  	.table-responsive > thead > tr {
+							    	position: absolute;
+							    	top: -9999px;
+							    	left: -9999px;
+							  	}
+							  	.table-responsive > tbody > tr {
+							    	border-top: 1px solid #ccc;
+							    	border-bottom: 1px solid #ccc;
+							  	}
+							  	.table-responsive > tbody > tr:first-child {
+							    	border-radius: 3px 3px 0 0;
+							    	border-top: none;
+							  	}
+							  	.table-responsive > tbody > tr:last-child {
+							    	border-radius: 0 0 3px 3px;
+							    	border-bottom: none;
+							  	}
+							  	.table-responsive > tbody > tr td {
+								    border: none;
+								    border-bottom: 1px solid #ccc;
+								    position: relative;
+								    padding-left: 40% !important;
+								    width: 100%;
+								    overflow: hidden;
+							  	}
+							  	.table-responsive > tbody > tr td:before {
+								    content: attr(data-title);
+								    position: absolute;
+								    top: 15px;
+								    left: 14px;
+								    width: 30%;
+								    padding-right: 10px;
+								    white-space: nowrap;
+								    font-size: 14px;
+							  	}
+							  	.table-responsive > tbody > tr td:first-child {
+							    	text-align: left;
+							  	}
+							  	.table-responsive.table-order > tbody > tr:nth-child(-n + 3) > td:first-child {
+								    padding: 25px 0 25px 30% !important;
+								    background-position: left 32% center;
+							  	}
+								.table-responsive.table-order > tbody > tr:nth-child(-n + 3) > td:first-child span {
+							    	left: 32%;
+							  	}
+							}
+
+							.gia_thi_truong h4{
+								font-weight: 700;
+								color: #2d7e2a;
+							}
+						</style>
+						<div class="row result">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<table class="table table-bordered table-customize table-responsive table-hover">
+							    <thead>
+							        <tr>
+							            <th>STT</th>
+							            <th>Loại thuốc bvtv</th>
+							            <th>Tên thuốc bvtv</th>
+							            <th>Mã số thuốc bvtv</th>
+							            <th>Chỉ tiêu chất lượng/Thành phần hàm lượng dinh dưỡng</th>
+							            <th>Phương thức sử dụng</th>
+							            <th>Hướng dẫn sử dụng</th>
+							            <th>Thời gian sử dụng</th>
+							        </tr>
+							    </thead>
+							    <tbody>
+							        <tr>
+							            <td data-title="STT">1</td>
+							            <td data-title="Loại thuốc">Thuốc trừ mối</td>
+							            <td data-title="Tên thuốc">Thuốc ABC</td>
+							            <td data-title="Mã số" >T0001</td>
+							            <td data-title="CTCL">
+							            	Đạm kali ....
+							            </td>
+							            <td data-title="PTSD">Sử dụng ...</td>
+							            <td data-title="HDSD">Sử dụng ...</td>
+							            <td data-title="TGSD"> 1 tháng</td>
+							        </tr>
+
+							    </tbody>
+							</table>
+							</div>
+							
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+						<!-- <div class="row tra_cuu_theo_doi_tuong">
+							<h4>Tra cứu theo đối tượng phòng trừ</h4><br>
+						
+							<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 form-group">
+								<select name="" id="input" class="form-control">
+									<option selected>---- Đối tượng ----</option>
+						            <option value="">Thuốc trừ sâu</option>
+						            <option value="">Thuốc trừ bệnh gồm có nấm, khuẩn, virus</option>
+						            <option value="">Thuốc trừ cỏ</option>
+						            <option value="">Thuốc trừ chuột</option>
+						            <option value="">Thuốc trừ nhện</option>
+						            <option value="">Thuốc trừ tuyến trùng</option>
+						            <option value="">Thuốc trừ ốc sên</option>
+						            <option value="">Thuốc điều hòa sinh trưởng</option>
+								</select>
+											        </div>
+						
+											        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 form-group">
+											        	<select name="" id="input" class="form-control">
+											        		<option selected>---- Nhóm ----</option>
+						            <option value="">Thảo mộc</option>
+						            <option value="">Vô cơ</option>
+						            <option value="">Hữu cơ</option>
+											        	</select>
+											        </div>
+						
+							<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+								<a href="" class="btn btn-success btn-block"><span class="glyphicon glyphicon-search"></span> Tra cứu</a>
+							</div>
+						</div><hr> -->
+
+						
+						<!-- <div class="row tra_cuu_theo_cay_trong">
+							<h4>Tra cứu theo cây trồng và dịch hại</h4><br>
+							
+							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 form-group">
+						        <select class="form-control selectpicker" id="select-country" data-live-search="true">
+						           <option>-- Tên cây trồng --</option> 
+						           <option>Aritiso</option> 
+						           <option>Bắp cải</option> 
+						           <option>Bầu</option> 
+						           <option>Bí đao</option> 
+						           <option>Bí đỏ</option> 
+						           <option>Bí xanh</option> 
+						           <option>Bông vải</option> 
+						           <option>Bông xoài</option> 
+						           <option>Bưởi</option> 
+						           <option>Cà chua</option> 
+						           <option>Ca cao</option> 
+						           <option>Cà pháo</option> 
+						           <option>Cà tím</option> 
+						        </select>
+							</div>
+						
+							<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 form-group">
+						        <select class="form-control selectpicker" id="select-country" data-live-search="true">
+											                <option>-- Tên dịch hại --</option> 
+						           	<option>Ấu trùng ve sầu</option> 
+						           	<option>Bạc lá</option> 
+						           	<option>Bạc lá do vi khuẩn</option> 
+						           	<option>Bạch tạng</option> 
+						           	<option>Bệnh chay mủ do Phytophthora</option> 
+						           	<option>Bệnh do Fusarium</option> 
+						           	<option>Bệnh do nấm Phytophthora</option> 
+						           	<option>Bệnh đổ ngã cây con</option> 
+						           	<option>Bệnh dó tuyến trùng</option> 
+						           	<option>Bệnh hoa lá</option> 
+						           	<option>Bệnh loét</option> 
+						           	<option>Biến màu quả</option> 
+						           	<option>Bọ cánh cứng</option>
+											            </select>
+							</div>
+						
+							<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+								<a href="" class="btn btn-success btn-block"><span class="glyphicon glyphicon-search"></span> Tra cứu</a>
+							</div>
+						
+						</div>
+						<br>
+						
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<a href="" class="btn btn-success btn-block"><span class="glyphicon glyphicon-search"></span> Tra cứu</a>
+							</div>
+						</div> -->
+
+	<br><br>
+
+	<footer class="page-footer font-small blue pt-4"
+		style="background-color:#e7e9ec;box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">
+		  	<!-- Footer Links -->
+		  	<div class="container text-center text-md-left">
+			    <!-- Grid row -->
+			    <div class="row">
+			      	<!-- Grid column -->
+			      	<div class="col-md-6 mt-md-0 mt-3 text-left">
+				        <!-- Content -->
+				        <h5 class="text-uppercase" style="color:#068142">
+				          <a href="#">
+				            <img src="../public/images/LOGO_WEB.png" alt="Logo" style="width:122px;height:40px;">
+				          </a>
+				        </h5>
+				        <p style="text-align: justify;">
+				          AGRIMATE được thành lập bởi những người trẻ tâm huyến sẵn sàng chia sẻ. Chúng tôi đề cao sự thay đổi, rèn luyện và luôn mong muốn mang đến một môi trường rèn luyện tốt hơn cho sinh viên học tại Hòa An nói riêng và CTU nói chung. Tại AGRIMATE, chúng tôi truyền cảm hứng cho những trái tim nhiệt huyết để trở thành những cá nhân tiên phong trong đổi mới, những nhà lãnh đạo hiệu quả trong tương lai đồng thời biết quan tâm sâu sắc đến vấn đề con người và có một tấm lòng khao khát cống hiến cho xã hội, cho quê hương.
+				        </p>
+			      	</div>
+			      <!-- Grid column -->
+
+			      	<!-- Grid column -->
+			      	<div class="col-md-3 mb-md-0 mb-3 text-left">
+				        <!-- Links -->
+				        <h5 class="text-uppercase" style="color:#068142"><strong>Địa chỉ</strong></h5>
+				        <ul class="list-unstyled">
+				          <li>
+				            <a href="#!" style="text-decoration:none;text-align: justify;">
+				              <i class="fa fa-map-marker"></i>&ensp;
+				              Đại học Cần Thơ Khu Hòa An - Số 554, Quốc lộ 61, Hòa Đức, Hòa An, Phụng Hiệp, Hậu Giang
+				            </a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;text-align: justify;">
+				              <i class="fa fa-phone"></i>&ensp;
+				              0901211249
+				            </a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;text-align: justify;">
+				              <i class="fa fa-envelope"></i>&ensp;
+				              hoaanteam@gmail.com
+				            </a>
+				          </li>
+				        </ul>
+
+			      	</div>
+			      	<!-- Grid column -->
+
+
+			      	<!-- Grid column -->
+			      	<div class="col-md-3 mb-md-0 mb-3 text-left">
+				        <!-- Links -->
+				        <h5 class="text-uppercase" style="color:#068142"><strong>Liên kết</strong></h5>
+				        <ul class="list-unstyled">
+				          <li>
+				            <a href="#!" style="text-decoration:none;">Kỹ thuật</a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;">Phân bón</a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;">Thuốc</a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;">Giá thị trường</a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;">Tra cứu</a>
+				          </li>
+				        </ul>
+
+			      	</div>
+			      	<!-- Grid column -->
+
+			    </div>
+			    <!-- Grid row -->
+		  	</div>
+		  	<!-- Footer Links -->
+
+		  	<!-- Copyright -->
+		  	<div class="footer-copyright text-center py-3">© 2019 Copyright:
+		    	<a href="https://mdbootstrap.com/education/bootstrap/">Bootstrap.com</a>
+		  	</div>
+		  	<!-- Copyright -->
+
+		  	<style type="text/css" media="screen">
+			    #myBtn {
+			      	display: none;
+			      	position: fixed;
+			      	bottom: 10px;
+			      	right: 10px;
+			      	z-index: 99;
+			      	border:none;
+			      	outline: none;
+			      	background-color: orange;
+			      	color: white;
+			      	cursor: pointer;
+			      	padding: 5px;
+			      	border-radius: 5px;
+			      	font-size: 18px;
+			      	width:33px;
+			    }
+
+			    #myBtn:hover {
+			      background-color: rgba(0,0,0,0.5);/* Add a dark-grey background on hover */
+			    }
+		  	</style>
+		  
+		  	<!-- back_to_top -->
+		  	<button onclick="topFunction()" id="myBtn" title="Về đầu trang"><i class="fa fa-arrow-up"></i></button>
+		  	<!-- back_to_top -->
+
+		  	<script type="text/javascript">
+			    //Get the button:
+			    mybutton = document.getElementById("myBtn");
+
+			    // When the user scrolls down 20px from the top of the document, show the button
+			    window.onscroll = function() {scrollFunction()};
+
+			    function scrollFunction() {
+			      	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			        	mybutton.style.display = "block";
+			      	} else {
+			        	mybutton.style.display = "none";
+			      	}
+			    }
+
+			    // When the user clicks on the button, scroll to the top of the document
+			    function topFunction() {
+			      	document.body.scrollTop = 0; // For Safari
+			      	document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+			    }
+		  	</script>
+	</footer>
+
+	<script>
+		$('.select2').select2();
+	</script>
+	
+</body>
+</html>
