@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Agrimate</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="public/images/icon.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+  <link href="public/css/style_main.css" rel="stylesheet">
+
+  <style>
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+    .carousel-inner img {
+      width: 100%;
+      min-height: 200px;
+    }
+    
+    /* reponsive_mobile */
+    @media (max-width: 600px) {
+      .carousel-caption {
+        display: none; 
+      }
+      #myNavbar{
+        border-top:2px solid #068142;
+      }
+      #search{
+        display: none;
+      }
+      #icon_home{
+        background-color: white;
+      }
+      #navbar{
+        border-top:2px solid #068142;
+      }
+      #button_icon:hover{
+        background-color: yellow;
+      }
+    }
+    /* reponsive_mobile */
+
+    /* reponsive_mobile_dropdown_menu */
+    @media only screen and (min-width: 768px) {
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+    }
+    /* reponsive_mobile_dropdown_menu */
+
+    .responsive {
+      max-width: 95%;
+      height: 60px;
+      margin:5px;
+    }
+    .dropdown #button_dropdown{
+      border-radius: 2px;
+      background-color:white;
+    }
+  </style>
+
+  <script type="text/javascript">
+    $('.dropdown-toggle').click(function(e) {
+      if ($(document).width() > 768) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        if (url !== '#') {
+          window.location.href = url;
+        }
+      }
+    });
+
+    $(document).ready(function(){
+      $(".navbar-toggle").hover(function(){
+        $(this).css("background-color", "yellow");
+        }, function(){
+        $(this).css("background-color", "white");
+      });
+    });
+  </script>
+
+</head>
+
+<body style="font-family: 'Roboto Slab', sans-serif;background-color:#90ee90;">
+
+<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:white;border:0px solid white;
+box-shadow: 0 2px 5px rgba(0,0,0,0.14), 0 2px 5px rgba(0,0,0,0.20);">
+  <div class="container">
+     <div class="navbar-header" id="navbar_border">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"
+      style="margin-top:20px;border:2px solid #068142;background-color:white;">
+        <span class="icon-bar" style="background-color:#068142"></span>
+        <span class="icon-bar" style="background-color:#068142"></span>
+        <span class="icon-bar" style="background-color:#068142"></span>                        
+      </button>
+
+      <button type="button" class="navbar-toggle" onclick="openSearch()"
+      style="margin-top:20px;border:2px solid #068142;padding:5.2px;background-color:white;">
+        <i class="fa fa-search" style="font-size:20px;color:#068142;width:25px;"></i>
+      </button>
+
+      <a href="index.html">
+        <img src="public/images/LOGO_WEB.png" class="responsive" alt="Logo">
+      </a>
+    </div>
+
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+
+        <li style="background-color:#068142;border-radius:2px;">
+          <a href="#" style="height:70px;color:white;" id=> 
+            <i class="fa fa-home" style="font-size:33px;"></i>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" style="height:70px;color:#068142;font-size:16px;padding-top:22px;">
+            <img src="public/images/icon_nha_nuoc.png" style="width:28px;height:28px;">
+            <span>Nhà nước</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="Enterprise/index.html" style="height:70px;color:#068142;font-size:16px;padding-top:22px;">
+            <img src="public/images/icon_doanh_nghiep.png" style="width:28px;height:28px;">
+            <span>Nhà doanh nghiệp</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" style="height:70px;color:#068142;font-size:16px;padding-top:22px;">
+            <img src="public/images/icon_khoa_hoc.png" style="width:28px;height:28px;">
+            <span>Nhà khoa học</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="Farmer/index.html" style="height:70px;color:#068142;font-size:16px;padding-top:22px;">
+            <img src="public/images/icon_nong_dan.png" style="width:28px;height:28px;">
+            <span>Nhà nông</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" style="height:70px;width:70px;padding-top:22px;
+          background-color:white;border-radius:5px;" data-toggle="tooltip" title="Tìm kiếm" id="search"> 
+            <img src="public/images/icon_search.png" onclick="openSearch()"
+            style="width:28px;height:28px;">
+          </a>
+        </li>
+
+      </ul>
+      <!-- end_ul -->
+
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="#" style="height:70px;color:#068142;font-size:16px;padding-top:22px;">
+            <img src="public/images/login.ico" style="width:28px;height:28px;">
+            Login
+          </a>
+        </li>
+      </ul>
+
+    </div>
+    <!--/.nav-collapse -->
+  </div>
+</nav><br><br><br><br>
+
+
+<!-- box_madal_search -->
+<div id="myOverlay" class="overlay">
+  <span class="closebtn" onclick="closeSearch()" title="Close Overlay">x</span>
+  <div class="overlay-content">
+    <form action="#">
+      <input type="text" placeholder="Nhập tìm kiếm ..." name="search">
+      <button type="submit" title="Tìm kiếm"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
+<!-- box_madal_search -->
+
+<script type="text/javascript">
+  function openSearch() {
+    document.getElementById("myOverlay").style.display = "block";
+  }
+  // Close the full screen search box
+  function closeSearch() {
+    document.getElementById("myOverlay").style.display = "none";
+  }
+</script>
+
+
+<!-- ================================================================================================== -->
+<!-- carousel -->
+<div class="container" style="border-radius:3px;background-color:white; margin-bottom:10px;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);padding-top:15px;padding-bottom:15px;">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+
+      <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-bottom:5px;">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="public/images/carousel/1.png" class="img-responsive" style="width:100%;height:40%;">
+            <div class="carousel-caption">
+              <h3 style="text-align: justify;">Xây dựng phát triển hệ thống trung tâm cung ứng nông sản hiện</h3>
+            </div>      
+          </div>
+
+          <div class="item">
+            <img src="public/images/carousel/2.png" class="img-responsive" style="width:100%;height:40%;">
+            <div class="carousel-caption">
+              <h3 style="text-align: justify;">Xây dựng phát triển hệ thống trung tâm cung ứng nông sản hiện</h3>
+            </div>      
+          </div>
+
+          <div class="item">
+            <img src="public/images/carousel/3.png" class="img-responsive" style="width:100%;height:40%;">
+            <div class="carousel-caption">
+              <h3 style="text-align: justify;">Xây dựng phát triển hệ thống trung tâm cung ứng nông sản hiện</h3>
+            </div>      
+          </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <img src="public/images/information/1.png" class="img-responsive"
+          style="border: 1px solid #ddd;padding:3px;margin-bottom:5px;">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <strong style="text-align: justify;">
+            Xây dựng huyện Nam Đàn, tỉnh Nghệ An trở thành huyện nông thôn mới kiểu mẫu theo
+          </strong>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <img src="public/images/information/2.png" class="img-responsive"
+          style="border: 1px solid #ddd;padding:3px;margin-bottom:5px;">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <strong style="text-align: justify;">
+            Nông thôn mới ở Sơn Thủy: Chuồng đầy dê, lúa đầy đồng
+          </strong>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <img src="public/images/information/3.png" class="img-responsive"
+          style="border: 1px solid #ddd;padding:3px;margin-bottom:5px;">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <strong style="text-align: justify;">
+            Xây dựng phát triển hệ thống trung tâm cung ứng nông sản hiện
+          </strong>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <img src="public/images/information/4.png" class="img-responsive"
+          style="border: 1px solid #ddd;padding:3px;margin-bottom:5px;">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <strong style="text-align: justify;">
+            Công nghiệp hóa, hiện đại hóa nông nghiệp nông thôn là nhiệm vụ hàng
+          </strong>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- end_carousel -->
+<!-- ================================================================================================== -->
+
+
+<!-- ================================================================================================== -->
+<!-- content -->
+<div class="container" style="border-radius:3px;background-color:white; margin-bottom:10px;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);padding-top:15px;padding-bottom:15px;">    
+  <div class="row">
+    <!-- col_10 -->
+    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+
+      <!-- row2 -->
+      <div class="row">
+        <!-- col_6 -->
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <div class="panel panel-info" style="border:1px solid #068142;">
+
+            <div class="panel-heading" align="left" style="background-color:#068142;border-bottom:1px solid #068142;">
+              <h3 class="panel-title" style="color:white;" id="panel-title">
+                <strong>
+                  <i class="fa fa-arrow-right" style="font-size:20px;"></i>
+                  &ensp;CÁC HOẠT ĐỘNG CỦA TRUNG ƯƠNG
+                </strong>
+              </h3>
+            </div>
+
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                  <a href="">
+                  <img src="public/images/information/4.png" class="img-responsive"
+                  style="border:1px solid #ddd;padding:3px;margin-bottom:5px;">
+                  </a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                  <strong>Công nghiệp hóa, hiện đại hóa nông nghiệp nông thôn là nhiệm vụ hàng</strong>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <h5>
+                    <a href="" style="text-decoration:none;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Công nghiệp hóa, hiện đại hóa nông nghiệp nông thôn là nhiệm vụ hàng
+                    </a>
+                  </h5>
+                  <hr style="margin:0px;border-top: 1px dashed #068142;">
+                  <h5>
+                    <a href="" style="text-decoration:none;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Công bố 10 sự kiện nổi bật của các Chương trình mục tiêu quốc gia năm 2018
+                    </a>
+                  </h5>
+                  <hr style="margin:0px;border-top: 1px dashed #068142;">
+                  <h5>
+                    <a href="" style="text-decoration:none;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Đảm bảo an ninh trật tự trong xây dựng nông thôn mới
+                    </a>
+                  </h5>
+                  <hr style="margin:0px;border-top: 1px dashed #068142;">
+                  <h5>
+                    <a href="" style="text-decoration:none;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Hội nghị tổng kết phong trào thi đua “Ngành Kế hoạch đầu tư và Thống kê chung...
+                    </a>
+                  </h5>
+                  <div class="text-right">
+                    <a class="btn btn-success" href="page_central_operation.html" role="button">-- Xem thêm --</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end_col_6 -->
+
+        <!-- col_6 -->
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <div class="panel panel-info" style="border:1px solid #068142;">
+
+            <div class="panel-heading" align="left" style="background-color:#068142;border-bottom:1px solid #068142;">
+              <h3 class="panel-title" style="color:white;" id="panel-title">
+                <strong>
+                  <i class="fa fa-arrow-right" style="font-size:20px;"></i>
+                  &ensp;HẠ TẦNG - KINH TẾ - XÃ HỘI
+                </strong>
+              </h3>
+            </div>
+
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                  <a href="">
+                  <img src="public/images/information/3.png" class="img-responsive"
+                  style="border:1px solid #ddd;padding:3px;margin-bottom:5px;">
+                  </a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                  <strong style="text-align: justify;">
+                    Công nghiệp hóa, hiện đại hóa nông nghiệp nông thôn là nhiệm vụ hàng
+                  </strong>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <h5>
+                    <a href="" style="text-decoration:none;text-align: justify;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Công nghiệp hóa, hiện đại hóa nông nghiệp nông thôn là nhiệm vụ hàng
+                    </a>
+                  </h5>
+                  <hr style="margin:0px;border-top: 1px dashed #068142;">
+                  <h5>
+                    <a href="" style="text-decoration:none;text-align: justify;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Công bố 10 sự kiện nổi bật của các Chương trình mục tiêu quốc gia năm 2018
+                    </a>
+                  </h5>
+                  <hr style="margin:0px;border-top: 1px dashed #068142;">
+                  <h5>
+                    <a href="" style="text-decoration:none;text-align: justify;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Đảm bảo an ninh trật tự trong xây dựng nông thôn mới
+                    </a>
+                  </h5>
+                  <hr style="margin:0px;border-top: 1px dashed #068142;">
+                  <h5>
+                    <a href="" style="text-decoration:none;text-align: justify;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Hội nghị tổng kết phong trào thi đua “Ngành Kế hoạch đầu tư và Thống kê chung...
+                    </a>
+                  </h5>
+                  <div class="text-right">
+                    <a class="btn btn-success" href="#" role="button">-- Xem thêm --</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end_col_6 -->
+      </div>
+      <!-- end_row2 -->
+
+
+
+
+      <!-- row3 -->
+      <div class="row">
+        <!-- col_6 -->
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <div class="panel panel-info" style="border:1px solid #068142;">
+
+            <div class="panel-heading" align="left" style="background-color:#068142;border-bottom:1px solid #068142;">
+              <h3 class="panel-title" style="color:white;" id="panel-title">
+                <strong>
+                  <i class="fa fa-arrow-right" style="font-size:20px;"></i>
+                  &ensp;KINH TẾ VÀ TỔ CHỨC SẢN XUẤT
+                </strong>
+              </h3>
+            </div>
+
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                  <a href="">
+                  <img src="public/images/information/1.png" class="img-responsive"
+                  style="border:1px solid #ddd;padding:3px;margin-bottom:5px;">
+                  </a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                  <strong style="text-align: justify;">
+                    Công nghiệp hóa, hiện đại hóa nông nghiệp nông thôn là nhiệm vụ hàng
+                  </strong>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <h5>
+                    <a href="" style="text-decoration:none;text-align: justify;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Công nghiệp hóa, hiện đại hóa nông nghiệp nông thôn là nhiệm vụ hàng
+                    </a>
+                  </h5>
+                  <hr style="margin:0px;border-top: 1px dashed #068142;">
+                  <h5>
+                    <a href="" style="text-decoration:none;text-align: justify;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Công bố 10 sự kiện nổi bật của các Chương trình mục tiêu quốc gia năm 2018
+                    </a>
+                  </h5>
+                  <hr style="margin:0px;border-top: 1px dashed #068142;">
+                  <h5>
+                    <a href="" style="text-decoration:none;text-align: justify;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Đảm bảo an ninh trật tự trong xây dựng nông thôn mới
+                    </a>
+                  </h5>
+                  <hr style="margin:0px;border-top: 1px dashed #068142;">
+                  <h5>
+                    <a href="" style="text-decoration:none;text-align: justify;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Hội nghị tổng kết phong trào thi đua “Ngành Kế hoạch đầu tư và Thống kê chung...
+                    </a>
+                  </h5>
+                  <div class="text-right">
+                    <a class="btn btn-success" href="#" role="button">-- Xem thêm --</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end_col_6 -->
+
+        <!-- col_6 -->
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <div class="panel panel-info" style="border:1px solid #068142;">
+
+            <div class="panel-heading" align="left" style="background-color:#068142;border-bottom:1px solid #068142;">
+              <h3 class="panel-title" style="color:white;" id="panel-title">
+                <strong>
+                  <i class="fa fa-arrow-right" style="font-size:20px;"></i>
+                  &ensp;VĂN HÓA - XÃ HỘI - MÔI TRƯỜNG
+                </strong>
+              </h3>
+            </div>
+
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                  <a href="">
+                  <img src="public/images/information/2.png" class="img-responsive"
+                  style="border:1px solid #ddd;padding:3px;margin-bottom:5px;">
+                  </a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                  <strong style="text-align: justify;">
+                    Công nghiệp hóa, hiện đại hóa nông nghiệp nông thôn là nhiệm vụ hàng
+                  </strong>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <h5>
+                    <a href="" style="text-decoration:none;text-align: justify;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Công nghiệp hóa, hiện đại hóa nông nghiệp nông thôn là nhiệm vụ hàng
+                    </a>
+                  </h5>
+                  <hr style="margin:0px;border-top: 1px dashed #068142;">
+                  <h5>
+                    <a href="" style="text-decoration:none;text-align: justify;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Công bố 10 sự kiện nổi bật của các Chương trình mục tiêu quốc gia năm 2018
+                    </a>
+                  </h5>
+                  <hr style="margin:0px;border-top: 1px dashed #068142;">
+                  <h5>
+                    <a href="" style="text-decoration:none;text-align: justify;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Đảm bảo an ninh trật tự trong xây dựng nông thôn mới
+                    </a>
+                  </h5>
+                  <hr style="margin:0px;border-top: 1px dashed #068142;">
+                  <h5>
+                    <a href="" style="text-decoration:none;text-align: justify;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Hội nghị tổng kết phong trào thi đua “Ngành Kế hoạch đầu tư và Thống kê chung...
+                    </a>
+                  </h5>
+                  <div class="text-right">
+                    <a class="btn btn-success" href="#" role="button">-- Xem thêm --</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end_col_6 -->
+      </div>
+      <!-- end_row3 -->
+
+
+
+      <!-- row3 -->
+      <div class="row">
+        <!-- col_6 -->
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <div class="panel panel-info" style="border:1px solid #068142;">
+
+            <div class="panel-heading" align="left" style="background-color:#068142;border-bottom:1px solid #068142;">
+              <h3 class="panel-title" style="color:white;" id="panel-title">
+                <strong>
+                  <i class="fa fa-arrow-right" style="font-size:20px;"></i>
+                  &ensp;HỆ THỐNG CHÍNH TRỊ - AN NINH TRẬT TỰ
+                </strong>
+              </h3>
+            </div>
+
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                  <a href="">
+                  <img src="public/images/information/1.png" class="img-responsive"
+                  style="border:1px solid #ddd;padding:3px;margin-bottom:5px;">
+                  </a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                  <strong style="text-align: justify;">
+                    Công nghiệp hóa, hiện đại hóa nông nghiệp nông thôn là nhiệm vụ hàng
+                  </strong>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <h5>
+                    <a href="" style="text-decoration:none;text-align: justify;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Công nghiệp hóa, hiện đại hóa nông nghiệp nông thôn là nhiệm vụ hàng
+                    </a>
+                  </h5>
+                  <hr style="margin:0px;border-top: 1px dashed #068142;">
+                  <h5>
+                    <a href="" style="text-decoration:none;text-align: justify;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Công bố 10 sự kiện nổi bật của các Chương trình mục tiêu quốc gia năm 2018
+                    </a>
+                  </h5>
+                  <hr style="margin:0px;border-top: 1px dashed #068142;">
+                  <h5>
+                    <a href="" style="text-decoration:none;text-align: justify;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Đảm bảo an ninh trật tự trong xây dựng nông thôn mới
+                    </a>
+                  </h5>
+                  <hr style="margin:0px;border-top: 1px dashed #068142;">
+                  <h5>
+                    <a href="" style="text-decoration:none;text-align: justify;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Hội nghị tổng kết phong trào thi đua “Ngành Kế hoạch đầu tư và Thống kê chung...
+                    </a>
+                  </h5>
+                  <div class="text-right">
+                    <a class="btn btn-success" href="#" role="button">-- Xem thêm --</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end_col_6 -->
+
+        <!-- col_6 -->
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <div class="panel panel-info" style="border:1px solid #068142;">
+
+            <div class="panel-heading" align="left" style="background-color:#068142;border-bottom:1px solid #068142;">
+              <h3 class="panel-title" style="color:white;" id="panel-title">
+                <strong>
+                  <i class="fa fa-arrow-right" style="font-size:20px;"></i>
+                  &ensp;VIDEO CLIP
+                </strong>
+              </h3>
+            </div>
+
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                  <a href="">
+                  <img src="public/images/information/2.png" class="img-responsive"
+                  style="border:1px solid #ddd;padding:3px;margin-bottom:5px;">
+                  </a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                  <strong style="text-align: justify;">
+                    Công nghiệp hóa, hiện đại hóa nông nghiệp nông thôn là nhiệm vụ hàng
+                  </strong>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <h5>
+                    <a href="" style="text-decoration:none;text-align: justify;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Công nghiệp hóa, hiện đại hóa nông nghiệp nông thôn là nhiệm vụ hàng
+                    </a>
+                  </h5>
+                  <hr style="margin:0px;border-top: 1px dashed #068142;">
+                  <h5>
+                    <a href="" style="text-decoration:none;text-align: justify;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Công bố 10 sự kiện nổi bật của các Chương trình mục tiêu quốc gia năm 2018
+                    </a>
+                  </h5>
+                  <hr style="margin:0px;border-top: 1px dashed #068142;">
+                  <h5>
+                    <a href="" style="text-decoration:none;text-align: justify;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Đảm bảo an ninh trật tự trong xây dựng nông thôn mới
+                    </a>
+                  </h5>
+                  <hr style="margin:0px;border-top: 1px dashed #068142;">
+                  <h5>
+                    <a href="" style="text-decoration:none;text-align: justify;">
+                      <i class="fa fa-long-arrow-right"></i>&ensp;
+                      Hội nghị tổng kết phong trào thi đua “Ngành Kế hoạch đầu tư và Thống kê chung...
+                    </a>
+                  </h5>
+                  <div class="text-right">
+                    <a class="btn btn-success" href="page_video_clip.html" role="button">-- Xem thêm --</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end_col_6 -->
+      </div>
+      <!-- end_row3 -->
+    </div>
+    <!-- end_col_10 -->
+
+
+
+    <!-- col_2 -->
+    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+      <div class="list-group">
+        <a href="#" class="list-group-item active"
+        style="font-size:15px;background-color:orange;border:1px solid orange;"><strong>ĐIỂM TIN</strong></a>
+        <a href="#" class="list-group-item" style="font-size:12px;text-align: justify;">
+          <i class="fa fa-arrow-circle-right"></i>&ensp;Điểm báo tuần 45/2019
+        </a>
+        <a href="#" class="list-group-item" style="font-size:12px;text-align: justify;">
+          <i class="fa fa-arrow-circle-right"></i>&ensp;Điểm báo tuần 45/2019
+        </a>
+      </div>
+
+      <div class="list-group">
+        <a href="#" class="list-group-item active"
+        style="font-size:15px;background-color:orange;border:1px solid orange;"><strong>THÔNG BÁO - MỜI HỌP</strong></a>
+        <a href="#" class="list-group-item" style="font-size:12px;text-align: justify;">
+          <i class="fa fa-arrow-circle-right"></i>&ensp;
+          Mời dự Hội nghị toàn quốc hệ thống Văn phòng...
+        </a>
+        <a href="#" class="list-group-item" style="font-size:12px;text-align: justify;">
+          <i class="fa fa-arrow-circle-right"></i>&ensp;Mời dự Hội nghị toàn quốc hệ thống Văn phòng...
+        </a>
+      </div>
+
+      <div class="list-group">
+        <a href="#" class="list-group-item active"
+        style="font-size:15px;background-color:orange;border:1px solid orange;"><strong>BIỂU MẪU - HƯỚNG DẪN BÁO CÁO</strong></a>
+        <a href="#" class="list-group-item" style="font-size:12px;text-align: justify;">
+          <i class="fa fa-arrow-circle-right"></i>&ensp;TÀI LIỆU HỘI NGHỊ TOÀN QUỐC TỔNG KẾT 10 NĂM...
+        </a>
+        <a href="#" class="list-group-item" style="font-size:12px;text-align: justify;">
+          <i class="fa fa-arrow-circle-right"></i>&ensp;HỘI THẢO PHÁT TRIỂN NÔNG NGHIỆP, NÔNG DÂN,...
+        </a>
+      </div>
+    </div>
+    <!-- end_col_2 -->
+  </div>
+  <!-- end_row -->
+</div>
+<!-- content -->
+<!-- ================================================================================================== -->
+
+
+
+<!-- ================================================================================================== -->
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4"
+style="background-color:white;box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+    <!-- Grid row -->
+    <div class="row">
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3 text-left">
+        <!-- Content -->
+        <h5 class="text-uppercase" style="color:#068142">
+          <a href="#">
+            <img src="public/images/LOGO_WEB.png" alt="Logo" style="width:122px;height:40px;">
+          </a>
+        </h5>
+        <p style="text-align: justify;">
+          AGRIMATE được thành lập bởi những người trẻ tâm huyến sẵn sàng chia sẻ. Chúng tôi đề cao sự thay đổi, rèn luyện và luôn mong muốn mang đến một môi trường rèn luyện tốt hơn cho sinh viên học tại Hòa An nói riêng và CTU nói chung. Tại AGRIMATE, chúng tôi truyền cảm hứng cho những trái tim nhiệt huyết để trở thành những cá nhân tiên phong trong đổi mới, những nhà lãnh đạo hiệu quả trong tương lai đồng thời biết quan tâm sâu sắc đến vấn đề con người và có một tấm lòng khao khát cống hiến cho xã hội, cho quê hương.
+        </p>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3 text-left">
+        <!-- Links -->
+        <h5 class="text-uppercase" style="color:#068142"><strong>Địa chỉ</strong></h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" style="text-decoration:none;text-align: justify;">
+              <i class="fa fa-map-marker"></i>&ensp;
+              Đại học Cần Thơ Khu Hòa An - Số 554, Quốc lộ 61, Hòa Đức, Hòa An, Phụng Hiệp, Hậu Giang
+            </a>
+          </li>
+          <li>
+            <a href="#!" style="text-decoration:none;text-align: justify;">
+              <i class="fa fa-phone"></i>&ensp;
+              0901211249
+            </a>
+          </li>
+          <li>
+            <a href="#!" style="text-decoration:none;text-align: justify;">
+              <i class="fa fa-envelope"></i>&ensp;
+              hoaanteam@gmail.com
+            </a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3 text-left">
+        <!-- Links -->
+        <h5 class="text-uppercase" style="color:#068142"><strong>Liên kết</strong></h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" style="text-decoration:none;">Nhà nước</a>
+          </li>
+          <li>
+            <a href="#!" style="text-decoration:none;">Nhà doanh nghiệp</a>
+          </li>
+          <li>
+            <a href="#!" style="text-decoration:none;">Nhà khoa học</a>
+          </li>
+          <li>
+            <a href="#!" style="text-decoration:none;">Nhà Nông</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+    <a href="https://mdbootstrap.com/education/bootstrap/">Bootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+
+  <style type="text/css" media="screen">
+    #myBtn {
+      display: none;
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      z-index: 99;
+      border:none;
+      outline: none;
+      background-color: orange;
+      color: white;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 5px;
+      font-size: 18px;
+      width:33px;
+    }
+
+    #myBtn:hover {
+      background-color: rgba(0,0,0,0.5);/* Add a dark-grey background on hover */
+    }
+  </style>
+  
+  <!-- back_to_top -->
+  <button onclick="topFunction()" id="myBtn" title="Về đầu trang"><i class="fa fa-arrow-up"></i></button>
+  <!-- back_to_top -->
+
+  <script type="text/javascript">
+    //Get the button:
+    mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+  </script>
+
+
+</footer>
+<!-- Footer -->
+
+</body>
+</html>

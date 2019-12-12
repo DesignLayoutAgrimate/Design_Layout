@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <title>Chi tiết doanh nghiệp</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="public/images/icon.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link href="public/css/style_main.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet"/>
+
+  <style>
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+    .carousel-inner img {
+      width: 100%;
+      min-height: 200px;
+    }
+    
+    /* reponsive_mobile */
+    @media (max-width: 600px) {
+      .carousel-caption {
+        display: none; 
+      }
+      #myNavbar{
+        border-top:2px solid #068142;
+      }
+      #search{
+        display: none;
+      }
+      #icon_home{
+        background-color: white;
+      }
+      #navbar{
+        border-top:2px solid #068142;
+      }
+      #button_icon:hover{
+        background-color: yellow;
+      }
+      #navbar_form{
+        display: none;
+      }
+      .navbar-collapse ul li #home_icon{
+        display: none;
+      }
+    }
+    /* reponsive_mobile */
+
+    /* reponsive_mobile_dropdown_menu */
+    @media only screen and (min-width: 768px) {
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+    }
+    /* reponsive_mobile_dropdown_menu */
+
+    .dropdown #button_dropdown{
+      border-radius: 2px;
+      background-color:white;
+    }
+  </style>
+
+  <script type="text/javascript">
+    $('.dropdown-toggle').click(function(e) {
+      if ($(document).width() > 768) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        if (url !== '#') {
+          window.location.href = url;
+        }
+      }
+    });
+
+    $(document).ready(function(){
+      $(".navbar-toggle").hover(function(){
+        $(this).css("background-color", "#068142");
+        }, function(){
+        $(this).css("background-color", "#068142");
+      });
+    });
+
+  </script>
+
+</head>
+
+
+<body style="font-family: 'Roboto Slab', sans-serif;background-color:#F5DA81;">
+
+<!-- header_up -->
+<div class="container-fluid" style="background-color:orange;height:120px;">
+
+  <a href="index.html">
+    <img src="public/images/farm.png" class="responsive" alt="Logo"
+    style=" max-width: 100%;height:110px;padding-top:6px;">
+  </a>
+
+  <form class="navbar-form navbar-right" action="#" id="navbar_form" 
+  style="margin-right:200px;margin-top:30px;background-color:#068142;padding-top:10px;padding-bottom:10px;border-radius:5px;">
+    <div class="form-group">
+      <select name="" id="input" class="form-control" required="required"
+      style="height:50px;width:210px;border:none;font-size:18px;margin-right:5px;">
+        <option value="">Tìm doanh nghiệp</option>
+        <option value="">Tìm hợp tác xã</option>
+        <option value="">Tìm đại lý</option>
+      </select>
+    </div><div class="form-group">
+      <input type="text" class="form-control" placeholder="Tìm kiếm ..."
+      style="height:50px;width:400px;border:none;font-size:18px;">
+    </div>
+    <button type="submit" class="btn btn-default" style="height:50px;width:50px;border:none;">
+      <i class="fa fa-search" style="font-size:25px;color:#068142;width:25px;"></i>
+    </button>
+  </form>
+  
+</div>
+<!-- end_header_up -->
+
+<!-- navbar -->
+<nav class="navbar navbar-inverse" style="background-color:white;border:0px solid white; border:none; border-radius:unset;
+box-shadow: 0 2px 5px rgba(0,0,0,0.14), 0 2px 5px rgba(0,0,0,0.20);margin-bottom:5px;">
+  <div class="container">
+     <div class="navbar-header" id="navbar_border">
+
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"
+      style="margin-top:10px;border:none;background-color:orange;">
+        <a href="#" style="color:white;">
+          <i class="fa fa-bars" style="font-size:23px;color:white;"></i>
+        </a>                 
+      </button>
+
+      <button type="button" class="navbar-toggle" onclick="openSearch()"
+      style="margin-top:10px;border:none;background-color:orange;">
+        <i class="fa fa-search" style="font-size:23px;color:white;"></i>
+      </button>
+
+      <button type="button" class="navbar-toggle"
+      style="margin-top:10px;border:none;padding:6px;background-color:orange;float:left;margin-left:10px;">
+        <a href="index.html" style="color:white;"> 
+          <i class="fa fa-home" style="font-size:30px;"></i>
+        </a>
+      </button>
+    </div>
+
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+
+        <li style="background-color:orange;border-radius:2px;">
+          <a href="#" style="height:70px;color:white;padding-top:18px;" id="home_icon"> 
+            <i class="fa fa-home" style="font-size:33px;"></i>
+          </a>
+        </li>
+
+        <li>
+          <a href="category_job.html" style="color:orange;font-size:20px;padding-top:23px;">
+            <img src="public/icon/icon_job.png" style="width:28px;height:28px;">
+            <span>Mục lục ngành nghề</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" style="height:70px;color:orange;font-size:20px;padding-top:23px;">
+            <img src="public/icon/information_icon.png" style="width:28px;height:28px;">
+            <span>Giới thiệu</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" style="height:70px;color:orange;font-size:20px;padding-top:23px;">
+            <img src="public/icon/ads_icon.png" style="width:28px;height:28px;">
+            <span>Hướng dẫn</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" style="height:70px;color:orange;font-size:20px;padding-top:23px;">
+            <img src="public/icon/icon_help.png" style="width:30px;height:30px;">
+            <span>Hỗ trợ</span>
+          </a>
+        </li>
+
+      </ul>
+      <!-- end_ul -->
+
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="#" style="height:70px;color:orange;font-size:20px;padding-top:23px;">
+            <img src="public/icon/user_icon.png" style="width:28px;height:28px;">
+            Đăng ký
+          </a>
+        </li>
+      </ul>
+
+    </div>
+    <!--/.nav-collapse -->
+  </div>
+</nav>
+<!-- end_nav -->
+
+
+<!-- box_madal_search -->
+<div id="myOverlay" class="overlay">
+  <span class="closebtn" onclick="closeSearch()" title="Close Overlay">x</span>
+  <div class="overlay-content">
+    <form action="#">
+      <input type="text" placeholder="Nhập tìm kiếm ..." name="search">
+      <button type="submit" title="Tìm kiếm"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
+<!-- box_madal_search -->
+
+<script type="text/javascript">
+  function openSearch() {
+    document.getElementById("myOverlay").style.display = "block";
+  }
+  // Close the full screen search box
+  function closeSearch() {
+    document.getElementById("myOverlay").style.display = "none";
+  }
+
+  $(document).ready(function(){
+    $("#flip").click(function(){
+      $("#panel").slideDown("slow");
+    });
+  });
+
+  $(document).ready(function(){
+    $("#flip1").click(function(){
+      $("#panel").slideUp("slow");
+    });
+  });
+</script>
+
+
+<!-- ================================================================================================== -->
+<!-- content -->
+<div class="container" style="border-radius:3px;background-color:white; margin-bottom:10px;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);padding:5px;"> 
+  
+  <div class="text-left button_click">
+    <button type="button" class="btn btn-warning" id="flip" style="float:left;">
+      <i class="fa fa-eye"></i> Xem Tỉnh/Thành phố/Ngành nghề
+    </button>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 col_2_job_detail_enterprise">
+      <div class="panel panel-default" style="margin:1px;border:1px solid orange;margin-bottom:10px;" id="panel">
+        <div class="panel-body" style="padding:5px;">
+
+          <div class="title_job_desktop">
+            <h5><b>Ngành nghề</b></h5>
+            <b style="color:red;text-align:justify;">Thuốc Trừ Sâu, Bảo Vệ Thực Vật</b> (166)
+            <hr style="border:1px solid orange;">
+          </div> 
+
+          <h5><b>Tỉnh/thành phố</b></h5>
+          <ul style="list-style-type:none;padding-left:1px;font-size:12px;">
+            <li><a href="" style="text-decoration:none;">Bình Dương</a></li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+            <li><a href="" style="text-decoration:none;">Bến Tre</a></li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+            <li><a href="" style="text-decoration:none;">Tiền Giang</a></li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+            <li><a href="" style="text-decoration:none;">Long An</a></li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+            <li><a href="" style="text-decoration:none;">Trà Vinh</a></li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+            <li><a href="" style="text-decoration:none;">Cà Mau</a></li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+            <li><a href="" style="text-decoration:none;">Vĩnh Long</a></li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+            <li><a href="" style="text-decoration:none;">Hậu Giang</a></li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+            <li><a href="" style="text-decoration:none;">Đồng Tháp</a></li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+            <li><a href="" style="text-decoration:none;">Kiên Giang</a></li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+            <li><a href="" style="text-decoration:none;">Sóc Trăng</a></li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+            <li><a href="" style="text-decoration:none;">Bạc Liêu</a></li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+            <li><a href="" style="text-decoration:none;">Cần Thơ</a></li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+          </ul>
+          
+          <!-- ========================================================== -->
+          <hr style="border:1px solid orange;">
+          <h5><b>Ngành xem thêm</b></h5>
+          <ul style="list-style-type:none;padding-left:1px;font-size:12px;">
+
+            <li>
+              <a href="" style="text-decoration:none;text-align:justify;">
+                Phân Bón - Công Ty Phân Bón, Sản Xuất và Bán Buôn
+              </a>(537)
+            </li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+            <li>
+              <a href="" style="text-decoration:none;text-align:justify;">
+                Hóa Chất Nông Nghiệp 
+              </a>(130)
+            </li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+            <li>
+              <a href="" style="text-decoration:none;text-align:justify;">
+                Chế phẩm sinh học 
+              </a>(94)
+            </li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+          </ul>
+          
+          <!-- ========================================================== -->
+          <hr style="border:1px solid orange;">
+          <h5><b>Tag ngành nghề</b></h5>
+          <ul style="list-style-type:none;padding-left:1px;font-size:12px;">
+
+            <li>
+              <a href="" style="text-decoration:none;text-align:justify;">
+                Thuốc trừ sâu
+              </a>
+            </li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+            <li>
+              <a href="" style="text-decoration:none;text-align:justify;">
+                Thuốc bảo vệ thực vật
+              </a>
+            </li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+            <li>
+              <a href="" style="text-decoration:none;text-align:justify;">
+                Nhà sản xuất thuốc trừ sâu
+              </a>
+            </li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+            <li>
+              <a href="" style="text-decoration:none;text-align:justify;">
+                Nhà cung cấp thuốc trừ sâu
+              </a>
+            </li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+            <li>
+              <a href="" style="text-decoration:none;text-align:justify;">
+                Nhà cung cấp thuốc bảo vệ thực vật
+              </a>
+            </li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+            <li>
+              <a href="" style="text-decoration:none;text-align:justify;">
+                Đại lý cung cấp thuốc trừ sâu
+              </a>
+            </li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+            <li>
+              <a href="" style="text-decoration:none;text-align:justify;">
+                Sản xuất thuốc bảo vệ thực vật
+              </a>
+            </li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+            <li>
+              <a href="" style="text-decoration:none;text-align:justify;">
+                Công ty cung cấp thuốc bảo vệ thực vật
+              </a>
+            </li>
+            <hr style="margin-top:5px;margin-bottom:5px;">
+
+          </ul>
+
+          <div class="text-left button_click">
+            <button type="button" class="btn btn-danger" id="flip1">
+              <i class="fa fa-times-circle"></i> Đóng tag
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <!-- end_col_2 -->
+
+
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+      <!-- -------------------------------------------------------------------------------------------------- -->
+      <div class="panel panel-default" style="margin:1px;border:1px solid orange;margin-bottom:10px;">
+        <div class="panel-body" style="padding:5px;">
+
+          <div class="row" style="margin-bottom:10px;">
+            <div class="col-xs-8 col-sm-8 col-md-12 col-lg-12" style="padding-right:1px;">
+              <h4>
+                <b style="text-align:justify;">
+                  Thuốc Bảo Vệ Thực Vật An Đô - Công Ty TNHH Thương Mại Và Dịch Vụ Nông Nghiệp An Đô
+                </b>
+              </h4>
+              <div class="text-left" style="margin-top:5px;margin-bottom:5px;">
+                Đánh giá sao: 
+                <span class="fa fa-star" style="color:yellow;"></span>
+                <span class="fa fa-star" style="color:yellow;"></span>
+                <span class="fa fa-star" style="color:yellow;"></span>
+                <span class="fa fa-star" style="color:yellow;"></span>
+                <span class="fa fa-star"></span>
+              </div>
+            </div>
+            <!-- end_col -->
+
+            <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2 col_2 col_2_mobile" style="padding-left:1px;">
+                <div class="panel panel-warning">
+                  <div class="panel-heading" style="padding:3px;text-align:center;">
+                    <h3 class="panel-title" style="font-size:10px;">Nhà tài trợ</h3>
+                  </div>
+                  <div class="panel-body" style="padding:3px;text-align:center;">
+                    <img src="public/images/icon.png" style="width:50px;height:50px;"><br>
+                    <span style="color:gray;font-size:10px;">By Agrimate</span>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <!-- end_row -->
+
+          <div class="row" style="margin-bottom:10px;">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+              <img src="public/images/L2587800.gif"
+              style="border:1px solid gray;margin-bottom:10px;width:100%;height:auto;">
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
+              <p style="text-align:justify;">
+                <b>Ngành: </b><span style="background-color:#ffd54f;">Thuốc Trừ Sâu, Bảo Vệ Thực Vật</span> <br>
+                <b><i class="fa fa-map-marker"></i></b> Số 131, Lô B4 Đại Kim, P. Đại Kim, Q. Hoàng Mai, Hà Nội, Việt Nam <br>
+                <b><i class="fa fa-phone"></i></b> (024) 3641 0739 Tú Anh: 0913 344 479
+              </p>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 col_2_destop">
+              
+              <div class="panel panel-warning">
+                  <div class="panel-heading" style="padding:3px;text-align:center;">
+                    <h3 class="panel-title" style="font-size:10px;">Nhà tài trợ</h3>
+                  </div>
+                  <div class="panel-body" style="padding:3px;text-align:center;">
+                    <img src="public/images/icon.png" style="width:100px;height:95px;"><br>
+                    <span style="color:gray;font-size:10px;">By Agrimate</span>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <!-- end_row -->
+
+          <hr style="border:0.5px solid orange;margin-bottom:10px;">
+          <div class="text-left">
+            <a class="btn btn-warning" href="#" role="button" style="border:none;margin-bottom:5px;">
+              <i class="fa fa-envelope"></i> ando479@gmail.com
+            </a>
+
+            <a class="btn btn-warning" href="#" role="button" style="border:none;margin-bottom:5px;">
+              <i class="fa fa-chrome"></i> www.ando.bizz.vn
+            </a>
+          </div>
+
+          <hr style="border:0.5px solid orange;margin-top:5px;margin-bottom:5px;">
+
+          <span><i class="fa fa-circle" style="color:orange;"></i>&ensp;Thị trường chính:</span>
+          <b>&ensp;Toàn quốc</b> <br>
+          
+          <span><i class="fa fa-circle" style="color:orange;"></i>&ensp;Loại hình công ty:</span>
+          <b>&ensp;Công Ty Thương Mại, Công Ty Dịch Vụ</b>
+
+        </div>
+      </div>
+
+      <!-- -------------------------------------------------------------------------------------------------- -->
+      <div class="panel panel-danger" style="margin:1px;border:1px solid orange;margin-bottom:10px;">
+        <div class="panel-heading" style="border-bottom:1px solid orange;background-color:orange;">
+          <h3 class="panel-title" style="color:white;">
+            <i class="fa fa-chevron-circle-right"></i> THÔNG TIN CHI TIẾT
+          </h3>
+        </div>
+        <div class="panel-body" style="padding:10px;">
+
+          <h5 style="color:red;"><b>Giới thiệu công ty</b></h5>
+          <p style="text-align:justify;">
+            → BẠN MUỐN cây trồng tăng trưởng tốt? <br>
+            → BẠN MUỐN diệt sâu bệnh nhưng không gây ảnh hưởng đến năng suất cây trồng? <br>
+            Hãy sử dụng Thuốc Trừ Sâu, Thuốc Bảo Vệ Thực Vật của chúng tôi: <br>
+            - Hãng sản xuất uy tín: Ammate, Homectin, Kimsuper, Alfacua, Fodo,.. <br>
+            - Sản phâm mới với tính năng vượt trội <br>
+            - Thân thiện với môi trường và người sử dụng <br>
+            - Diệt sâu bọ tận gốc, giúp cây trồng đạt năng suất cao <br>
+            An Đô - Sự lựa chọn hiệu quả cho mọi vấn đề của nhà nông!
+          </p>    
+
+          <h5 style="color:red;"><b>Ngành nghề kinh doanh</b></h5>
+          <ul style="list-style-type:none;padding-left:10px;">
+            <li>
+              <a href="" style="text-decoration:none;">
+                <i class="fa fa-circle" style="color:orange;"></i>&ensp;
+                Thuốc Trừ Sâu, Bảo Vệ Thực Vật
+              </a>
+            </li>
+
+            <li>
+              <a href="" style="text-decoration:none;">
+                <i class="fa fa-circle" style="color:orange;"></i>&ensp;
+                Thuốc Diệt Mối, Thuốc Diệt (Chuột, Ruồi Muỗi, Kiến, Gián,.)
+              </a>
+            </li>
+
+          </ul>
+
+
+          <h5 style="color:red;"><b>Sản phẩm dịch vụ</b></h5>
+          <a href="" style="text-decoration:none;margin-left:10px;">
+            <i class="fa fa-circle" style="color:orange;"></i>&ensp;
+            <b>Thuốc diệt côn trùng</b>
+          </a>
+          <div class="row" style="margin-left:35px;">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding-left:1px">
+              <a href="" style="text-decoration:none;">
+                <i class="fa fa-circle" style="color:gray;font-size:10px;"></i>
+                &ensp;Thuốc Diệt Mối Agenda
+              </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding-left:1px">
+              <a href="" style="text-decoration:none;">
+                <i class="fa fa-circle" style="color:gray;font-size:10px;"></i>
+                &ensp;Thuốc Diệt Côn Trùng
+              </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding-left:1px">
+              <a href="" style="text-decoration:none;">
+                <i class="fa fa-circle" style="color:gray;font-size:10px;"></i>
+                &ensp;Thuốc Diệt Chuột Storm
+              </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding-left:1px">
+              <a href="" style="text-decoration:none;">
+                <i class="fa fa-circle" style="color:gray;font-size:10px;"></i>
+                &ensp;Thuốc Diệt Côn Trùng Gây Hại
+              </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding-left:1px">
+              <a href="" style="text-decoration:none;">
+                <i class="fa fa-circle" style="color:gray;font-size:10px;"></i>
+                &ensp;Thuốc Diệt Côn Trùng Cack Down
+              </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding-left:1px">
+              <a href="" style="text-decoration:none;">
+                <i class="fa fa-circle" style="color:gray;font-size:10px;"></i>
+                &ensp;Thuốc Diệt Côn Trùng Permecide 50EC
+              </a>
+            </div>
+          </div><br>
+          <!-- ====== -->
+
+          <a href="" style="text-decoration:none;margin-left:10px;">
+            <i class="fa fa-circle" style="color:orange;"></i>&ensp;
+            <b>Thuốc trừ sâu, trừ bệnh</b>
+          </a>
+          <div class="row" style="margin-left:35px;">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding-left:1px">
+              <a href="" style="text-decoration:none;">
+                <i class="fa fa-circle" style="color:gray;font-size:10px;"></i>
+                &ensp;Thuốc Trừ Sâu
+              </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding-left:1px">
+              <a href="" style="text-decoration:none;">
+                <i class="fa fa-circle" style="color:gray;font-size:10px;"></i>
+                &ensp;Thuốc Trừ Sâu Rầy
+              </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding-left:1px">
+              <a href="" style="text-decoration:none;">
+                <i class="fa fa-circle" style="color:gray;font-size:10px;"></i>
+                &ensp;Thuốc Trừ Sâu Oxatin
+              </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding-left:1px">
+              <a href="" style="text-decoration:none;">
+                <i class="fa fa-circle" style="color:gray;font-size:10px;"></i>
+                &ensp;Thuốc Trừ Sâu Hóa Học
+              </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding-left:1px">
+              <a href="" style="text-decoration:none;">
+                <i class="fa fa-circle" style="color:gray;font-size:10px;"></i>
+                &ensp;Thuốc Trừ Sâu Sinh Học
+              </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding-left:1px">
+              <a href="" style="text-decoration:none;">
+                <i class="fa fa-circle" style="color:gray;font-size:10px;"></i>
+                &ensp;Thuốc Trừ Sâu Chim Ưng
+              </a>
+            </div>
+          </div><br>
+          <!-- ====== -->
+
+          <a href="" style="text-decoration:none;margin-left:10px;">
+            <i class="fa fa-circle" style="color:orange;"></i>&ensp;
+            <b>Thuốc kích thích sinh trưởng</b>
+          </a>
+          <div class="row" style="margin-left:35px;">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding-left:1px">
+              <a href="" style="text-decoration:none;">
+                <i class="fa fa-circle" style="color:gray;font-size:10px;"></i>
+                &ensp;Thuốc Điều Hòa Sinh Trưởng
+              </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding-left:1px">
+              <a href="" style="text-decoration:none;">
+                <i class="fa fa-circle" style="color:gray;font-size:10px;"></i>
+                &ensp;Thuốc Kích Thích Sinh Trưởng
+              </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding-left:1px">
+              <a href="" style="text-decoration:none;">
+                <i class="fa fa-circle" style="color:gray;font-size:10px;"></i>
+                &ensp;Thuốc Kích Thích Mủ Cao Su Effort
+              </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding-left:1px">
+              <a href="" style="text-decoration:none;">
+                <i class="fa fa-circle" style="color:gray;font-size:10px;"></i>
+                &ensp;Thuốc Kích Thích Sinh Trưởng Dekamon
+              </a>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding-left:1px">
+              <a href="" style="text-decoration:none;">
+                <i class="fa fa-circle" style="color:gray;font-size:10px;"></i>
+                &ensp;Thuốc Điều Hòa Sinh Trưởng Colyna 200TB
+              </a>
+            </div>
+          </div>
+          <!-- ====== -->
+
+        </div>
+      </div>
+
+
+      <!-- -------------------------------------------------------------------------------------------------- -->
+      <div class="panel panel-danger" style="margin:1px;border:1px solid orange;margin-bottom:10px;">
+        <div class="panel-heading" style="border-bottom:1px solid orange;background-color:orange;">
+          <h3 class="panel-title" style="color:white;">
+            <i class="fa fa-chevron-circle-right"></i> THƯ VIỆN HÌNH ẢNH
+          </h3>
+        </div>
+        <div class="panel-body" style="padding:10px;">
+
+          <h5 style="color:red;"><b>Giải thưởng, Giấy chứng nhận</b></h5>
+          <hr style="border:0.5px solid orange;margin-top:5px;">
+
+          <div class="row2">
+            <div class="column2">
+              <img src="public/images/thuoc/gt.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+            </div>
+            <div class="column2">
+              <img src="public/images/thuoc/bg.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+            </div>
+            <div class="column2">
+              <img src="public/images/thuoc/tcu.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+            </div>
+            <div class="column2">
+              <img src="public/images/thuoc/cv.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+            </div>
+          </div>
+
+          <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+
+              <div class="mySlides">
+                <div class="numbertext">1 / 4</div>
+                <img src="public/images/thuoc/gt.jpg" style="width:100%">
+              </div>
+
+              <div class="mySlides">
+                <div class="numbertext">2 / 4</div>
+                <img src="public/images/thuoc/bg.jpg" style="width:100%">
+              </div>
+
+              <div class="mySlides">
+                <div class="numbertext">3 / 4</div>
+                <img src="public/images/thuoc/tcu.jpg" style="width:100%">
+              </div>
+              
+              <div class="mySlides">
+                <div class="numbertext">4 / 4</div>
+                <img src="public/images/thuoc/cv.jpg" style="width:100%">
+              </div>
+              
+              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+              <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+              <div class="caption-container">
+                <p id="caption"></p>
+              </div>
+
+
+              <div class="column2">
+                <img class="demo cursor" src="public/images/thuoc/gt.jpg" style="width:100%" 
+                onclick="currentSlide(1)" alt="Nature and sunrise">
+              </div>
+              <div class="column2">
+                <img class="demo cursor" src="public/images/thuoc/bg.jpg" style="width:100%" 
+                onclick="currentSlide(2)" alt="Snow">
+              </div>
+              <div class="column2">
+                <img class="demo cursor" src="public/images/thuoc/tcu.jpg" style="width:100%" 
+                onclick="currentSlide(3)" alt="Mountains and fjords">
+              </div>
+              <div class="column2">
+                <img class="demo cursor" src="public/images/thuoc/tcu.jpg" style="width:100%" 
+                onclick="currentSlide(4)" alt="Northern Lights">
+              </div>
+            </div>
+          </div>
+
+          <br><br>
+          <!-- =========================== -->
+          <h5 style="color:red;"><b>Thuốc trừ sâu, bảo vệ thực vật</b></h5>
+          <hr style="border:0.5px solid orange;margin-top:5px;">
+
+          <div class="row2">
+            <div class="column2">
+              <img src="public/images/thuoc/gt.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+              <p>Thuốc trừ sâu chim ưng</p>
+            </div>
+            <div class="column2">
+              <img src="public/images/thuoc/bg.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+              <p>Thuốc trừ sâu chim ưng</p>
+            </div>
+            <div class="column2">
+              <img src="public/images/thuoc/tcu.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+              <p>Thuốc trừ sâu chim ưng</p>
+            </div>
+            <div class="column2">
+              <img src="public/images/thuoc/cv.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+              <p>Oxatin</p>
+            </div>
+          </div>
+
+          <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+
+              <div class="mySlides">
+                <div class="numbertext">1 / 4</div>
+                <img src="public/images/thuoc/gt.jpg" style="width:100%">
+              </div>
+
+              <div class="mySlides">
+                <div class="numbertext">2 / 4</div>
+                <img src="public/images/thuoc/bg.jpg" style="width:100%">
+              </div>
+
+              <div class="mySlides">
+                <div class="numbertext">3 / 4</div>
+                <img src="public/images/thuoc/tcu.jpg" style="width:100%">
+              </div>
+              
+              <div class="mySlides">
+                <div class="numbertext">4 / 4</div>
+                <img src="public/images/thuoc/cv.jpg" style="width:100%">
+              </div>
+              
+              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+              <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+              <div class="caption-container">
+                <p id="caption"></p>
+              </div>
+
+
+              <div class="column2">
+                <img class="demo cursor" src="public/images/thuoc/gt.jpg" style="width:100%" 
+                onclick="currentSlide(1)" alt="Nature and sunrise">
+              </div>
+              <div class="column2">
+                <img class="demo cursor" src="public/images/thuoc/bg.jpg" style="width:100%" 
+                onclick="currentSlide(2)" alt="Snow">
+              </div>
+              <div class="column2">
+                <img class="demo cursor" src="public/images/thuoc/tcu.jpg" style="width:100%" 
+                onclick="currentSlide(3)" alt="Mountains and fjords">
+              </div>
+              <div class="column2">
+                <img class="demo cursor" src="public/images/thuoc/tcu.jpg" style="width:100%" 
+                onclick="currentSlide(4)" alt="Northern Lights">
+              </div>
+            </div>
+          </div>
+          <!-- ================================ -->
+
+
+
+
+          <br><br>
+          <!-- =========================== -->
+          <h5 style="color:red;"><b>Thuốc diệt côn trùng</b></h5>
+          <hr style="border:0.5px solid orange;margin-top:5px;">
+
+          <div class="row2">
+            <div class="column2">
+              <img src="public/images/thuoc/gt.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+              <p>Thuốc diệt mối Agenda</p>
+            </div>
+            <div class="column2">
+              <img src="public/images/thuoc/bg.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+              <p>Thuốc diệt chuột Storm</p>
+            </div>
+            <div class="column2">
+              <img src="public/images/thuoc/tcu.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+              <p>Thuốc diệt côn trùng CRACK DOWN</p>
+            </div>
+            <div class="column2">
+              <img src="public/images/thuoc/cv.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+              <p>Thuốc diệt côn trùng Permecide 50EC</p>
+            </div>
+          </div>
+
+          <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+
+              <div class="mySlides">
+                <div class="numbertext">1 / 4</div>
+                <img src="public/images/thuoc/gt.jpg" style="width:100%">
+              </div>
+
+              <div class="mySlides">
+                <div class="numbertext">2 / 4</div>
+                <img src="public/images/thuoc/bg.jpg" style="width:100%">
+              </div>
+
+              <div class="mySlides">
+                <div class="numbertext">3 / 4</div>
+                <img src="public/images/thuoc/tcu.jpg" style="width:100%">
+              </div>
+              
+              <div class="mySlides">
+                <div class="numbertext">4 / 4</div>
+                <img src="public/images/thuoc/cv.jpg" style="width:100%">
+              </div>
+              
+              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+              <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+              <div class="caption-container">
+                <p id="caption"></p>
+              </div>
+
+
+              <div class="column2">
+                <img class="demo cursor" src="public/images/thuoc/gt.jpg" style="width:100%" 
+                onclick="currentSlide(1)" alt="Nature and sunrise">
+              </div>
+              <div class="column2">
+                <img class="demo cursor" src="public/images/thuoc/bg.jpg" style="width:100%" 
+                onclick="currentSlide(2)" alt="Snow">
+              </div>
+              <div class="column2">
+                <img class="demo cursor" src="public/images/thuoc/tcu.jpg" style="width:100%" 
+                onclick="currentSlide(3)" alt="Mountains and fjords">
+              </div>
+              <div class="column2">
+                <img class="demo cursor" src="public/images/thuoc/tcu.jpg" style="width:100%" 
+                onclick="currentSlide(4)" alt="Northern Lights">
+              </div>
+            </div>
+          </div>
+          <!-- ================================ -->
+          
+        </div>
+      </div>
+      <!-- end_panel -->
+
+
+
+      <!-- -------------------------------------------------------------------------------------------------- -->
+      <div class="panel panel-danger" style="margin:1px;border:1px solid orange;margin-bottom:10px;">
+        <div class="panel-heading" style="border-bottom:1px solid orange;background-color:orange;">
+          <h3 class="panel-title" style="color:white;">
+            <i class="fa fa-chevron-circle-right"></i> HỒ SƠ CÔNG TY
+          </h3>
+        </div>
+        <div class="panel-body" style="padding:10px;">
+        
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <span style="color:gray;">
+                  <i class="fa fa-circle" style="color:orange;"></i>&ensp;
+                  <b>Tên công ty:</b>
+                </span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col_8_company">
+              <b style="text-align:justify;">
+                Thuốc Bảo Vệ Thực Vật An Đô - Công Ty TNHH Thương Mại Và Dịch Vụ Nông Nghiệp An Đô
+              </b>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <span style="color:gray;">
+                  <i class="fa fa-circle" style="color:orange;"></i>&ensp;
+                  <b>Loại hình công ty:</b>
+                </span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+              <p style="text-align:justify;">
+                Công Ty Thương Mại, Công Ty Dịch Vụ
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <span style="color:gray;">
+                  <i class="fa fa-circle" style="color:orange;"></i>&ensp;
+                  <b>Thị trường chính:</b>
+                </span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+              <p style="text-align:justify;">
+                Toàn Quốc
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <span style="color:gray;">
+                  <i class="fa fa-circle" style="color:orange;"></i>&ensp;
+                  <b>Mã số thuế:</b>
+                </span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+              <p style="text-align:justify;">
+                0102728246
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <span style="color:gray;">
+                  <i class="fa fa-circle" style="color:orange;"></i>&ensp;
+                  <b>Năm thành lập:</b>
+                </span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+              <p style="text-align:justify;">
+                1998
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                <span style="color:gray;">
+                  <i class="fa fa-circle" style="color:orange;"></i>&ensp;
+                  <b>Số lượng nhân viên:</b>
+                </span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+              <p style="text-align:justify;">
+                Từ 11 - 50 người
+              </p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <!-- end_panel -->
+
+
+      <!-- -------------------------------------------------------------------------------------------------- -->
+      <div class="panel panel-danger" style="margin:1px;border:1px solid orange;margin-bottom:10px;">
+        <div class="panel-heading" style="border-bottom:1px solid orange;background-color:orange;">
+          <h3 class="panel-title" style="color:white;">
+            <i class="fa fa-chevron-circle-right"></i> GỬI MAIL CÔNG TY
+          </h3>
+        </div>
+        <div class="panel-body" style="padding:10px;">
+        
+          <div class="container_mail">
+            <h5><b>Gửi thư (Email) đến doanh nghiệp</b></h5>
+            <form action="#">
+              <div class="row_mail">
+                <div class="col-25">
+                  <label for="fname">Email của bạn:</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="fname" name="firstname" placeholder="Nhập email của bạn">
+                </div>
+              </div>
+              
+              <div class="row_mail">
+                <div class="col-25">
+                  <label for="subject">Nội dung Email:</label>
+                </div>
+                <div class="col-75">
+                  <textarea id="subject" name="subject" placeholder="Nhập nội dung email ..." style="height:200px"></textarea>
+                </div>
+              </div>
+
+              <hr style="border:0.5px solid orange;">
+
+              <h5><b>Mời bạn để lại Tên và điện thoại để tiện cho việc liên hệ</b></h5>
+
+              <div class="row_mail">
+                <div class="col-25">
+                  <label for="lname">Họ và tên của bạn</label>
+                </div>
+                <div class="col-75">
+                  <input type="text" id="lname" name="lastname" placeholder="Nhập họ và tên ">
+                </div>
+              </div>
+
+              <div class="row_mail">
+                <div class="col-25">
+                  <label for="lname">Điện thoại</label>
+                </div>
+                <div class="col-75">
+                  <input type="number" id="lname" name="lastname" placeholder="Nhập số điện thoại">
+                </div>
+              </div>
+
+              <div class="row_mail">
+                <input type="submit" value="Gửi email">
+              </div>
+            </form>
+          </div>
+          
+        </div>
+      </div>
+      <!-- end_panel -->
+
+    </div>
+    <!-- end_col_7 -->
+    <!-- ================================================================================== -->
+
+    <!-- ================================================================================== -->
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" style="align-content: center;">
+
+      <div class="panel panel-warning" style="border:1px solid orange;">
+        <div class="panel-heading" style="border-bottom:1px solid orange;">
+          <h3 class="panel-title"><i class="fa fa-chevron-circle-right"></i> DOANH NGHIỆP NỔI BẬT</h3>
+        </div>
+        <div class="panel-body" style="padding:5px;">
+          <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="thumbnail">
+                <a href="#" style="text-decoration:none;">
+                  <img src="public/images/logo/1.png" style="width:50%;height:auto;">
+                  <div class="caption">
+                    <p style="text-align:justify;line-height:25px;">
+                      <strong>Công ty TNHH Khoa học Công nghệ Vĩnh Hòa</strong><br>
+
+                      <i class="fa fa-map-marker"></i>
+                      Km11, QL 7A, Xã Vĩnh Thành, Yên Thành, Nghệ An<br>
+
+                      <i class="fa fa-phone"></i> 02386.533.986 <br>
+                      <i class="fa fa-chrome"></i> gaothaoduocvinhhoa.com
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="thumbnail">
+                <a href="#" style="text-decoration:none;">
+                  <img src="public/images/logo/2.png" style="width:50%;height:auto;">
+                  <div class="caption">
+                    <p style="text-align:justify;line-height:25px;">
+                      <strong>CÔNG TY CP ĐẠI THIÊN LỘC</strong><br>
+
+                      <i class="fa fa-map-marker"></i>
+                      Lô CN 8 - đường CN 5 - KCN Sóng Thần 3 - Phường Phú Tân - TP. Thủ Dầu Một - Bình Dương <br>
+
+                      <i class="fa fa-phone"></i> 0274-3719999 <br>
+                      <i class="fa fa-chrome"></i> hcm.vnn.vn
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- end_col -->
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="thumbnail">
+                <a href="#" style="text-decoration:none;">
+                  <img src="public/images/logo/3.png" style="width:50%;height:auto;">
+                  <div class="caption">
+                    <p style="text-align:justify;line-height:25px;">
+                      <strong>Khách sạn Sunset Cửa Lò Nghệ An</strong><br>
+
+                      <i class="fa fa-map-marker"></i>
+                      22 Nguyễn Cảnh Quế, Thu Thủy, Cửa Lò<br>
+
+                      <i class="fa fa-phone"></i> 0967.727.6989<br>
+                      <i class="fa fa-chrome"></i> khachsansunsetcualo.com/
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="thumbnail">
+                <a href="#" style="text-decoration:none;">
+                  <img src="public/images/logo/4.png" style="width:50%;height:auto;">
+                  <div class="caption">
+                    <p style="text-align:justify;line-height:25px;">
+                      <strong>Công ty Đầu tư và phát triển Lê Phong</strong><br>
+
+                      <i class="fa fa-map-marker"></i>
+                      Số 26/11, khu phố Tây A, TX Dĩ An<br>
+
+                      <i class="fa fa-phone"></i> 0903.79.38.79<br>
+                      <i class="fa fa-chrome"></i> lephongland.com.vn
+                    </p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+          <!-- end_row -->
+        </div>
+      </div>
+    </div>
+    <!-- end_col_3 -->
+
+    <!-- ================================================================================== -->
+  </div>
+  <!-- end_row -->
+
+</div>
+<!-- content -->
+<!-- =============================================================================================== -->
+
+
+<!-- ================================================================================================== -->
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4"
+style="background-color:white;box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+    <!-- Grid row -->
+    <div class="row">
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3 text-left">
+        <!-- Content -->
+        <h5 class="text-uppercase" style="color:#068142">
+          <a href="#">
+            <img src="public/images/LOGO_WEB.png" alt="Logo" style="width:122px;height:40px;">
+          </a>
+        </h5>
+        <p style="text-align: justify;">
+          AGRIMATE được thành lập bởi những người trẻ tâm huyến sẵn sàng chia sẻ. Chúng tôi đề cao sự thay đổi, rèn luyện và luôn mong muốn mang đến một môi trường rèn luyện tốt hơn cho sinh viên học tại Hòa An nói riêng và CTU nói chung. Tại AGRIMATE, chúng tôi truyền cảm hứng cho những trái tim nhiệt huyết để trở thành những cá nhân tiên phong trong đổi mới, những nhà lãnh đạo hiệu quả trong tương lai đồng thời biết quan tâm sâu sắc đến vấn đề con người và có một tấm lòng khao khát cống hiến cho xã hội, cho quê hương.
+        </p>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3 text-left">
+        <!-- Links -->
+        <h5 class="text-uppercase" style="color:orange;"><strong>Địa chỉ</strong></h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" style="text-decoration:none;text-align: justify;">
+              <i class="fa fa-map-marker"></i>&ensp;
+              Đại học Cần Thơ Khu Hòa An - Số 554, Quốc lộ 61, Hòa Đức, Hòa An, Phụng Hiệp, Hậu Giang
+            </a>
+          </li>
+          <li>
+            <a href="#!" style="text-decoration:none;text-align: justify;">
+              <i class="fa fa-phone"></i>&ensp;
+              0901211249
+            </a>
+          </li>
+          <li>
+            <a href="#!" style="text-decoration:none;text-align: justify;">
+              <i class="fa fa-envelope"></i>&ensp;
+              hoaanteam@gmail.com
+            </a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3 text-left">
+        <!-- Links -->
+        <h5 class="text-uppercase" style="color:orange;"><strong>Liên kết</strong></h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" style="text-decoration:none;">Nhà nước</a>
+          </li>
+          <li>
+            <a href="#!" style="text-decoration:none;">Nhà doanh nghiệp</a>
+          </li>
+          <li>
+            <a href="#!" style="text-decoration:none;">Nhà khoa học</a>
+          </li>
+          <li>
+            <a href="#!" style="text-decoration:none;">Nhà Nông</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+    <a href="https://mdbootstrap.com/education/bootstrap/">Bootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+
+  <style type="text/css" media="screen">
+    #myBtn {
+      display: none;
+      position: fixed;
+      bottom: 10px;
+      right: 20px;
+      z-index: 99;
+      border:none;
+      outline: none;
+      background-color: orange;
+      color: white;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 5px;
+      font-size: 18px;
+      width:33px;
+    }
+
+    #myBtn:hover {
+      background-color: rgba(0,0,0,0.5);/* Add a dark-grey background on hover */
+    }
+  </style>
+  
+  <!-- back_to_top -->
+  <button onclick="topFunction()" id="myBtn" title="Về đầu trang"><i class="fa fa-arrow-up"></i></button>
+  <!-- back_to_top -->
+
+  <script type="text/javascript">
+    //Get the button:
+    mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+  </script>
+
+  <script src="js/extention/choices.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    const choices = new Choices('[data-trigger]',
+    {
+      searchEnabled: false,
+      itemSelectText: '',
+    });
+  </script>
+
+  <script type="text/javascript">
+    $('body').append('<div id="loadingDiv"><div class="loader">Loading...</div></div>');
+      $(window).on('load', function(){
+        setTimeout(removeLoader, 1500); //wait for page load PLUS two seconds.
+      });
+      function removeLoader(){
+        $( "#loadingDiv" ).fadeOut(500, function() {
+          // fadeOut complete. Remove the loading div
+          $( "#loadingDiv" ).remove(); //makes page more lightweight
+      });  
+    }
+  </script>
+
+
+</footer>
+<!-- Footer -->
+
+</body>
+</html>

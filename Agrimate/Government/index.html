@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Nhà nước</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="public/images/icon.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+  <link href="public/css/style_main.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet"/>
+
+  <!-- loader_page -->
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <!-- loader_page -->
+
+  <style>
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+    .carousel-inner img {
+      width: 100%;
+      min-height: 200px;
+    }
+    
+    /* reponsive_mobile */
+    @media (max-width: 600px) {
+      .carousel-caption {
+        display: none; 
+      }
+      #myNavbar{
+        border-top:2px solid #068142;
+      }
+      #search{
+        display: none;
+      }
+      #icon_home{
+        background-color: white;
+      }
+      #navbar{
+        border-top:2px solid #068142;
+      }
+      #button_icon:hover{
+        background-color: yellow;
+      }
+      #navbar_form{
+        display: none;
+      }
+      .navbar-collapse ul li #home_icon{
+        display: none;
+      }
+    }
+    /* reponsive_mobile */
+
+    /* reponsive_mobile_dropdown_menu */
+    @media only screen and (min-width: 768px) {
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+    }
+    /* reponsive_mobile_dropdown_menu */
+
+    .dropdown #button_dropdown{
+      border-radius: 2px;
+      background-color:white;
+    }
+  </style>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(".navbar-toggle").hover(function(){
+        $(this).css("background-color", "#068142");
+        }, function(){
+        $(this).css("background-color", "#068142");
+      });
+    });
+  </script>
+
+</head>
+
+
+<body style="font-family: 'Roboto Slab', sans-serif;background-color:#64b5f6;">
+
+<!-- loader -->
+<div class="loader"></div>
+<!-- loader -->
+
+<!-- header_up -->
+<div class="container-fluid" style="background-color:#004788;height:120px;">
+
+  <a href="index.html">
+    <img src="public/images/LOGO_WEB.png" class="responsive" alt="Logo"
+    style=" max-width: 100%;height:110px;padding-top:6px;">
+  </a>
+
+  <form class="navbar-form navbar-right" action="#" id="navbar_form" 
+  style="margin-right:200px;margin-top:30px;background-color:#1976d2;padding-top:10px;padding-bottom:10px;border-radius:5px;">
+    <div class="form-group">
+      <select name="" id="input" class="form-control" required="required"
+      style="height:50px;width:170px;border:none;font-size:18px;margin-right:5px;">
+        <option value="">Tìm danh bạ</option>
+        <option value="">Tìm văn bản</option>
+      </select>
+    </div><div class="form-group">
+      <input type="text" class="form-control" placeholder="Tìm kiếm ..."
+      style="height:50px;width:400px;border:none;font-size:18px;">
+    </div>
+    <button type="submit" class="btn btn-default" style="height:50px;width:50px;border:none;">
+      <i class="fa fa-search" style="font-size:25px;color:#004788;width:25px;"></i>
+    </button>
+  </form>
+  
+</div>
+<!-- end_header_up -->
+
+<!-- navbar -->
+<nav class="navbar navbar-inverse" style="background-color:white;border:0px solid white; border:none; border-radius:unset;
+box-shadow: 0 2px 5px rgba(0,0,0,0.14), 0 2px 5px rgba(0,0,0,0.20);margin-bottom:5px;">
+  <div class="container">
+     <div class="navbar-header" id="navbar_border">
+
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"
+      style="margin-top:10px;border:none;background-color:#004788;">
+        <a href="#" style="color:white;">
+          <i class="fa fa-bars" style="font-size:23px;color:white;"></i>
+        </a>                 
+      </button>
+
+      <button type="button" class="navbar-toggle" onclick="openSearch()"
+      style="margin-top:10px;border:none;background-color:#004788;">
+        <i class="fa fa-search" style="font-size:23px;color:white;"></i>
+      </button>
+
+      <button type="button" class="navbar-toggle"
+      style="margin-top:10px;border:none;padding:6px;background-color:#004788;float:left;margin-left:10px;">
+        <a href="index.html" style="color:white;"> 
+          <i class="fa fa-home" style="font-size:30px;"></i>
+        </a>
+      </button>
+    </div>
+
+   <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+
+        <li style="background-color:#004788;border-radius:2px;">
+          <a href="index.html" style="height:70px;color:white;" id=> 
+            <i class="fa fa-home" style="font-size:33px;"></i>
+          </a>
+        </li>
+
+        <li>
+          <a href="category_contact.html" style="height:70px;color:#004788;font-size:18px;padding-top:22px;">
+            <img src="public/icon/icon_contacts.png" style="width:28px;height:28px;">
+            <span>Mục danh bạ</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="writing_system.html" style="height:70px;color:#004788;font-size:18px;padding-top:22px;">
+            <img src="public/icon/icon_text.png" style="width:28px;height:28px;">
+            <span>Hệ thống văn bản</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="new_and_event.html" style="height:70px;color:#004788;font-size:18px;padding-top:22px;">
+            <img src="public/icon/new.png" style="width:28px;height:28px;">
+            <span>Tin tức - Sự kiện</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" style="height:70px;color:#004788;font-size:18px;padding-top:22px;">
+            <img src="public/icon/icon_utilitie.png" style="width:28px;height:28px;">
+            <span>Tiện ích</span>
+          </a>
+        </li>
+
+      </ul>
+      <!-- end_ul -->
+
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="#" style="color:#004788;font-size:18px;padding-top:22px;">
+            <img src="public/icon/icon_login.png" style="width:28px;height:28px;">
+            Đăng nhập
+          </a>
+        </li>
+      </ul>
+
+    </div>
+    <!--/.nav-collapse -->
+  </div>
+</nav>
+<!-- end_nav -->
+
+<!-- box_madal_search -->
+<div id="myOverlay" class="overlay">
+  <span class="closebtn" onclick="closeSearch()" title="Close Overlay">x</span>
+  <div class="overlay-content">
+    <form action="#">
+      <input type="text" placeholder="Nhập tìm kiếm ..." name="search">
+      <button type="submit" title="Tìm kiếm"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
+<!-- box_madal_search -->
+
+<script type="text/javascript">
+  function openSearch() {
+    document.getElementById("myOverlay").style.display = "block";
+  }
+  // Close the full screen search box
+  function closeSearch() {
+    document.getElementById("myOverlay").style.display = "none";
+  }
+</script>
+
+<!-- ================================================================================================== -->
+<!-- carousel -->
+<div class="container" style="border-radius:3px;background-color:white; margin-bottom:10px;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);padding:5px;padding-bottom:5px;">
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="public/images/carousel/1.png" class="img-responsive" style="width:100%;height:40%;">
+          <div class="carousel-caption">
+            <h3 style="text-align: justify;">Báo cáo số 3038/BC-BNN-VP ngày 4/5/2019 về Công tác tháng 4 và nhiệm vụ công tác tháng 5 năm 2019</h3>
+          </div>      
+        </div>
+
+        <div class="item">
+          <img src="public/images/carousel/2.png" class="img-responsive" style="width:100%;height:40%;">
+          <div class="carousel-caption">
+            <h3 style="text-align: justify;">Văn phòng Bộ triển khai nhiệm vụ trọng tâm 6 tháng cuối năm 2018</h3>
+          </div>      
+        </div>
+
+        <div class="item">
+          <img src="public/images/carousel/3.png" class="img-responsive" style="width:100%;height:40%;">
+          <div class="carousel-caption">
+            <h3 style="text-align: justify;">Nâng cao kỹ năng nghiệp vụ truyền thông cho cán bộ, công chức</h3>
+          </div>      
+        </div>
+
+        <div class="item">
+          <img src="public/images/carousel/4.png" class="img-responsive" style="width:100%;height:40%;">
+          <div class="carousel-caption">
+            <h3 style="text-align: justify;">Xây dựng phát triển hệ thống trung tâm cung ứng nông sản hiện</h3>
+          </div>      
+        </div>
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+</div>
+<!-- end_carousel -->
+<!-- ================================================================================================== -->
+
+
+<!-- ================================================================================================== -->
+<div class="container" style="border-radius:3px;background-color:white; margin-bottom:10px;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);padding:5px;padding-bottom:5px;">
+
+    <div class="panel panel-primary" style="margin-bottom:1px;">
+      <div class="panel-heading">
+        <h3 class="panel-title">TIN TỨC - SỰ KIỆN</h3>
+      </div>
+
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <img src="public/images/information/1.jpg" class="img-responsive">
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+            <span class="list-arrow">
+              <ul>
+                <li><a href="">Giải pháp của Bộ NN&PTNT nhằm bình ổn thị trường thịt lợn cuối năm 2019</a></li>
+                <li><a href="">Thứ trưởng Lê Quốc Doanh: Ứng dụng cơ giới hóa để nâng cao hiệu quả sản xuất lúa</a></li>
+                <li><a href="">Không để căng thẳng nguồn cung, gây sốt giá thịt lợn trong dịp Tết</a></li>
+                <li><a href="">ISG 2019: Nâng cao năng lực chế biến và tiếp cận thị trường cho nông sản Việt Nam</a></li>
+                <li><a href="">Đồng bộ các giải pháp bình ổn thị trường thịt lợn</a></li>
+              </ul>
+            </span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- ================================================================================================== -->
+
+
+
+<!-- ================================================================================================== -->
+<div class="container" style="border-radius:3px;background-color:white; margin-bottom:10px;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);padding:5px;padding-bottom:5px;">
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        
+        <div class="panel panel-primary" style="margin-bottom:10px;">
+          <div class="panel-heading">
+            <h3 class="panel-title">HỆ THỐNG VĂN BẢN</h3>
+          </div>
+          <div class="panel-body" style="padding:5px;">
+            <h4>
+              <a href="" style="text-align:justify;text-decoration:none;">
+                Công văn số 8701/BNN-VP ngày 20/11/2019 về việc Báo cáo số liệu ứng dụng Công nghệ thông tin
+              </a>
+            </h4>
+
+            <hr style="border:0.5px solid blue;">
+
+            <span class="list-arrow">
+              <ul>
+                <li><a href="">Số/kí hiệu 3498/TB-BNN-VP Công bố TTHC sửa đổi, bổ sung lĩnh vực chăn nuôi, thủy sản thuộc phạm vi chức năng quản lý của Bộ NNPTNT.</a></li>
+                <li><a href="">Số/kí hiệu 3438/BNN-TCTS Rà soát, đề xuất bãi bỏ VB QPPL do Chính phủm TTCP, Bộ trưởng Bộ NN và PTNT ban hành</a></li>
+                <li><a href="">Số/kí hiệu 3438/BNN-TCTS Tặng kỷ niệm chương vì sự nghiệp NN và PTNT cho 2 Bác sĩ McFarland Wayne Jeffrey và Todd Charles Davis , Trung tâm Dự phòng và kiểm soát Bệnh tật Hoa Kỳ tại VN theo đề nghị của Cục Thú y.</a></li>
+                <li><a href="">Số/kí hiệu 3438/BNN-TCTS QĐ v/v công bố DS cảng cá chỉ định để xác nhận nguồn gốc TS từ khai thác</a></li>
+                <li><a href="">Số/kí hiệu 3438/BNN-TCTS Thông báo điểm thi nâng ngạch chuyên viên chính lên chuyên viên cao cấp</a></li>
+                <li><a href="">Số/kí hiệu 3438/BNN-TCTS Thông báo điểm thi nâng ngạch chuyên viên chính lên chuyên viên cao cấp</a></li>
+                <li><a href="">Số/kí hiệu 3438/BNN-TCTS Thông báo điểm thi nâng ngạch chuyên viên chính lên chuyên viên cao cấp</a></li>
+                <li><a href="">Số/kí hiệu 3438/BNN-TCTS Thông báo điểm thi nâng ngạch chuyên viên chính lên chuyên viên cao cấp</a></li>
+              </ul>
+            </span>
+
+            <hr style="border:0.5px solid blue;">
+
+            <div class="text-right">
+              <a class="btn btn-primary" href="writing_system.html" role="button">-- Xem thêm --</a>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        
+        <!-- panel_primary -->
+        <div class="panel panel-primary" style="margin-bottom:10px;">
+          <div class="panel-heading">
+            <h3 class="panel-title">DANH BẠ ĐIỆN THOẠI CƠ QUAN TỔ CHỨC</h3>
+          </div>
+          <div class="panel-body" style="padding:5px;">
+            
+            <div class="panel panel-success" style="margin-bottom:1px;">
+              <div class="panel-heading">
+                <h3 class="panel-title">LÃNH ĐẠO BỘ</h3>
+              </div>
+              <div class="panel-body" style="padding:1px;">
+
+                  <table class="table-hover" style="margin-bottom:1px;">
+                    <thead>
+                      <tr>
+                        <th>Họ và tên</th>
+                        <th>Chức vụ</th>
+                        <th colspan="2">Điện thoại</th>
+                        <th>Email</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr>
+                        <td data-th="Họ và tên:">Nguyễn Xuân Cường</td>
+                        <td data-th="Chức vụ:">Bộ trưởng</td>
+                        <td data-th="Điện thoại">Cơ quan: 02437346993</td>
+                        <td data-th="Điện thoại">Di động: 0903 419 317</td>
+                        <td data-th="Email:">Không có</td>
+                      </tr>
+
+                      <tr>
+                        <td data-th="Họ và tên:">Vũ Văn Tám</td>
+                        <td data-th="Chức vụ:">Thứ trưởng</td>
+                        <td data-th="Điện thoại">Cơ quan: 02437346992</td>
+                        <td data-th="Điện thoại">Di động: 0936 186 988</td>
+                        <td data-th="Email:">vvtam@mard.gov.vn</td>
+                      </tr>
+
+                      <tr>
+                        <td data-th="Họ và tên:">Hoàng Văn Thắng</td>
+                        <td data-th="Chức vụ:">Thứ trưởng</td>
+                        <td data-th="Điện thoại">Cơ quan: 08043555</td>
+                        <td data-th="Điện thoại">Di động: 0903 409 241</td>
+                        <td data-th="Email:">hoangthang@mard.gov.vn</td>
+                      </tr>
+
+                      <tr>
+                        <td data-th="Họ và tên:">Hà Công Tuấn</td>
+                        <td data-th="Chức vụ:">Thứ trưởng</td>
+                        <td data-th="Điện thoại">Cơ quan: 08043727</td>
+                        <td data-th="Điện thoại">Di động: 0913 223 397</td>
+                        <td data-th="Email:">tuanhc@mard.gov.vn</td>
+                      </tr>
+
+                      <tr>
+                        <td data-th="Họ và tên:">Lê Quốc Doanh</td>
+                        <td data-th="Chức vụ:">Thứ trưởng</td>
+                        <td data-th="Điện thoại">Cơ quan:02438436145</td>
+                        <td data-th="Điện thoại">Di động: 0913 234 754</td>
+                        <td data-th="Email:">doanhlq@mard.gov.vn</td>
+                      </tr>
+
+                      <tr>
+                        <td data-th="Họ và tên:">Trần Thanh Nam</td>
+                        <td data-th="Chức vụ:">Thứ trưởng</td>
+                        <td data-th="Điện thoại">Cơ quan:08044789</td>
+                        <td data-th="Điện thoại">Di động: 0913 994 225</td>
+                        <td data-th="Email:">tranthanhnamkg@mard.gov.vn</td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+
+              </div>
+            </div>
+
+            <hr style="border:0.5px solid blue;">
+            <div class="text-right">
+              <a class="btn btn-primary" href="category_contact.html" role="button">-- Xem thêm --</a>
+            </div>
+          </div>
+        </div>
+        <!-- end_panel_primary -->
+
+    </div>
+  </div>
+   
+</div>
+<!-- ================================================================================================== -->
+
+
+
+
+<!-- ================================================================================================== -->
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4"
+style="background-color:white;box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+    <!-- Grid row -->
+    <div class="row">
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3 text-left">
+        <!-- Content -->
+        <h5 class="text-uppercase" style="color:#068142">
+          <a href="#">
+            <img src="public/images/LOGO_WEB.png" alt="Logo" style="width:122px;height:40px;">
+          </a>
+        </h5>
+        <p style="text-align: justify;">
+          AGRIMATE được thành lập bởi những người trẻ tâm huyến sẵn sàng chia sẻ. Chúng tôi đề cao sự thay đổi, rèn luyện và luôn mong muốn mang đến một môi trường rèn luyện tốt hơn cho sinh viên học tại Hòa An nói riêng và CTU nói chung. Tại AGRIMATE, chúng tôi truyền cảm hứng cho những trái tim nhiệt huyết để trở thành những cá nhân tiên phong trong đổi mới, những nhà lãnh đạo hiệu quả trong tương lai đồng thời biết quan tâm sâu sắc đến vấn đề con người và có một tấm lòng khao khát cống hiến cho xã hội, cho quê hương.
+        </p>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3 text-left">
+        <!-- Links -->
+        <h5 class="text-uppercase" style="color:blue;"><strong>Địa chỉ</strong></h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" style="text-decoration:none;text-align: justify;">
+              <i class="fa fa-map-marker"></i>&ensp;
+              Đại học Cần Thơ Khu Hòa An - Số 554, Quốc lộ 61, Hòa Đức, Hòa An, Phụng Hiệp, Hậu Giang
+            </a>
+          </li>
+          <li>
+            <a href="#!" style="text-decoration:none;text-align: justify;">
+              <i class="fa fa-phone"></i>&ensp;
+              0901211249
+            </a>
+          </li>
+          <li>
+            <a href="#!" style="text-decoration:none;text-align: justify;">
+              <i class="fa fa-envelope"></i>&ensp;
+              hoaanteam@gmail.com
+            </a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3 text-left">
+        <!-- Links -->
+        <h5 class="text-uppercase" style="color:blue;"><strong>Liên kết</strong></h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" style="text-decoration:none;">Nhà nước</a>
+          </li>
+          <li>
+            <a href="#!" style="text-decoration:none;">Nhà doanh nghiệp</a>
+          </li>
+          <li>
+            <a href="#!" style="text-decoration:none;">Nhà khoa học</a>
+          </li>
+          <li>
+            <a href="#!" style="text-decoration:none;">Nhà Nông</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+    <a href="https://mdbootstrap.com/education/bootstrap/">Bootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+
+  <style type="text/css" media="screen">
+    #myBtn {
+      display: none;
+      position: fixed;
+      bottom: 10px;
+      right: 20px;
+      z-index: 99;
+      border:none;
+      outline: none;
+      background-color: orange;
+      color: white;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 5px;
+      font-size: 18px;
+      width:33px;
+    }
+
+    #myBtn:hover {
+      background-color: rgba(0,0,0,0.5);/* Add a dark-grey background on hover */
+    }
+  </style>
+  
+  <!-- back_to_top -->
+  <button onclick="topFunction()" id="myBtn" title="Về đầu trang"><i class="fa fa-arrow-up"></i></button>
+  <!-- back_to_top -->
+
+  <script type="text/javascript">
+    //Get the button:
+    mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+  </script>
+
+  <script src="js/extention/choices.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    const choices = new Choices('[data-trigger]',
+    {
+      searchEnabled: false,
+      itemSelectText: '',
+    });
+
+  </script>
+
+
+</footer>
+<!-- Footer -->
+
+</body>
+</html>

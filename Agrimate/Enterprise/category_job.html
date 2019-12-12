@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <title>Danh mục ngành nghề</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="public/images/icon.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+  <link href="public/css/style_main.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet"/>
+
+  <style>
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+    .carousel-inner img {
+      width: 100%;
+      min-height: 200px;
+    }
+    
+    /* reponsive_mobile */
+    @media (max-width: 600px) {
+      .carousel-caption {
+        display: none; 
+      }
+      #myNavbar{
+        border-top:2px solid #068142;
+      }
+      #search{
+        display: none;
+      }
+      #icon_home{
+        background-color: white;
+      }
+      #navbar{
+        border-top:2px solid #068142;
+      }
+      #button_icon:hover{
+        background-color: yellow;
+      }
+      #navbar_form{
+        display: none;
+      }
+      .navbar-collapse ul li #home_icon{
+        display: none;
+      }
+    }
+    /* reponsive_mobile */
+
+    /* reponsive_mobile_dropdown_menu */
+    @media only screen and (min-width: 768px) {
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+    }
+    /* reponsive_mobile_dropdown_menu */
+
+    .dropdown #button_dropdown{
+      border-radius: 2px;
+      background-color:white;
+    }
+  </style>
+
+  <script type="text/javascript">
+    $('.dropdown-toggle').click(function(e) {
+      if ($(document).width() > 768) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        if (url !== '#') {
+          window.location.href = url;
+        }
+      }
+    });
+
+    $(document).ready(function(){
+      $(".navbar-toggle").hover(function(){
+        $(this).css("background-color", "#068142");
+        }, function(){
+        $(this).css("background-color", "#068142");
+      });
+    });
+
+  </script>
+
+</head>
+
+
+<body style="font-family: 'Roboto Slab', sans-serif;background-color:#F5DA81;">
+
+<!-- header_up -->
+<div class="container-fluid" style="background-color:orange;height:120px;">
+
+  <a href="index.html">
+    <img src="public/images/farm.png" class="responsive" alt="Logo"
+    style=" max-width: 100%;height:110px;padding-top:6px;">
+  </a>
+
+  <form class="navbar-form navbar-right" action="#" id="navbar_form" 
+  style="margin-right:200px;margin-top:30px;background-color:#068142;padding-top:10px;padding-bottom:10px;border-radius:5px;">
+    <div class="form-group">
+      <select name="" id="input" class="form-control" required="required"
+      style="height:50px;width:210px;border:none;font-size:18px;margin-right:5px;">
+        <option value="">Tìm doanh nghiệp</option>
+        <option value="">Tìm hợp tác xã</option>
+        <option value="">Tìm đại lý</option>
+      </select>
+    </div><div class="form-group">
+      <input type="text" class="form-control" placeholder="Tìm kiếm ..."
+      style="height:50px;width:400px;border:none;font-size:18px;">
+    </div>
+    <button type="submit" class="btn btn-default" style="height:50px;width:50px;border:none;">
+      <i class="fa fa-search" style="font-size:25px;color:#068142;width:25px;"></i>
+    </button>
+  </form>
+  
+</div>
+<!-- end_header_up -->
+
+<!-- navbar -->
+<nav class="navbar navbar-inverse" style="background-color:white;border:0px solid white; border:none; border-radius:unset;
+box-shadow: 0 2px 5px rgba(0,0,0,0.14), 0 2px 5px rgba(0,0,0,0.20);margin-bottom:5px;">
+  <div class="container">
+     <div class="navbar-header" id="navbar_border">
+
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"
+      style="margin-top:10px;border:none;background-color:orange;">
+        <a href="#" style="color:white;">
+          <i class="fa fa-bars" style="font-size:23px;color:white;"></i>
+        </a>                 
+      </button>
+
+      <button type="button" class="navbar-toggle" onclick="openSearch()"
+      style="margin-top:10px;border:none;background-color:orange;">
+        <i class="fa fa-search" style="font-size:23px;color:white;"></i>
+      </button>
+
+      <button type="button" class="navbar-toggle"
+      style="margin-top:10px;border:none;padding:6px;background-color:orange;float:left;margin-left:10px;">
+        <a href="index.html" style="color:white;"> 
+          <i class="fa fa-home" style="font-size:30px;"></i>
+        </a>
+      </button>
+    </div>
+
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+
+        <li style="background-color:orange;border-radius:2px;">
+          <a href="#" style="height:70px;color:white;padding-top:18px;" id="home_icon"> 
+            <i class="fa fa-home" style="font-size:33px;"></i>
+          </a>
+        </li>
+
+        <li>
+          <a href="category_job.html" style="color:orange;font-size:20px;padding-top:23px;">
+            <img src="public/icon/icon_job.png" style="width:28px;height:28px;">
+            <span>Mục lục ngành nghề</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" style="height:70px;color:orange;font-size:20px;padding-top:23px;">
+            <img src="public/icon/information_icon.png" style="width:28px;height:28px;">
+            <span>Giới thiệu</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" style="height:70px;color:orange;font-size:20px;padding-top:23px;">
+            <img src="public/icon/ads_icon.png" style="width:28px;height:28px;">
+            <span>Hướng dẫn</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" style="height:70px;color:orange;font-size:20px;padding-top:23px;">
+            <img src="public/icon/icon_help.png" style="width:30px;height:30px;">
+            <span>Hỗ trợ</span>
+          </a>
+        </li>
+
+      </ul>
+      <!-- end_ul -->
+
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="#" style="height:70px;color:orange;font-size:20px;padding-top:23px;">
+            <img src="public/icon/user_icon.png" style="width:28px;height:28px;">
+            Đăng ký
+          </a>
+        </li>
+      </ul>
+
+    </div>
+    <!--/.nav-collapse -->
+  </div>
+</nav>
+<!-- end_nav -->
+
+
+<!-- box_madal_search -->
+<div id="myOverlay" class="overlay">
+  <span class="closebtn" onclick="closeSearch()" title="Close Overlay">x</span>
+  <div class="overlay-content">
+    <form action="#">
+      <input type="text" placeholder="Nhập tìm kiếm ..." name="search">
+      <button type="submit" title="Tìm kiếm"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+</div>
+<!-- box_madal_search -->
+
+<script type="text/javascript">
+  function openSearch() {
+    document.getElementById("myOverlay").style.display = "block";
+  }
+  // Close the full screen search box
+  function closeSearch() {
+    document.getElementById("myOverlay").style.display = "none";
+  }
+</script>
+
+
+<!-- ================================================================================================== -->
+<!-- content -->
+<div class="container" style="border-radius:3px;background-color:white; margin-bottom:10px;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);padding-top:15px;padding-bottom:10px;"> 
+  
+  <style type="text/css">
+    .dot {
+      height:28px;
+      width:28px; text-align:center;
+      background-color:white;
+      border-radius: 50%;border:2px solid orange;
+      display: inline-block;margin-right:5px;margin-bottom:5px;
+      padding-top:3px;color:orange;
+    }
+  </style>   
+
+  
+  <div class="panel panel-warning">
+    <div class="panel-heading">
+      <h3 class="panel-title"><i class="fa fa-list-ol"></i>&ensp;MỤC LỤC NGÀNH NGHỀ</h3>
+    </div>
+    <div class="panel-body">
+      <span style="font-size:18px;">Ngành nghề: </span>
+      <a href=""><span class="dot">A</span></a>
+      <a href=""><span class="dot">B</span></a>
+      <a href=""><span class="dot">C</span></a>
+      <a href=""><span class="dot">D</span></a>
+      <a href=""><span class="dot">E</span></a>
+      <a href=""><span class="dot">F</span></a>
+      <a href=""><span class="dot">G</span></a>
+      <a href=""><span class="dot">H</span></a>
+      <a href=""><span class="dot">I</span></a>
+      <a href=""><span class="dot">K</span></a>
+      <a href=""><span class="dot">L</span></a>
+      <a href=""><span class="dot">M</span></a>
+      <a href=""><span class="dot">N</span></a>
+      <a href=""><span class="dot">O</span></a>
+      <a href=""><span class="dot">P</span></a>
+      <a href=""><span class="dot">Q</span></a>
+      <a href=""><span class="dot">S</span></a>
+      <a href=""><span class="dot">T</span></a>
+      <a href=""><span class="dot">U</span></a>
+      <a href=""><span class="dot">V</span></a>
+      <a href=""><span class="dot">W</span></a>
+      <a href=""><span class="dot">X</span></a>
+      <a href=""><span class="dot">Y</span></a>
+      <a href=""><span class="dot">Z</span></a>
+      <a href="" style="color:orange;text-decoration:none;"><span>-- Xem tất cả --</span>
+
+      <hr style="border:1px solid orange;">
+
+        <ul class="list_job">
+          <li class="li1">
+            <a href="">Phân Bón - Công Ty Phân Bón, Sản Xuất và Bán Buôn (537)</a>
+            <ul class="ul">
+               <li class="li2"><a href="">Phân NPK, Phân Bón NPK (95)</a></li>
+               <li class="li2"><a href="">Phân Vi Sinh, Phân Bón Vi Sinh (94)</a></li>
+               <li class="li2"><a href="">Phân Bón Lá (83)</a></li>
+            </ul>
+          </li>
+          <li class="li1"><a href="">Nông Sản (1095)</a></li>
+          <li class="li1"><a href="">Trà, Chè - Sản Xuất và Kinh Doanh (411)</a></li>
+          <li class="li1"><a href="">Cà Phê - Sản Xuất và Bán Buôn (526)</a></li>
+          <li class="li1"><a href="">Nông Nghiệp - Máy Móc và Thiết Bị Nông Nghiệp (384)</a></li>
+          <li class="li1"><a href="">Gạo - Công Ty Và Đại Lý Gạo (328)</a></li>
+          <li class="li1"><a href="">Nông Nghiệp - Tư Vấn (54)</a></li>
+
+          <li class="li1">
+            <a href="">Máy Nông Ngư Cơ (121)</a>
+            <ul class="ul">
+               <li class="li2"><a href="">Nông Nghiệp- Máy Trồng và Chăm Sóc (13)</a></li>
+               <li class="li2"><a href="">Máy Thu Hoạch (8)</a></li>
+               <li class="li2"><a href="">Máy Làm Đất (5)</a></li>
+            </ul>
+          </li>
+
+          <li class="li1">
+            <a href="">Nông Nghiệp - Dụng Cụ Và Vật Tư (58)</a>
+            <ul class="ul">
+               <li class="li2"><a href="">Túi Bọc Trái Cây, Bao Trái Cây - Sản Xuất Và Kinh Doanh (20)</a></li>
+            </ul>
+          </li> 
+
+          <li class="li1">
+            <a href="">Nông Nghiệp - Máy Móc và Thiết Bị Nông Nghiệp (384)</a>
+            <ul class="ul">
+               <li class="li2"><a href="">Máy Nông Ngư Cơ (121)</a></li>
+               <li class="li2"><a href="">Hệ Thống Tưới Nông Nghiệp (23)</a></li>
+               <li class="li2"><a href="">Máy Kéo - Thiết Bị và Phụ Tùng Máy kéo (11)</a></li>
+               <li class="li2"><a href="">Nông Nghiệp - Dụng Cụ Và Vật Tư (58)</a></li>
+            </ul>
+          </li>
+
+          <li class="li1"><a href="">Gia Súc, Gia Cầm - Chăn Nuôi (131)</a></li>
+          <li class="li1"><a href="">Thiết Bị Chăn Nuôi - Nhà Sản Xuất và Cung Cấp (166)</a></li>
+          <li class="li1"><a href="">Gạo - Công Ty Và Đại Lý Gạo (328)</a></li>
+          <li class="li1"><a href="">Cà Phê - Sản Xuất và Bán Buôn (526)</a></li>
+
+          <li class="li1">
+            <a href="">Thức Ăn Chăn Nuôi, Thức Ăn Gia Súc, Thức Ăn Gia Cầm (365)</a>
+            <ul class="ul">
+               <li class="li2"><a href="">Bột Cá (82)</a></li>
+               <li class="li2"><a href="">Thức Ăn Thủy Sản (44)</a></li>
+               <li class="li2"><a href="">Thức Ăn Cho Heo, Thức Ăn Cho Lợn (39)</a></li>
+               <li class="li2"><a href="">Thức Ăn Cho Gà, Vịt, Ngan (37)</a></li>
+            </ul>
+          </li>
+
+          <li class="li1">
+            <a href="">Thuốc Thú Y - Sản Xuất Và Phân Phối Thuốc Thú Y (125)</a>
+            <ul class="ul">
+               <li class="li2"><a href="">Thuốc Thú Y Thủy Sản (187)</a></li>
+            </ul>
+          </li>
+
+          <li class="li1">
+            <a href="">Giống Cây Trồng (148)</a>
+            <ul class="ul">
+               <li class="li2"><a href="">Hạt Giống Nông Sản (82)</a></li>
+               <li class="li2"><a href="">Giống Cây Cao Su (17)</a></li>
+            </ul>
+          </li>
+
+          <li class="li1">
+            <a href="">Nông Sản Gia Vị (Gừng, Nghệ, Quế, Hồi, Sả,..) (180)</a>
+            <ul class="ul">
+               <li class="li2"><a href="">Dừa - Sản Xuất Và Cung Cấp (Cơm, đũa,.. dừa) (77)</a></li>
+               <li class="li2"><a href="">Dầu Dừa, Tinh Dầu Dừa (63)</a></li>
+               <li class="li2"><a href="">Tinh Bột (Sắn, Biến Tính, Khoai Lang, Dong Riềng) (59)</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      <!-- ==================================================================================== -->
+      <br>
+      <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a href="#">1</a>
+        <a href="#" class="active">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">&raquo;</a>
+      </div>
+
+      <hr style="border:1px solid orange;">
+
+      <span style="font-size:18px;">Ngành nghề: </span>
+      <a href=""><span class="dot">A</span></a>
+      <a href=""><span class="dot">B</span></a>
+      <a href=""><span class="dot">C</span></a>
+      <a href=""><span class="dot">D</span></a>
+      <a href=""><span class="dot">E</span></a>
+      <a href=""><span class="dot">F</span></a>
+      <a href=""><span class="dot">G</span></a>
+      <a href=""><span class="dot">H</span></a>
+      <a href=""><span class="dot">I</span></a>
+      <a href=""><span class="dot">K</span></a>
+      <a href=""><span class="dot">L</span></a>
+      <a href=""><span class="dot">M</span></a>
+      <a href=""><span class="dot">N</span></a>
+      <a href=""><span class="dot">O</span></a>
+      <a href=""><span class="dot">P</span></a>
+      <a href=""><span class="dot">Q</span></a>
+      <a href=""><span class="dot">S</span></a>
+      <a href=""><span class="dot">T</span></a>
+      <a href=""><span class="dot">U</span></a>
+      <a href=""><span class="dot">V</span></a>
+      <a href=""><span class="dot">W</span></a>
+      <a href=""><span class="dot">X</span></a>
+      <a href=""><span class="dot">Y</span></a>
+      <a href=""><span class="dot">Z</span></a>
+      <a href="" style="color:orange;text-decoration:none;"><span>-- Xem tất cả --</span>
+
+    </div>
+  </div>
+
+</div>
+<!-- content -->
+<!-- =============================================================================================== -->
+
+
+<!-- ================================================================================================== -->
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4"
+style="background-color:white;box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+    <!-- Grid row -->
+    <div class="row">
+      <!-- Grid column -->
+      <div class="col-md-6 mt-md-0 mt-3 text-left">
+        <!-- Content -->
+        <h5 class="text-uppercase" style="color:#068142">
+          <a href="#">
+            <img src="public/images/LOGO_WEB.png" alt="Logo" style="width:122px;height:40px;">
+          </a>
+        </h5>
+        <p style="text-align: justify;">
+          AGRIMATE được thành lập bởi những người trẻ tâm huyến sẵn sàng chia sẻ. Chúng tôi đề cao sự thay đổi, rèn luyện và luôn mong muốn mang đến một môi trường rèn luyện tốt hơn cho sinh viên học tại Hòa An nói riêng và CTU nói chung. Tại AGRIMATE, chúng tôi truyền cảm hứng cho những trái tim nhiệt huyết để trở thành những cá nhân tiên phong trong đổi mới, những nhà lãnh đạo hiệu quả trong tương lai đồng thời biết quan tâm sâu sắc đến vấn đề con người và có một tấm lòng khao khát cống hiến cho xã hội, cho quê hương.
+        </p>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3 text-left">
+        <!-- Links -->
+        <h5 class="text-uppercase" style="color:orange;"><strong>Địa chỉ</strong></h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" style="text-decoration:none;text-align: justify;">
+              <i class="fa fa-map-marker"></i>&ensp;
+              Đại học Cần Thơ Khu Hòa An - Số 554, Quốc lộ 61, Hòa Đức, Hòa An, Phụng Hiệp, Hậu Giang
+            </a>
+          </li>
+          <li>
+            <a href="#!" style="text-decoration:none;text-align: justify;">
+              <i class="fa fa-phone"></i>&ensp;
+              0901211249
+            </a>
+          </li>
+          <li>
+            <a href="#!" style="text-decoration:none;text-align: justify;">
+              <i class="fa fa-envelope"></i>&ensp;
+              hoaanteam@gmail.com
+            </a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+
+      <!-- Grid column -->
+      <div class="col-md-3 mb-md-0 mb-3 text-left">
+        <!-- Links -->
+        <h5 class="text-uppercase" style="color:orange;"><strong>Liên kết</strong></h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" style="text-decoration:none;">Nhà nước</a>
+          </li>
+          <li>
+            <a href="#!" style="text-decoration:none;">Nhà doanh nghiệp</a>
+          </li>
+          <li>
+            <a href="#!" style="text-decoration:none;">Nhà khoa học</a>
+          </li>
+          <li>
+            <a href="#!" style="text-decoration:none;">Nhà Nông</a>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+    <a href="https://mdbootstrap.com/education/bootstrap/">Bootstrap.com</a>
+  </div>
+  <!-- Copyright -->
+
+  <style type="text/css" media="screen">
+    #myBtn {
+      display: none;
+      position: fixed;
+      bottom: 10px;
+      right: 20px;
+      z-index: 99;
+      border:none;
+      outline: none;
+      background-color: orange;
+      color: white;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 5px;
+      font-size: 18px;
+      width:33px;
+    }
+
+    #myBtn:hover {
+      background-color: rgba(0,0,0,0.5);/* Add a dark-grey background on hover */
+    }
+  </style>
+  
+  <!-- back_to_top -->
+  <button onclick="topFunction()" id="myBtn" title="Về đầu trang"><i class="fa fa-arrow-up"></i></button>
+  <!-- back_to_top -->
+
+  <script type="text/javascript">
+    //Get the button:
+    mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+  </script>
+
+  <script src="js/extention/choices.js"></script>
+  <script>
+    const choices = new Choices('[data-trigger]',
+    {
+      searchEnabled: false,
+      itemSelectText: '',
+    });
+  </script>
+
+  <script type="text/javascript">
+    $('body').append('<div id="loadingDiv"><div class="loader">Loading...</div></div>');
+      $(window).on('load', function(){
+        setTimeout(removeLoader, 1500); //wait for page load PLUS two seconds.
+      });
+      function removeLoader(){
+          $( "#loadingDiv" ).fadeOut(500, function() {
+            // fadeOut complete. Remove the loading div
+            $( "#loadingDiv" ).remove(); //makes page more lightweight
+        });  
+      }
+  </script>
+
+
+</footer>
+<!-- Footer -->
+
+</body>
+</html>
