@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Đăng ký nhà nước</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="images/icon.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.min.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+  
+  <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.css"> -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker.min.css"> 
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker-standalone.css"> 
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/js/bootstrap-datetimepicker.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin:auto;
+  margin-bottom: 15px;
+  text-align: center;
+  font-family: arial;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+a{
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+</style>
+</head>
+<body style="background-color:#004788;font-family: 'Roboto Condensed', sans-serif;">
+
+<div class="close-and-heavy" align="center">
+  <h2><b>ĐĂNG KÝ THÀNH VIÊN NHÀ NƯỚC AGRIMATE</b></h2>
+</div>
+
+<div class="container" style="border-radius:3px;background-color:white; margin-bottom:10px;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);padding-top:15px;padding-bottom:5px;"
+ng-app="myApp" ng-controller="myCtrl">
+
+  <fieldset class="scheduler-border">
+    <legend class="scheduler-border" style="color:#004788;">THÔNG TIN ĐĂNG KÝ</legend>
+    <div class="control-group">
+      <form action="" method="POST" role="form">
+        <!-- ------------------------- -->
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              <span style="font-size:18px;text-align:right;">Tên cơ quan tổ chức trực thuộc</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <input type="text" class="form-control" id="" placeholder="Nhập tên cơ quan tổ chức">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+              <select name="" class="form-control" required="required">
+                <option value="">-- Chọn cấp trực thuộc --</option>
+                <option value="">Cấp Tỉnh/Thanh phố</option>
+                <option value="">Cấp Huyện/Quận</option>
+                <option value="">Cấp Xã/Phường</option>
+              </select>
+            </div>
+          </div>
+          <!-- -- -->
+        </div>
+        <!-- ------------------------- -->
+
+
+        <!-- ------------------------- -->
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              <span style="font-size:18px;text-align:right;">Họ tên người đại điện</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <input type="text" class="form-control" id="" placeholder="Nhập họ tên người đại điện">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
+          </div>
+          <!-- -- -->
+        </div>
+        <!-- ------------------------- -->
+
+
+        <!-- ------------------------- -->
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              <span style="font-size:18px;text-align:right;">Chức vụ</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <input type="text" class="form-control" id="" placeholder="Nhập chức vụ">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
+          </div>
+          <!-- -- -->
+        </div>
+        <!-- ------------------------- -->
+
+        <!-- ------------------------- -->
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              <span style="font-size:18px;text-align:right;">Điện thoại cơ quan/di động</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+              <input type="number" class="form-control" id="" placeholder="Nhập điện thoại cơ quan">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+               <input type="number" class="form-control" id="" placeholder="Nhập điện thoại di động">
+            </div>
+          </div>
+          <!-- -- -->
+        </div>
+        <!-- ------------------------- -->
+
+
+        <!-- ------------------------- -->
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              <span style="font-size:18px;text-align:right;">Email người đại diện</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <input type="text" class="form-control" id="" placeholder="Nhập email người đại diện">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
+          </div>
+          <!-- -- -->
+        </div>
+        <!-- ------------------------- -->
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block">ĐĂNG KÝ</button>
+      </form>
+    </div>
+  </fieldset>
+
+  
+
+
+</div>
+
+
+<script type="text/javascript" src="js/script.js"></script>
+
+<a id="button"></a>
+
+<script type="text/javascript">
+  var btn = $('#button');
+
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > 300) {
+      btn.addClass('show');
+    } else {
+      btn.removeClass('show');
+    }
+  });
+
+  btn.on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({scrollTop:0}, '300');
+  });
+</script>
+
+</body>
+</html>
+
+  
+ 
+ 
+ 
+  
+  
+ 
+ 
+  
+  
+  
+  
+ 
+  
+ 
+ 
+  
+ 
+  
+ 
+ 
+  
+  
+  
+ 
+ 
+ 
+ 
+  
+  
+ 
+ 
+

@@ -1,8 +1,11 @@
 .container .collapse ul li:hover{
   background-color:#fff9c4;
-  height:66px;
+  height:65px;
 }
-
+.container .collapse ul li{
+  height:65px;
+}
+/* ======================================== */
 
 
 /* ======================================== */
@@ -131,6 +134,9 @@ li.li2 a:hover{
     height: 100%;
     overflow: auto;
     background-color: black;
+  }
+  .container .collapse ul #home_icon{
+    display:none;
   }
 }
 
