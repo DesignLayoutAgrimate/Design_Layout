@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="vi" >
+<head>
+  <meta charset="UTF-8">
+  <title>Tùy chọn đăng ký</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="images/icon.png">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="./style.css">
+  <style type="text/css">
+    /* reponsive_mobile */
+    @media (max-width: 600px) {
+      .close-and-heavy h2 b {
+        font-size:30px;
+        padding:2px;
+      }
+      .card img{
+        margin-left:66px;
+        width:100px;height:100px;padding:3px;
+      }
+      .card {
+        font-size:15px;
+
+      }
+      .multisteps-form__title{
+        font-size:20px;text-align:justify;
+      }
+    }
+  </style>
+</head>
+<body style="background-color:#81c784;font-family: 'Roboto Condensed', sans-serif;"> 
+
+<div class="content">
+  <!--content inner-->
+  <div class="content__inner">
+    <div class="container overflow-hidden">
+      <!--multisteps-form-->
+      <div class="close-and-heavy" align="center">
+        <h2><b>ĐĂNG KÝ THÀNH VIÊN AGRIMATE</b></h2>
+      </div>
+      <div class="multisteps-form">
+        <!--progress bar-->
+        <div class="row">
+          <div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
+            <div class="multisteps-form__progress">
+              <button class="multisteps-form__progress-btn js-active" type="button">Thông tin</button>
+              <button class="multisteps-form__progress-btn" type="button">Địa chỉ</button>
+              <button class="multisteps-form__progress-btn" type="button">Tạo tài khoản</button>
+              <button class="multisteps-form__progress-btn" type="button">Hoàn thành</button>
+            </div>
+          </div>
+        </div>
+        <!--form panels-->
+        <div class="row">
+          <div class="col-12 col-lg-10 m-auto">
+            <form class="multisteps-form__form">
+              <!--single form panel-->
+              <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="scaleIn">
+                <h3 class="multisteps-form__title">Thông tin cá nhân</h3>
+                <div class="multisteps-form__content">
+                  <div class="form-row mt-4">
+                    <div class="col-12 col-sm-6">
+                      <label for=""><b>Họ và tên</b></label>
+                      <input class="multisteps-form__input form-control" type="text" placeholder="First Name"/>
+                    </div>
+                    <div class="col-12 col-sm-3 mt-4 mt-sm-0">
+                      <label for=""><b>Giới tính</b></label>
+                      <select name="" id="input" class="multisteps-form__input form-control" required="required">
+                        <option value="">-- Chọn giới tính --</option>
+                        <option value="">Nam</option>
+                        <option value="">Nữ</option>
+                      </select>
+                    </div><div class="col-12 col-sm-3 mt-4 mt-sm-0">
+                      <label for=""><b>Ngày sinh</b></label>
+                      <input class="multisteps-form__input form-control" type="date"/>
+                    </div>
+                  </div>
+                  <div class="form-row mt-4">
+                    <div class="col-12 col-sm-6">
+                      <label for=""><b>Điện thoại</b></label>
+                      <input class="multisteps-form__input form-control" type="number" placeholder="Điện thoại"/>
+                    </div>
+                    <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                      <label for=""><b>Email</b></label>
+                      <input class="multisteps-form__input form-control" type="email" placeholder="Địa chỉ email"/>
+                    </div>
+                  </div>
+                  <div class="button-row d-flex mt-4">
+                    <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Tiếp tục</button>
+                  </div>
+                </div>
+              </div>
+              <!--single form panel-->
+              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+                <h3 class="multisteps-form__title">Địa chỉ của bạn</h3>
+                <div class="multisteps-form__content">
+                  <div class="form-row mt-4">
+                    <div class="col">
+                      <label for=""><b>Số nhà/Đường hoặc Ấp</b></label>
+                      <input type="text" class="multisteps-form__input form-control"
+                      placeholder="Nhập Số ... Đường ... Hoặc Ấp ...">
+                    </div>
+                  </div>
+                  
+                  <div class="form-row mt-4">
+                    <div class="col-12 col-sm-4">
+                      <label for=""><b>Tỉnh/ Thành phố</b></label>
+                      <select name="" class="multisteps-form__input form-control" name="state_select">
+                        <option value="">-- Chọn Tỉnh/ Thành phố --</option>
+                        <option value="Hậu Giang">Hậu Giang</option>
+                        <option value="Cần Thơ">Cần Thơ</option>
+                      </select>
+                    </div>
+                    <div class="col-6 col-sm-4 mt-4 mt-sm-0">
+                      <label for=""><b>Huyện/ Quận</b></label>
+                      <select name="" class="multisteps-form__input form-control" name="state_select">
+                        <option value="">-- Chọn Huyện/ Quận --</option>
+                        <option value="Hậu Giang">Hậu Giang</option>
+                        <option value="Cần Thơ">Cần Thơ</option>
+                      </select>
+                    </div>
+                    <div class="col-6 col-sm-4 mt-4 mt-sm-0">
+                      <label for=""><b>Xã/Phường</b></label>
+                       <select name="" class="multisteps-form__input form-control" name="state_select">
+                        <option value="">-- Chọn Xã/Phường --</option>
+                        <option value="Hậu Giang">Hậu Giang</option>
+                        <option value="Cần Thơ">Cần Thơ</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="button-row d-flex mt-4">
+                    <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Trở lại</button>
+                    <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Tiếp tục</button>
+                  </div>
+                </div>
+              </div>
+
+              <!--single form panel-->
+              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+                <h3 class="multisteps-form__title">Tạo tài khoản</h3>
+                <div class="multisteps-form__content">
+                  <div class="row">
+                    <div class="col-12 col-sm-4 mt-4 mt-sm-0">
+                      <label for=""><b>Tên tài khoản</b></label>
+                      <input class="multisteps-form__input form-control" type="text" placeholder="Nhập tên tài khoản" />
+                    </div>
+                    <div class="col-12 col-sm-4 mt-4 mt-sm-0">
+                      <label for=""><b>Mật khẩu</b></label>
+                      <input class="multisteps-form__input form-control" type="password" placeholder="Nhập mật khẩu" />
+                    </div>
+                    <div class="col-12 col-sm-4 mt-4 mt-sm-0">
+                      <label for=""><b>Nhập lại mật khẩu</b></label>
+                      <input class="multisteps-form__input form-control" type="password" placeholder="Nhập lại mật khẩu" />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="button-row d-flex mt-4 col-12">
+                      <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Trở lại</button>
+                      <button class="btn btn-primary ml-auto js-btn-next" type="button" title="Next">Tiếp tục</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--single form panel-->
+              <div class="multisteps-form__panel shadow p-4 rounded bg-white" data-animation="scaleIn">
+                <h3 class="multisteps-form__title">
+                  Lựa chọn thành viên <b>(hoặc Bỏ qua)</b>
+                </h3>
+                <div class="multisteps-form__content">
+                  
+                    <div class="row">
+                      <div class="col-12 col-sm-3 mt-4 mt-sm-0">
+
+                        <div class="card">
+                          <img src="images/icon_nha_nuoc.png">
+                          <b>Nhà Nước</b>
+                          <button style="background-color:#0097a7;border:none;" class="btn btn-primary" type="button">
+                             <label>
+                               <input type="checkbox" value="">
+                               CHỌN
+                             </label>
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-sm-3 mt-4 mt-sm-0">
+                        <div class="card">
+                          <img src="images/icon_doanh_nghiep.png">
+                          <b>Nhà Doanh Nghiệp</b>
+                          <button style="background-color:orange;border:none;" class="btn btn-primary" type="button">
+                            <label>
+                               <input type="checkbox" value="">
+                               CHỌN
+                             </label>
+                          </button>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-sm-3 mt-4 mt-sm-0">
+                        <div class="card">
+                          <img src="images/icon_khoa_hoc.png">
+                          <b>Nhà Khoa Học</b>
+                          <button style="background-color:#4caf50;border:none;" class="btn btn-primary" type="button">
+                            <label>
+                               <input type="checkbox" value="">
+                               CHỌN
+                             </label>
+                          </button>
+                        </div>  
+                      </div>
+
+                      <div class="col-12 col-sm-3 mt-4 mt-sm-0">
+                        <div class="card">
+                          <img src="images/icon_nong_dan.png">
+                          <b>Nhà Nông</b>
+                          <button style="background-color:#2196f3;border:none;" class="btn btn-primary" type="button">
+                            <label>
+                               <input type="checkbox" value="">
+                               CHỌN
+                             </label>
+                          </button>
+                        </div>   
+                      </div>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="alert alert-info">
+                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                          <strong>Ghi chú: </strong>
+                          Có thể lựa chọn nhóm thành viên hoặc có thể lựa chọn sau khi là thành viên của Agrimate
+                        </div>
+                      </div>
+                    </div>
+                
+                  <div class="button-row d-flex mt-4">
+                    <button class="btn btn-primary js-btn-prev" type="button" title="Prev">Trở lại</button>
+                    <button class="btn btn-success ml-auto" type="button" title="Send">Hoàn tất</button>
+                  </div>
+                </div>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'></script>
+<script  src="./script.js"></script>
+
+</body>
+</html>
