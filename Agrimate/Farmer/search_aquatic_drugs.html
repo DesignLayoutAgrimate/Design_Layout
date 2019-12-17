@@ -1,0 +1,2365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Search pesticides on plants</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="public/images/icon.png">
+	<!-- <link rel="stylesheet" href="http://code.ionicframework.com/1.3.3/css/ionic.css"> -->
+	<!-- <link rel="stylesheet" href="http://code.ionicframework.com/1.3.3/css/ionic.css"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" rel="stylesheet" />
+	<style>
+	    footer {
+	      background-color: #f2f2f2;
+	      padding: 25px;
+	    }
+
+	    .carousel-inner img {
+	      width: 100%;
+	      min-height: 200px;
+	    }
+	    
+	    /* reponsive_mobile */
+	    @media (max-width: 600px) {
+	      .carousel-caption {
+	        display: none; 
+	      }
+	      #myNavbar{
+	        border-top:2px solid #068142;
+	      }
+	      #search{
+	        display: none;
+	      }
+	      #icon_home{
+	        background-color: white;
+	      }
+	      #navbar{
+	        border-top:2px solid #068142;
+	      }
+	      #button_icon:hover{
+	        background-color: yellow;
+	      }
+	    }
+	    /* reponsive_mobile */
+
+	    /* reponsive_mobile_dropdown_menu */
+	    @media only screen and (min-width: 768px) {
+	      .dropdown:hover .dropdown-menu {
+	        display: block;
+	      }
+	    }
+	    /* reponsive_mobile_dropdown_menu */
+
+	    .responsive {
+	      max-width: 95%;
+	      height: 60px;
+	      margin:5px;
+	    }
+	    .dropdown #button_dropdown{
+	      border-radius: 2px;
+	      background-color:white;
+	    }
+  	</style>
+
+	<script type="text/javascript">
+	    $('.dropdown-toggle').click(function(e) {
+	      if ($(document).width() > 768) {
+	        e.preventDefault();
+	        var url = $(this).attr('href');
+	        if (url !== '#') {
+	          window.location.href = url;
+	        }
+	      }
+	    });
+
+	    $(document).ready(function(){
+	      $(".navbar-toggle").hover(function(){
+	        $(this).css("background-color", "yellow");
+	        }, function(){
+	        $(this).css("background-color", "white");
+	      });
+	    });
+	</script>
+</head>
+
+<body style="font-family: 'Roboto Slab', sans-serif;">
+
+	<style>
+		.navbar-inverse{
+			background-color:#dee3de;
+			border:0px solid white;
+			box-shadow: 0 2px 5px rgba(0,0,0,0.14), 0 2px 5px rgba(0,0,0,0.20);
+		}
+
+		.navbar-inverse .navbar-nav li a{
+			height:70px;
+			color:#349031;
+			font-size:15px;
+			padding-top:22px;
+			font-weight: 700;
+		}
+	</style>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	  	<div class="container">
+		    <div class="navbar-header" id="navbar_border">
+		      	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"
+		      	style="margin-top:20px;border:2px solid #068142;background-color:white;">
+			        <span class="icon-bar" style="background-color:#068142"></span>
+			        <span class="icon-bar" style="background-color:#068142"></span>
+			        <span class="icon-bar" style="background-color:#068142"></span>                        
+		      	</button>
+
+		      	<button type="button" class="navbar-toggle" onclick="openSearch()"
+		      	style="margin-top:20px;border:2px solid #068142;padding:5.2px;background-color:white;">
+		        	<i class="fa fa-search" style="font-size:20px;color:#068142;width:25px;"></i>
+		      	</button>
+
+		      	<a href="index.html">
+		        	<img src="./public/image_icon/LOGO_WEB.png" class="responsive" alt="Logo">
+		      	</a>
+		    </div>
+
+		    <div id="navbar" class="navbar-collapse collapse">
+		      	<ul class="nav navbar-nav">
+
+			        <li style="background-color:#068142;border-radius:2px;">
+			          	<a href="#" style="height:70px;color:white;" id=> 
+			            	<i class="fa fa-home" style="font-size:33px;"></i>
+			          	</a>
+			        </li>
+
+			        <li class="dropdown">
+			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="button_dropdown"aria-haspopup="true" aria-expanded="false" style="height:70px;color:#068142;font-size:15px;padding-top:22px; background-color: #dee3de">
+			            	<span>Trồng trọt</span> <span class="caret"></span>
+			          	</a>
+
+			          	<ul class="dropdown-menu" style="border:1px solid #068142;font-size:14px;">
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Thuốc BVTV
+				              	</a>
+				            </li>
+
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Phân bón
+				              	</a>
+				            </li>
+
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Kỹ thuật
+				              	</a>
+				            </li>
+			          	</ul>
+			        </li>
+
+			        <li class="dropdown">
+			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="button_dropdown"aria-haspopup="true" aria-expanded="false" style="height:70px;color:#068142;font-size:15px;padding-top:22px; background-color: #dee3de">
+			            	<span>Thủy sản</span> <span class="caret"></span>
+			          	</a>
+
+			          	<ul class="dropdown-menu" style="border:1px solid #068142;font-size:14px;">
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Thuốc thủy sản
+				              	</a>
+				            </li>
+
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Thức ăn 
+				              	</a>
+				            </li>
+
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Kỹ thuật 
+				              	</a>
+				            </li>
+			          	</ul>
+			        </li>
+
+			        <li class="dropdown">
+			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="button_dropdown"aria-haspopup="true" aria-expanded="false" style="height:70px;color:#068142;font-size:15px;padding-top:22px; background-color: #dee3de">
+			            	<span>Chăn nuôi</span> <span class="caret"></span>
+			          	</a>
+
+			          	<ul class="dropdown-menu" style="border:1px solid #068142;font-size:14px;">
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Thuốc thú y
+				              	</a>
+				            </li>
+
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Thức ăn
+				              	</a>
+				            </li>
+
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Kỹ thuật
+				              	</a>
+				            </li>
+			          	</ul>
+			        </li>
+
+			        <li>
+			          	<a href="#">
+			            	<!-- <img src="./public/core-img/5.png" style="width:25px;height:25px;"> -->
+			            	<span>Luật</span>
+			          	</a>
+			        </li>
+
+			        <li>
+			          	<a href="#">
+			            	<!-- <img src="./public/core-img/5.png" style="width:25px;height:25px;"> -->
+			            	<span>Giá thị trường</span>
+			          	</a>
+			        </li>
+
+			        <li class="dropdown">
+			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="button_dropdown"aria-haspopup="true" aria-expanded="false" style="height:70px;color:#068142;font-size:15px;padding-top:22px; background-color: #dee3de">
+			            	<span>Tra cứu</span> <span class="caret"></span>
+			          	</a>
+
+			          	<ul class="dropdown-menu" style="border:1px solid #068142;font-size:14px;">
+				            <li>
+				              	<a href="search_pesticides_on_plants.html" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Thuốc BVTV
+				              	</a>
+				            </li>
+
+				            <li>
+				              	<a href="search_fertilizer.html" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Phân bón
+				              	</a>
+				            </li>
+
+				            <li>
+				              	<a href="search_aquatic_drugs.html" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Thuốc thủy sản
+				              	</a>
+				            </li>
+
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Thuốc thú y
+				              	</a>
+				            </li>
+
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Thức ăn
+				              	</a>
+				            </li>
+
+			          	</ul>
+			        </li>
+		      	</ul>
+		      <!-- end_ul -->
+
+		      	<ul class="nav navbar-nav navbar-right">
+		      		<li>
+			          	<a href="#" >
+			            	<img src="./public/image_icon/icon_dang_ky.png" style="width:25px;height:25px;">
+			            	Đăng ký
+			          	</a>
+			        </li>
+
+		        	<li>
+			          	<a href="#" >
+			            	<img src="./public/image_icon/icon_login.png" style="width:25px;height:25px;">
+			            	Đăng nhập
+			          	</a>
+			        </li>
+		      	</ul>
+
+		    </div>
+	    <!--/.nav-collapse -->
+	  </div>
+	</nav>
+	<br><br><br><br><br>
+
+	<style>
+		.tra_cuu p{
+			font-size: 30px;
+			font-weight: bold;
+			font-family: arial;
+			text-align: center;
+			color: red;
+		}
+
+		.tra_cuu .tra_cuu_theo_ten h4{
+			padding-left: 10px;
+		}
+		
+		.table-customize {
+			margin: 0;
+			border-radius: 4px;
+			overflow: hidden;
+			box-shadow: 0 0 0 1px #ccc inset;
+		}
+		.table-customize > thead > tr {
+			background-color: #535353;
+			border-radius: 3px 3px 0 0;
+		}
+		.table-customize > thead > tr > th {
+			color: #fff;
+			border-bottom: none;
+			padding: 10px 14px;
+			font-size: 14px;
+			font-weight: 400;
+			border: 1px solid rgba(0, 0, 0, 0.2);
+		}
+		.table-customize > thead > tr > th:first-child {
+			border-radius: 3px 0 0 0;
+			border-top: 1px solid rgba(0, 0, 0, 0.2);
+		}
+		.table-customize > thead > tr > th:last-child {
+			border-radius: 0 3px 0 0;
+		}
+		.table-customize > tbody > tr > td {
+			vertical-align: middle;
+			padding: 15px 14px;
+			color: #ccc;
+			font-size: 14px;
+			color: #000;
+			border: 1px solid #ccc;
+		}
+		.table-customize > tbody > tr > td a {
+			text-decoration: none;
+		}
+
+		.table-order > tbody > tr:nth-child(-n + 3) > td:first-child {
+			position: relative;
+			font-size: 10px;
+			font-weight: 700;
+		}
+		.table-order > tbody > tr:nth-child(-n + 3) > td:first-child span {
+			position: absolute;
+			left: 0;
+			right: 0;
+			margin: auto;
+			top: 14px;
+		}
+		.table-order > tbody > tr td:first-child, .table-order > tbody > tr th:first-child {
+			text-align: center;
+		}
+		@media (min-width: 320px) and (max-width: 767px) {
+			.table-responsive,
+			.table-responsive thead,
+			.table-responsive tbody,
+			.table-responsive th,
+			.table-responsive td,
+			.table-responsive tr {
+		    	display: block;
+		  	}
+		  	.table-responsive > thead > tr {
+		    	position: absolute;
+		    	top: -9999px;
+		    	left: -9999px;
+		  	}
+		  	.table-responsive > tbody > tr {
+		    	border-top: 1px solid #ccc;
+		    	border-bottom: 1px solid #ccc;
+		  	}
+		  	.table-responsive > tbody > tr:first-child {
+		    	border-radius: 3px 3px 0 0;
+		    	border-top: none;
+		  	}
+		  	.table-responsive > tbody > tr:last-child {
+		    	border-radius: 0 0 3px 3px;
+		    	border-bottom: none;
+		  	}
+		  	.table-responsive > tbody > tr td {
+			    border: none;
+			    border-bottom: 1px solid #ccc;
+			    position: relative;
+			    padding-left: 40% !important;
+			    width: 100%;
+			    overflow: hidden;
+		  	}
+		  	.table-responsive > tbody > tr td:before {
+			    content: attr(data-title);
+			    position: absolute;
+			    top: 15px;
+			    left: 14px;
+			    width: 30%;
+			    padding-right: 10px;
+			    white-space: nowrap;
+			    font-size: 14px;
+		  	}
+		  	.table-responsive > tbody > tr td:first-child {
+		    	text-align: left;
+		  	}
+		  	.table-responsive.table-order > tbody > tr:nth-child(-n + 3) > td:first-child {
+			    padding: 25px 0 25px 30% !important;
+			    background-position: left 32% center;
+		  	}
+			.table-responsive.table-order > tbody > tr:nth-child(-n + 3) > td:first-child span {
+		    	left: 32%;
+		  	}
+		}
+
+		@media (max-width: 600px){
+			.tra_cuu .col-md-2{
+				padding-bottom: 20px;
+			}
+		}
+		
+	</style>
+	<div class="row tra_cuu">
+		<div class="container">
+
+			<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+				<table class="table table-bordered table-customize table-responsive table-hover">
+				    <thead>
+				        <tr>
+				            <th>Nhóm tra cứu</th>
+				        </tr>
+				    </thead>
+				    <tbody>
+				        <tr>
+				            <td data-title="Tra cứu"><a href="search_pesticides_on_plants.html">Thuốc BVTV</a></td>
+				        </tr>
+			
+				        <tr>
+				            <td data-title="Tra cứu"><a href="search_fertilizer.html">Phân bón</a></td>
+				        </tr>
+			
+				        <tr>
+				            <td data-title="Tra cứu"><a href="search_aquatic_drugs.html">Thuốc thủy sản</a></td>
+				        </tr>
+
+				        <tr>
+				            <td data-title="Tra cứu"><a href="">Thuốc thú y</a></td>
+				        </tr>
+
+				        <tr>
+				            <td data-title="Tra cứu"><a href="">Thức ăn</a></td>
+				        </tr>
+			
+				    </tbody>
+				</table>
+			</div>
+
+			<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
+				<div class="panel panel-default">
+					<div class="panel-body">
+
+						<p><strong>Tra cứu thuốc thủy sản</strong></p>
+						<br>
+						
+						<style>
+							@media (max-width: 600px){
+								.tra_cuu .btn-success{
+									margin-left: 210px;
+								}
+							}
+						</style>
+						<div class="row tra_cuu">
+
+							<form action="" method="POST" role="form">
+
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<div class="form-group">
+										<label for="">Tên thuốc thủy sản</label>
+										<input type="text" name="" id="input" class="form-control" placeholder="Nhập tên thuốc bvtv">
+									</div>
+								</div>
+
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<div class="form-group">
+										<label for="">Danh mục</label>
+										<select class="form-control">
+							                <option>-- Tên danh mục --</option> 
+								           	<option>Thuốc cấm sử dụng</option> 
+								           	<option>Thuốc được sử dụng</option> 
+							            </select>
+									</div>
+								</div>
+
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<div class="form-group">
+										<label for="">Tên hoạt chất</label>
+										<select class="form-control selectpicker" id="select-country" data-live-search="true">
+							                <option>-- Tên hoạt chất --</option> 
+								           	<option value="Vôi (CaCO3, CaO)">Vôi (CaCO3, CaO)</option>
+          
+									          <option value="Zeolite">Zeolite</option>
+									          
+									          <option value="Chlorine">Chlorine</option>
+									          
+									          <option value="Formaldehyde (Formalin, Formol)">Formaldehyde (Formalin, Formol)</option>
+									          
+									          <option value="Benzalkonium Chloride (BKC)">Benzalkonium Chloride (BKC)</option>
+									          
+									          <option value="Iodine (Povidone – Iodine, Polyvinyl Pyrrolidone Iodide)">Iodine (Povidone – Iodine, Polyvinyl Pyrrolidone Iodide)</option>
+									          
+									          <option value="Thuốc tím (Kali Permanganate – KMnO4) ">Thuốc tím (Kali Permanganate – KMnO4) </option>
+									          
+									          <option value="Chế phẩm sinh học (Probiotic – Enzym)">Chế phẩm sinh học (Probiotic – Enzym)</option>
+									          
+									          <option value="Vitamin C">Vitamin C</option>
+									          
+									          <option value="Sắc tố Carotenoid">Sắc tố Carotenoid</option>
+									          
+							            </select>
+									</div>
+								</div>
+								
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<div class="form-group">
+										<label for="">Loại thuốc</label>
+										<select class="form-control selectpicker" id="select-country" data-live-search="true">
+							                <option>-- Tên loại thuốc --</option> 
+								           	<option>Thảo dược chữa bệnh cho tôm, cá</option> 
+								           	<option>Kháng sinh</option> 
+								           	<option>Sử dụng thuốc, hóa chất nuôi trồng thủy sản</option>
+								           	<option>Thuốc điều hòa sinh trưởng</option> 
+								           	<option>Thuốc khử trùng kho</option> 
+								           	<option>Thuốc sử dụng cho sân golf</option> 
+								           	<option>Thuốc kích thích sinh trưởng</option> 
+											<option>Thuốc sử dụng cho sân golf</option>
+											<option>Thuốc trừ bệnh</option>
+											<option>Thuốc trừ chuột</option>
+											<option>Thuốc trừ cỏ</option>
+											<option>Thuốc trừ mối</option>
+											<option>Thuốc trừ ốc</option>
+											<option>Thuốc trừ sâu</option>
+											<option>Thuốc trừ sâu, thuốc bảo quản lâm sản</option>
+											<option>Thuốc xử lý hạt giống</option>
+							            </select>
+									</div>
+								</div>
+
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<div class="form-group">
+										<label for="">Tên thủy sản</label>
+										<select class="form-control selectpicker" id="select-country" data-live-search="true">
+								           <option>-- Tên thủy sản --</option>
+								            <option value="artiso">Tôm sú</option>
+								          
+								            <option value="bap_cai">Cá tra</option>
+								          
+								            <option value="bau">Cua</option>
+								          
+								            <option value="bau_bi">Tôm thẻ</option>
+								          
+								            <option value="bi_1">Cá kèo</option>
+								          
+								            <option value="bi_dao">Bí đao</option>
+								          
+								            <option value="bi_do">Bí đỏ</option>
+								          
+								            <option value="bi_ngo">Bí ngô</option>
+								          
+								            <option value="bi_xanh">Bí xanh</option>
+								          
+								            <option value="bong_1">Bông</option>
+								          
+								            <option value="bong_vai">Bông vải</option>
+								          
+								            <option value="bo_ruong_lua">Bờ ruộng lúa</option>
+								          
+								            <option value="buoi">Bưởi</option>
+								          
+								            <option value="ca_cao">Ca cao</option>
+								          
+								            <option value="cam">Cam</option>
+								          
+								            <option value="cam_quyt">Cam quýt</option>
+								          
+								            <option value="cao_su_1">Cao su</option>
+								          
+								            <option value="ca_2">Cà</option>
+								          
+								            <option value="ca_bat">Cà bát</option>
+								          
+								            <option value="ca_chua_1">Cà chua</option>
+								          
+								            <option value="ca_chua_co_dac">Cà chua cô đặc</option>
+								          
+								            <option value="ca_phao">Cà pháo</option>
+								          
+								            <option value="ca_phe_1">Cà phê</option>
+								          
+								            <option value="ca_phe_nhan">Cà phê nhân</option>
+								          
+								            <option value="ca_rot">Cà rốt</option>
+								          
+								            <option value="ca_tim">Cà tím</option>
+								          
+								            <option value="cai_1">Cải</option>
+								          
+								            <option value="cai_bap">Cải bắp</option>
+								          
+								            <option value="cai_be_1">Cải bẹ</option>
+								          
+								            <option value="cai_be_xanh">Cải bẹ xanh</option>
+								          
+								            <option value="cai_bo_xoi">Cải bó xôi</option>
+								          
+								            <option value="cai_bong">Cải bông</option>
+								          
+								            <option value="cai_chip">Cải chíp</option>
+								          
+								            <option value="cai_cu">Cải củ</option>
+								          
+								            <option value="cai_cuc">Cải cúc</option>
+								          
+								            <option value="cai_lan">Cải làn</option>
+								          
+								            <option value="cai_meo">Cải mèo</option>
+								          
+								            <option value="cai_mo">Cải mơ</option>
+								          
+								            <option value="cai_ngot">Cải ngọt</option>
+								          
+								            <option value="cai_thao">Cải thảo</option>
+								          
+								            <option value="cai_xanh">Cải xanh</option>
+								          
+								            <option value="cay_an_qua">Cây ăn quả</option>
+								          
+								            <option value="cay_canh_1">Cây cảnh</option>
+								          
+								            <option value="cay_co_mui">Cây có múi</option>
+								          
+								            <option value="cay_hoa_hong">Cây hoa hồng</option>
+								          
+								            <option value="cay_hoa_hue">Cây hoa huệ</option>
+								          
+								            <option value="cay_hong">Cây hồng</option>
+								          
+								            <option value="cay_lam_nghiep">Cây lâm nghiệp</option>
+								          
+								            <option value="cay_rung">Cây rừng</option>
+								          
+								            <option value="cay_trong">Cây trồng</option>
+								          
+								            <option value="can_tay">Cần tây</option>
+								          
+								            <option value="cam_chuong">Cẩm chướng</option>
+								          
+								            <option value="chanh_1">Chanh</option>
+								          
+								            <option value="chanh_day">Chanh dây</option>
+								          
+								            <option value="chanh_leo">Chanh leo</option>
+								          
+								            <option value="che">Chè</option>
+								          
+								            <option value="che_tui_loc">Chè túi lọc</option>
+								          
+								            <option value="chom_chom">Chôm chôm</option>
+								          
+								            <option value="chuong_trai">Chuồng trại</option>
+								          
+								            <option value="chuoi">Chuối</option>
+								          
+								            <option value="co_1">Cỏ</option>
+								          
+								            <option value="co_chan_nuoi">Cỏ chăn nuôi</option>
+								          
+								            <option value="co_san_golf">Cỏ sân golf</option>
+								          
+								            <option value="co_dau">Cọ dầu</option>
+								          
+								            <option value="cong_trinh_kien_truc">Công trình kiến trúc</option>
+								          
+								            <option value="cong_trinh_xay_dung_1">Công trình xây dựng</option>
+								          
+								            <option value="com_dua_say_kho">Cơm dừa sấy khô</option>
+								          
+								            <option value="cu_cai">Củ cải</option>
+								          
+								            <option value="cu_hanh_tim">Củ hành tím</option>
+								          
+								            <option value="dau_tam">Dâu tằm</option>
+								          
+								            <option value="dau_tay">Dâu tây</option>
+								          
+								            <option value="dua_1">Dưa</option>
+								          
+								            <option value="dua_chuot">Dưa chuột</option>
+								          
+								            <option value="dua_gang">Dưa gang</option>
+								          
+								            <option value="dua_hau">Dưa hấu</option>
+								          
+								            <option value="dua_le">Dưa lê</option>
+								          
+								            <option value="dua">Dừa</option>
+								          
+								            <option value="dua_2">Dứa</option>
+								          
+								            <option value="day_1">Đay</option>
+								          
+								            <option value="dao_1">Đào</option>
+								          
+								            <option value="dao_canh">Đào cảnh</option>
+								          
+								            <option value="dat_chua_trong_trot">Đất chưa trồng trọt</option>
+								          
+								            <option value="dat_hoang">Đất hoang</option>
+								          
+								            <option value="dat_khong_trong_trot_1">Đất không trồng trọt</option>
+								          
+								            <option value="dat_trong_bap_cai">Đất trồng bắp cải</option>
+								          
+								            <option value="dat_trong_lac">Đất trồng lạc</option>
+								          
+								            <option value="dat_trong_lua">Đất trồng lúa</option>
+								          
+								            <option value="dat_trong_mia">Đất trồng mía</option>
+								          
+								            <option value="dap_1">Đập</option>
+								          
+								            <option value="dau_1">Đậu</option>
+								          
+								            <option value="dau_bap">Đậu bắp</option>
+								          
+								            <option value="dau_cove">Đậu côve</option>
+								          
+								            <option value="dau_do">Đậu đỗ</option>
+								          
+								            <option value="dau_dua">Đậu đũa</option>
+								          
+								            <option value="dau_ha_lan">Đậu Hà lan</option>
+								          
+								            <option value="dau_lay_hat">Đậu lấy hạt</option>
+								          
+								            <option value="dau_que">Đậu que</option>
+								          
+								            <option value="dau_trach">Đậu trạch</option>
+								          
+								            <option value="dau_tuong">Đậu tương</option>
+								          
+								            <option value="dau_xanh_1">Đậu xanh</option>
+								          
+								            <option value="de_1">Đê</option>
+								          
+								            <option value="de_dap">Đê đập</option>
+								          
+								            <option value="dieu">Điều</option>
+								          
+								            <option value="dia_lan">Địa lan</option>
+								          
+								            <option value="don_dien_cao_su">Đồn điền cao su</option>
+								          
+								            <option value="dong_ruong">Đồng ruộng</option>
+								          
+								            <option value="du_du">Đu đủ</option>
+								          
+								            <option value="gac">Gấc</option>
+								          
+								            <option value="gia_dau_xanh">Giá đậu xanh</option>
+								          
+								            <option value="go_1">Gỗ</option>
+								          
+								            <option value="go_sau_che_bien">Gỗ sau chế biến</option>
+								          
+								            <option value="gung">Gừng</option>
+								          
+								            <option value="hang">Hang</option>
+								          
+								            <option value="hang_hoa_trong_kho">Hàng hoá trong kho</option>
+								          
+								            <option value="hang_rao_quanh_cong_trinh_xay_dung">Hàng rào quanh công trình xây dựng</option>
+								          
+								            <option value="hanh_2">Hành</option>
+								          
+								            <option value="hanh_tay">Hành tây</option>
+								          
+								            <option value="he_1">Hẹ</option>
+								          
+								            <option value="hoa_1">Hoa</option>
+								          
+								            <option value="hoa_canh">Hoa cảnh</option>
+								          
+								            <option value="hoa_cay_canh">Hoa cây cảnh</option>
+								          
+								            <option value="hoa_cuc">Hoa cúc</option>
+								          
+								            <option value="hoa_hong_1">Hoa hồng</option>
+								          
+								            <option value="hoa_hue_1">Hoa huệ</option>
+								          
+								            <option value="hoa_lan">Hoa lan</option>
+								          
+								            <option value="hoa_ly_1">Hoa ly</option>
+								          
+								            <option value="hoa_lyly">Hoa lyly</option>
+								          
+								            <option value="hoa_mai">Hoa mai</option>
+								          
+								            <option value="ho_tieu_1">Hồ tiêu</option>
+								          
+								            <option value="hong_1">Hồng</option>
+								          
+								            <option value="hong_xiem">Hồng xiêm</option>
+								          
+								            <option value="hung_lang">Húng láng</option>
+								          
+								            <option value="khe">Khế</option>
+								          
+								            <option value="kho">Kho</option>
+								          
+								            <option value="kho_bao_quan_go">Kho bảo quản gỗ</option>
+								          
+								            <option value="kho_tang">Kho tàng</option>
+								          
+								            <option value="khoai_lang">Khoai lang</option>
+								          
+								            <option value="khoai_mon">Khoai môn</option>
+								          
+								            <option value="khoai_mo">Khoai mỡ</option>
+								          
+								            <option value="khoai_tay">Khoai tây</option>
+								          
+								            <option value="kiem_dich_thuc_vat">Kiểm dịch thực vật</option>
+								          
+								            <option value="lay_on">Lay ơn</option>
+								          
+								            <option value="lac_1">Lạc</option>
+								          
+								            <option value="le_1">Lê</option>
+								          
+								            <option value="lua_1">Lúa</option>
+								          
+								            <option value="lua_can">Lúa cạn</option>
+								          
+								            <option value="lua_cay">Lúa cấy</option>
+								          
+								            <option value="lua_gieo_thang">Lúa gieo thẳng</option>
+								          
+								            <option value="lua_sa_1">Lúa sạ</option>
+								          
+								            <option value="lua_sa_kho">Lúa sạ khô</option>
+								          
+								            <option value="luong_thuc">Lương thực</option>
+								          
+								            <option value="mang_cau">Mãng cầu</option>
+								          
+								            <option value="ma_1">Mạ</option>
+								          
+								            <option value="mang_cut">Măng cụt</option>
+								          
+								            <option value="may">Mây</option>
+								          
+								            <option value="man">Mận</option>
+								          
+								            <option value="mia_1">Mía</option>
+								          
+								            <option value="mot_duc_hat_lon">Mọt đục hạt lớn</option>
+								          
+								            <option value="mong_toi">Mồng tơi</option>
+								          
+								            <option value="muop">Mướp</option>
+								          
+								            <option value="muop_dang">Mướp đắng</option>
+								          
+								            <option value="na">Na</option>
+								          
+								            <option value="nen_mong">Nền móng</option>
+								          
+								            <option value="ngo_1">Ngô</option>
+								          
+								            <option value="ngo_chuyen_gen">Ngô chuyển gen</option>
+								          
+								            <option value="nha_1">Nhà</option>
+								          
+								            <option value="nha_cua">Nhà cửa</option>
+								          
+								            <option value="nha_kho">Nhà kho</option>
+								          
+								            <option value="nhan_1">Nhãn</option>
+								          
+								            <option value="nho">Nho</option>
+								          
+								            <option value="nong_san_1">Nông sản</option>
+								          
+								            <option value="nong_san_sau_thu_hoach">Nông sản sau thu hoạch</option>
+								          
+								            <option value="nong_san_trong_kho">Nông sản trong kho</option>
+								          
+								            <option value="noi_cong_cong">Nơi công cộng</option>
+								          
+								            <option value="oi_1">Ổi</option>
+								          
+								            <option value="ot_2">Ớt</option>
+								          
+								            <option value="phong_lan">Phong lan</option>
+								          
+								            <option value="phuong_tien_chuyen_cho">Phương tiện chuyên chở</option>
+								          
+								            <option value="qua_1">Quả</option>
+								          
+								            <option value="quan_cu">Quần cư</option>
+								          
+								            <option value="quat_1">Quất</option>
+								          
+								            <option value="quat_hong_bi">Quất hồng bì</option>
+								          
+								            <option value="quyt">Quýt</option>
+								          
+								            <option value="rau_1">Rau</option>
+								          
+								            <option value="rau_an_la">Rau ăn lá</option>
+								          
+								            <option value="rau_bi">Rau bí</option>
+								          
+								            <option value="rau_cai">Rau cải</option>
+								          
+								            <option value="rau_cai_cuc">Rau cải cúc</option>
+								          
+								            <option value="rau_cai_thia">Rau cải thìa</option>
+								          
+								            <option value="rau_can">Rau cần</option>
+								          
+								            <option value="rau_den">Rau dền</option>
+								          
+								            <option value="rau_gia_vi">Rau gia vị</option>
+								          
+								            <option value="rau_ho_thap_tu">Rau họ thập tự</option>
+								          
+								            <option value="rau_hung">Rau húng</option>
+								          
+								            <option value="rau_khoi_tu">Rau khởi tử</option>
+								          
+								            <option value="rau_muong">Rau muống</option>
+								          
+								            <option value="rau_ngot">Rau ngót</option>
+								          
+								            <option value="re_ca_phe">Rễ cà phê</option>
+								          
+								            <option value="re_ho_tieu">Rễ hồ tiêu</option>
+								          
+								            <option value="roi">Roi</option>
+								          
+								            <option value="ruong_lua">Ruộng lúa</option>
+								          
+								            <option value="san_2">Sắn</option>
+								          
+								            <option value="san_day">Sắn dây</option>
+								          
+								            <option value="san_golf">Sân golf</option>
+								          
+								            <option value="sau_rieng">Sầu riêng</option>
+								          
+								            <option value="song">Song</option>
+								          
+								            <option value="so_ri">Sơ ri</option>
+								          
+								            <option value="su_hao">Su hào</option>
+								          
+								            <option value="su_su">Su su</option>
+								          
+								            <option value="sup_lo_1">Súp lơ</option>
+								          
+								            <option value="sup_lo_xanh">Súp lơ xanh</option>
+								          
+								            <option value="tao">Táo</option>
+								          
+								            <option value="thanh_long">Thanh long</option>
+								          
+								            <option value="thong">Thông</option>
+								          
+								            <option value="thuoc_lao">Thuốc lào</option>
+								          
+								            <option value="thuoc_la">Thuốc lá</option>
+								          
+								            <option value="thuoc_tru_benh">Thuốc trừ bệnh</option>
+								          
+								            <option value="thuoc_tru_co">Thuốc trừ cỏ</option>
+								          
+								            <option value="thuoc_tru_sau">Thuốc trừ sâu</option>
+								          
+								            <option value="thuyen_go">Thuyền gỗ</option>
+								          
+								            <option value="toi">Tỏi</option>
+								          
+								            <option value="trang_trai">Trang trại</option>
+								          
+								            <option value="tre">Tre</option>
+								          
+								            <option value="trung_ga">Trứng gà</option>
+								          
+								            <option value="vai_1">Vải</option>
+								          
+								            <option value="vai_thieu">Vải thiều</option>
+								          
+								            <option value="van_thuyen">Ván thuyền</option>
+								          
+								            <option value="vat_the">Vật thể</option>
+								          
+								            <option value="vung_dat_chua_canh_tac">Vùng đất chưa canh tác</option>
+								          
+								            <option value="vung_dat_chua_gieo_cay_lua">Vùng đất chưa gieo cấy lúa</option>
+								          
+								            <option value="vung_dat_chua_trong_trot">Vùng đất chưa trồng trọt</option>
+								          
+								            <option value="vung_dat_hoang">Vùng đất hoang</option>
+								          
+								            <option value="vung_dat_khong_trong_trot">Vùng đất không trồng trọt</option>
+								          
+								            <option value="vu_sua">Vú sữa</option>
+								          
+								            <option value="vuon_cay_1">Vườn cây</option>
+								          
+								            <option value="vuon_cay_an_trai">Vườn cây ăn trái</option>
+								          
+								            <option value="vuon_uom">Vườn ươm</option>
+								          
+								            <option value="vung_1">Vừng</option>
+								          
+								            <option value="xa_lach">Xà lách</option>
+								          
+								            <option value="xoai">Xoài</option>
+								        </select>
+									</div>
+								</div>
+
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<div class="form-group">
+										<label for="">Tên dịch hại</label>
+										<select class="form-control selectpicker" id="select-country" data-live-search="true">
+											<option>-- Tên dịch hại --</option> 
+								           	<option>Ấu trùng ve sầu</option> 
+								           	<option>Bạc lá</option> 
+								           	<option>Bạc lá do vi khuẩn</option> 
+								           	<option>Bạch tạng</option> 
+								           	<option>Bệnh chay mủ do Phytophthora</option> 
+								           	<option>Bệnh do Fusarium</option> 
+								           	<option>Bệnh do nấm Phytophthora</option> 
+								           	<option>Bệnh đổ ngã cây con</option> 
+								           	<option>Bệnh dó tuyến trùng</option> 
+								           	<option>Bệnh hoa lá</option> 
+								           	<option>Bệnh loét</option> 
+								           	<option>Biến màu quả</option> 
+								           	<option>Bọ cánh cứng</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<div class="form-group">
+										<label for="">Nguồn gốc</label>
+										<select class="form-control selectpicker" id="select-country" data-live-search="true">
+											<option>-- Nguồn gôc --</option> 
+								           	<option>Chưa phân loại</option> 
+								           	<option>Hóa học</option> 
+								           	<option>Hỗn hợp hóa học và chưa phân loại</option> 
+								           	<option>Hỗn hợp hóa học và sinh học</option> 
+								           	<option>Hỗn hợp sinh học và chưa phân loại</option> 
+								           	<option>Hỗn hợp sinh học và hóa học</option> 
+								           	<option>Sinh học</option> 
+										</select>
+									</div>
+								</div>
+
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<div class="form-group">
+										<label for="">Tổ chức đăng ký</label>
+										<select class="form-control selectpicker" id="select-country" data-live-search="true">
+											<option>-- Tổ chức đăng ký --</option>
+          
+								            <option value="amc">A.M.C</option>
+								          
+								            <option value="abadi">Abadi</option>
+								          
+								            <option value="acp">ACP</option>
+								          
+								            <option value="adama">Adama</option>
+								          
+								            <option value="adc">ADC</option>
+								          
+								            <option value="adi">ADI</option>
+								          
+								            <option value="advance_science">Advance Science</option>
+								          
+								            <option value="agan">Agan</option>
+								          
+								            <option value="agcare">Agcare</option>
+								          
+								            <option value="agria">Agria</option>
+								          
+								            <option value="agricare_viet_nam">Agricare Việt Nam</option>
+								          
+								            <option value="agriking">Agriking</option>
+								          
+								            <option value="agrimatco">Agrimatco</option>
+								          
+								            <option value="agrimor">Agrimor</option>
+								          
+								            <option value="agriphar">Agriphar</option>
+								          
+								            <option value="agritech">Agritech</option>
+								          
+								            <option value="agritech_hoa_ky">Agritech Hoa Kỳ</option>
+								          
+								            <option value="agro">Agro</option>
+								          
+								            <option value="agro_viet">Agro Việt</option>
+								          
+								            <option value="agrolex">Agrolex</option>
+								          
+								            <option value="agrotrade">Agrotrade</option>
+								          
+								            <option value="agspec">Agspec</option>
+								          
+								            <option value="aic">AIC</option>
+								          
+								            <option value="akita">Akita</option>
+								          
+								            <option value="alfa">Alfa</option>
+								          
+								            <option value="alzchem">AlzChem</option>
+								          
+								            <option value="amada">Amada</option>
+								          
+								            <option value="american">American</option>
+								          
+								            <option value="amvac">Amvac</option>
+								          
+								            <option value="an_giang">An Giang</option>
+								          
+								            <option value="an_hung_phat">An Hưng Phát</option>
+								          
+								            <option value="an_hung_tuong">An Hưng Tường</option>
+								          
+								            <option value="an_nong">An Nông</option>
+								          
+								            <option value="an_phu">An Phú</option>
+								          
+								            <option value="an_tam">An Tâm</option>
+								          
+								            <option value="an_thinh_phat">An Thịnh Phát</option>
+								          
+								            <option value="an_toan">An toàn</option>
+								          
+								            <option value="anh_dau_tien_giang">Anh Dẩu Tiền Giang</option>
+								          
+								            <option value="anh_re">Anh Rê</option>
+								          
+								            <option value="anh_tho">Anh Thơ</option>
+								          
+								            <option value="anhui">Anhui</option>
+								          
+								            <option value="apc">APC</option>
+								          
+								            <option value="arch">Arch</option>
+								          
+								            <option value="arysta">Arysta</option>
+								          
+								            <option value="arysta_l">Arysta L</option>
+								          
+								            <option value="asahi">Asahi</option>
+								          
+								            <option value="asia_care">Asia Care</option>
+								          
+								            <option value="asia_pacific">Asia Pacific</option>
+								          
+								            <option value="asiagro">Asiagro</option>
+								          
+								            <option value="asiatic">Asiatic</option>
+								          
+								            <option value="astec">Astec</option>
+								          
+								            <option value="atul">Atul</option>
+								          
+								            <option value="aventis">Aventis</option>
+								          
+								            <option value="a_chau_hn">Á Châu HN</option>
+								          
+								            <option value="a_chau_hs">Á Châu HS</option>
+								          
+								            <option value="anh_duong">Ánh Dương</option>
+								          
+								            <option value="baconco">Baconco</option>
+								          
+								            <option value="bailing">Bailing</option>
+								          
+								            <option value="basf_s">BASF S</option>
+								          
+								            <option value="basf_v">BASF V</option>
+								          
+								            <option value="bayer_c">Bayer C</option>
+								          
+								            <option value="bayer_v">Bayer V</option>
+								          
+								            <option value="ban_tay_viet">Bàn Tay Việt</option>
+								          
+								            <option value="bao_nong_viet">Bảo Nông Việt</option>
+								          
+								            <option value="bach_long">Bạch Long</option>
+								          
+								            <option value="bang_long">Bằng Long</option>
+								          
+								            <option value="bac_my">Bắc Mỹ</option>
+								          
+								            <option value="behn">Behn</option>
+								          
+								            <option value="bharat">Bharat</option>
+								          
+								            <option value="bhurnam">Bhurnam</option>
+								          
+								            <option value="bio">Bio</option>
+								          
+								            <option value="bion">Bion</option>
+								          
+								            <option value="bioworld">Bioworld</option>
+								          
+								            <option value="binh_chanh">Bình Chánh</option>
+								          
+								            <option value="binh_dien">Bình Điền</option>
+								          
+								            <option value="binh_phuong">Bình Phương</option>
+								          
+								            <option value="bmc">BMC</option>
+								          
+								            <option value="bong_sen_vang">Bông Sen Vàng</option>
+								          
+								            <option value="bon_dung">Bốn Đúng</option>
+								          
+								            <option value="brightonmax">Brightonmax</option>
+								          
+								            <option value="cai_lay">Cai Lậy</option>
+								          
+								            <option value="cali">Cali</option>
+								          
+								            <option value="caltex">Caltex</option>
+								          
+								            <option value="canopus">Canopus</option>
+								          
+								            <option value="canh_dong_viet">Cánh Đồng Việt</option>
+								          
+								            <option value="can_tho_dh">Cần Thơ ĐH</option>
+								          
+								            <option value="can_tho_ktnn">Cần Thơ KTNN</option>
+								          
+								            <option value="can_tho_tst">Cần Thơ TST</option>
+								          
+								            <option value="cec_viet_nam">CEC Việt Nam</option>
+								          
+								            <option value="celcure">Celcure</option>
+								          
+								            <option value="cerexagri">Cerexagri</option>
+								          
+								            <option value="certis">Certis</option>
+								          
+								            <option value="changzhou">Changzhou</option>
+								          
+								            <option value="cheminova">Cheminova</option>
+								          
+								            <option value="chemtura">Chemtura</option>
+								          
+								            <option value="chengdu">Chengdu</option>
+								          
+								            <option value="che_pham_sinh_hoc">Chế phẩm sinh học</option>
+								          
+								            <option value="chia_tai">Chia Tai</option>
+								          
+								            <option value="chien_thang">Chiến Thắng</option>
+								          
+								            <option value="chimac">Chimac</option>
+								          
+								            <option value="cong_nghe_cao">Công nghệ cao</option>
+								          
+								            <option value="cong_nghe_hoa_sinh">Công nghệ hoá sinh</option>
+								          
+								            <option value="cong_nghe_hoa_sinh_1">Công nghệ hóa sinh</option>
+								          
+								            <option value="cong_nghe_sinh_hoc">Công nghệ sinh học</option>
+								          
+								            <option value="co_dien">Cơ điện</option>
+								          
+								            <option value="crop">Crop</option>
+								          
+								            <option value="cropcare">Cropcare</option>
+								          
+								            <option value="cuu_long">Cửu Long</option>
+								          
+								            <option value="dalian">Dalian</option>
+								          
+								            <option value="degussa">Degussa</option>
+								          
+								            <option value="dekalb">Dekalb</option>
+								          
+								            <option value="dich_vu_ktnn">Dịch vụ KTNN</option>
+								          
+								            <option value="dich_vu_ky_thuat_nong_nghiep_tphcm">Dịch vụ Kỹ thuật Nông nghiệp TPHCM</option>
+								          
+								            <option value="dohaledusa">Dohaledusa</option>
+								          
+								            <option value="dona">DONA</option>
+								          
+								            <option value="dongbu">Dongbu</option>
+								          
+								            <option value="dow">Dow</option>
+								          
+								            <option value="dupont_v">DuPont V</option>
+								          
+								            <option value="dung_thien">Dũng Thiện</option>
+								          
+								            <option value="da_quoc_gia">Đa Quốc Gia</option>
+								          
+								            <option value="da_lat_hung">Đà Lạt Hùng</option>
+								          
+								            <option value="dai_duong">Đại Dương</option>
+								          
+								            <option value="dai_hoc_nong_lam_hcm">Đại học Nông Lâm HCM</option>
+								          
+								            <option value="dai_nam">Đại Nam</option>
+								          
+								            <option value="dai_nam_a">Đại Nam Á</option>
+								          
+								            <option value="dai_nong">Đại Nông</option>
+								          
+								            <option value="dat_nong">Đạt Nông</option>
+								          
+								            <option value="dang_phuc">Đăng Phúc</option>
+								          
+								            <option value="dang_vu">Đăng Vũ</option>
+								          
+								            <option value="dien_thanh">Điền Thạnh</option>
+								          
+								            <option value="dien_trang_xanh">Điền Trang Xanh</option>
+								          
+								            <option value="dien_ban">Điện Bàn</option>
+								          
+								            <option value="dien_ban_nam_bo">Điện Bàn Nam Bộ</option>
+								          
+								            <option value="dong_bac">Đông Bắc</option>
+								          
+								            <option value="dong_duong">Đông Dương</option>
+								          
+								            <option value="dong_bang_xanh">Đồng Bằng Xanh</option>
+								          
+								            <option value="dong_phat">Đồng Phát</option>
+								          
+								            <option value="dong_sao">Đồng Sao</option>
+								          
+								            <option value="dong_thap">Đồng Tháp</option>
+								          
+								            <option value="dong_vang">Đồng Vàng</option>
+								          
+								            <option value="dong_xanh">Đồng Xanh</option>
+								          
+								            <option value="duoc_mua">Được Mùa</option>
+								          
+								            <option value="duc_nong">Đức Nông</option>
+								          
+								            <option value="duc_thanh">Đức Thành</option>
+								          
+								            <option value="eastchem">Eastchem</option>
+								          
+								            <option value="enasa">ENASA</option>
+								          
+								            <option value="ensystex">Ensystex</option>
+								          
+								            <option value="evergreat">Evergreat</option>
+								          
+								            <option value="excel">Excel</option>
+								          
+								            <option value="fluides">Fluides</option>
+								          
+								            <option value="fmc">FMC</option>
+								          
+								            <option value="forward_i">Forward I</option>
+								          
+								            <option value="futai">Futai</option>
+								          
+								            <option value="gharda">Gharda</option>
+								          
+								            <option value="gia_phuc">Gia Phúc</option>
+								          
+								            <option value="gnc">GNC</option>
+								          
+								            <option value="gold_ocean">Gold Ocean</option>
+								          
+								            <option value="guangxi">Guangxi</option>
+								          
+								            <option value="guizhou_cvc">Guizhou CVC</option>
+								          
+								            <option value="hai">HAI</option>
+								          
+								            <option value="hai_lua_vang">Hai Lúa Vàng</option>
+								          
+								            <option value="hai_quy_nhon">HAI Quy Nhơn</option>
+								          
+								            <option value="hana">HANA</option>
+								          
+								            <option value="harina">Harina</option>
+								          
+								            <option value="hatashi">Hatashi</option>
+								          
+								            <option value="ha_long">Hà Long</option>
+								          
+								            <option value="ha_noi">Hà Nội</option>
+								          
+								            <option value="ha_noi_usa">Hà Nội (USA)</option>
+								          
+								            <option value="hai_binh">Hải Bình</option>
+								          
+								            <option value="hai_hang">Hải Hằng</option>
+								          
+								            <option value="hai_phong">Hải Phòng</option>
+								          
+								            <option value="hang_duy">Hằng Duy</option>
+								          
+								            <option value="helm">Helm</option>
+								          
+								            <option value="hextar">Hextar</option>
+								          
+								            <option value="hoa_kieu">Hoa Kiều</option>
+								          
+								            <option value="hoa_binh">Hoà Bình</option>
+								          
+								            <option value="hoang_an_1">Hoàng An</option>
+								          
+								            <option value="hoang_anh">Hoàng Anh</option>
+								          
+								            <option value="hoang_an">Hoàng Ân</option>
+								          
+								            <option value="hoang_kim_bao">Hoàng Kim Bảo</option>
+								          
+								            <option value="hoang_lan">Hoàng Lan</option>
+								          
+								            <option value="hoang_nong">Hoàng Nông</option>
+								          
+								            <option value="hokko">Hokko</option>
+								          
+								            <option value="hoa_chat_nn_i">Hóa chất NN I</option>
+								          
+								            <option value="hoa_nong_an_giang">Hóa Nông An Giang</option>
+								          
+								            <option value="hoc_mon_1">Hóc Môn</option>
+								          
+								            <option value="hop_tri">Hợp Trí</option>
+								          
+								            <option value="huikwang">Huikwang</option>
+								          
+								            <option value="hung_xiang">Hung Xiang</option>
+								          
+								            <option value="imaspro">Imaspro</option>
+								          
+								            <option value="imp">Imp</option>
+								          
+								            <option value="iprochem">Iprochem</option>
+								          
+								            <option value="irvita">Irvita</option>
+								          
+								            <option value="isagro">Isagro</option>
+								          
+								            <option value="itc">ITC</option>
+								          
+								            <option value="jia_non">Jia Non</option>
+								          
+								            <option value="jiangsu_b">Jiangsu B</option>
+								          
+								            <option value="jiangsu_e">Jiangsu E</option>
+								          
+								            <option value="jiangsu_f">Jiangsu F</option>
+								          
+								            <option value="jiangsu_k">Jiangsu K</option>
+								          
+								            <option value="jiangsu_r">Jiangsu R</option>
+								          
+								            <option value="jiangsu_w">Jiangsu W</option>
+								          
+								            <option value="jiangyin">Jiangyin</option>
+								          
+								            <option value="jingma">Jingma</option>
+								          
+								            <option value="kaken">Kaken</option>
+								          
+								            <option value="kasuta">Kasuta</option>
+								          
+								            <option value="kawa">Kawa</option>
+								          
+								            <option value="kayaku">Kayaku</option>
+								          
+								            <option value="kenso">Kenso</option>
+								          
+								            <option value="khanh_hung">Khanh Hưng</option>
+								          
+								            <option value="khanh_vy">Khanh Vy</option>
+								          
+								            <option value="khai_hoan">Khải Hoàn</option>
+								          
+								            <option value="khanh_phong">Khánh Phong</option>
+								          
+								            <option value="khoa_dang">Khoa Đăng</option>
+								          
+								            <option value="khu_trungtru_moi">Khử trùng-Trừ mối</option>
+								          
+								            <option value="khu_trung_viet_nam">Khử trùng Việt nam</option>
+								          
+								            <option value="kien_giang">Kiên Giang</option>
+								          
+								            <option value="kien_nam">Kiên Nam</option>
+								          
+								            <option value="kim_long">Kim Long</option>
+								          
+								            <option value="kim_son_nong">Kim Sơn Nông</option>
+								          
+								            <option value="kimia">Kimia</option>
+								          
+								            <option value="king_elong">King Elong</option>
+								          
+								            <option value="kital">Kital</option>
+								          
+								            <option value="koppers">Koppers</option>
+								          
+								            <option value="kosvida">Kosvida</option>
+								          
+								            <option value="ktnn_va_ptnt_trung_uong">KTNN và PTNT Trung ương</option>
+								          
+								            <option value="kuang_hwa">Kuang Hwa</option>
+								          
+								            <option value="kumiai">Kumiai</option>
+								          
+								            <option value="kureha">Kureha</option>
+								          
+								            <option value="labiofam">Labiofam</option>
+								          
+								            <option value="lan_anh">Lan Anh</option>
+								          
+								            <option value="lani">Lani</option>
+								          
+								            <option value="lg">LG</option>
+								          
+								            <option value="lien_nong">Liên nông</option>
+								          
+								            <option value="lien_viet">Liên Việt</option>
+								          
+								            <option value="lionchem">Lionchem</option>
+								          
+								            <option value="long_an">Long An</option>
+								          
+								            <option value="long_fat">Long Fat</option>
+								          
+								            <option value="long_hiep">Long Hiệp</option>
+								          
+								            <option value="long_hung">Long Hưng</option>
+								          
+								            <option value="long_phu">Long Phú</option>
+								          
+								            <option value="long_sinh">Long Sinh</option>
+								          
+								            <option value="longfat">Longfat</option>
+								          
+								            <option value="loc_troi">Lộc Trời</option>
+								          
+								            <option value="lucky">Lucky</option>
+								          
+								            <option value="lua_vang">Lúa Vàng</option>
+								          
+								            <option value="luong_nong">Lương Nông</option>
+								          
+								            <option value="luu_huynh_viet">Lưu Huỳnh Việt</option>
+								          
+								            <option value="luu_phan">Lưu Phan</option>
+								          
+								            <option value="m_q">M &amp; Q</option>
+								          
+								            <option value="makhteshim">Makhteshim</option>
+								          
+								            <option value="makhteshimagan">Makhteshim-Âgan</option>
+								          
+								            <option value="map">Map</option>
+								          
+								            <option value="mastra">Mastra</option>
+								          
+								            <option value="maxgrow">Maxgrow</option>
+								          
+								            <option value="mat_troi_vang">Mặt Trời Vàng</option>
+								          
+								            <option value="mebrom">Mebrom</option>
+								          
+								            <option value="mekong">Mekong</option>
+								          
+								            <option value="me_kong">Mê Kông</option>
+								          
+								            <option value="minh_khai">Minh Khai</option>
+								          
+								            <option value="minh_kien">Minh Kiến</option>
+								          
+								            <option value="minh_long">Minh Long</option>
+								          
+								            <option value="minh_long_phat">Minh Long Phát</option>
+								          
+								            <option value="minh_thanh">Minh Thành</option>
+								          
+								            <option value="mitsui">Mitsui</option>
+								          
+								            <option value="monsanto">Monsanto</option>
+								          
+								            <option value="mua_vang">Mùa Vàng</option>
+								          
+								            <option value="my_viet_duc">Mỹ Việt Đức</option>
+								          
+								            <option value="nagarjuna">Nagarjuna</option>
+								          
+								            <option value="nam_bac">Nam Bắc</option>
+								          
+								            <option value="nam_bo">Nam Bộ</option>
+								          
+								            <option value="nam_mekong">Nam Mekong</option>
+								          
+								            <option value="nam_nong">Nam Nông</option>
+								          
+								            <option value="nam_nong_phat">Nam Nông Phát</option>
+								          
+								            <option value="nam_viet">Nam Việt</option>
+								          
+								            <option value="napnutri">Napnutri</option>
+								          
+								            <option value="ngan_anh">Ngân Anh</option>
+								          
+								            <option value="ngoc_lam">Ngọc Lâm</option>
+								          
+								            <option value="ngoc_tung">Ngọc Tùng</option>
+								          
+								            <option value="ngoc_yen">Ngọc Yến</option>
+								          
+								            <option value="nguyen_viet_thang">Nguyên Việt Thắng</option>
+								          
+								            <option value="nha_ho">Nha Hố</option>
+								          
+								            <option value="nhat_nong">Nhất Nông</option>
+								          
+								            <option value="nhat_my">Nhật Mỹ</option>
+								          
+								            <option value="nhat_thanh">Nhật Thành</option>
+								          
+								            <option value="nhat_viet">Nhật Việt</option>
+								          
+								            <option value="nicotex">Nicotex</option>
+								          
+								            <option value="nissan">Nissan</option>
+								          
+								            <option value="nissei">Nissei</option>
+								          
+								            <option value="nohyaku">Nohyaku</option>
+								          
+								            <option value="nongfeng">Nongfeng</option>
+								          
+								            <option value="nordox">Nordox</option>
+								          
+								            <option value="novartis">Novartis</option>
+								          
+								            <option value="nong_duyen">Nông Duyên</option>
+								          
+								            <option value="nong_duoc">Nông dược</option>
+								          
+								            <option value="nong_duoc_nhat_ban">Nông dược Nhật Bản</option>
+								          
+								            <option value="nong_gia">Nông gia</option>
+								          
+								            <option value="nong_hung">Nông Hưng</option>
+								          
+								            <option value="nong_nghiep">Nông nghiệp</option>
+								          
+								            <option value="nong_nghiep_ben_vung">Nông nghiệp bền vững</option>
+								          
+								            <option value="nong_nghiep_hp">Nông nghiệp HP</option>
+								          
+								            <option value="nong_nghiep_tien_tien">Nông nghiệp Tiên Tiến</option>
+								          
+								            <option value="nong_nghiep_vang">Nông Nghiệp Vàng</option>
+								          
+								            <option value="nong_nghiep_xanh">Nông nghiệp Xanh</option>
+								          
+								            <option value="nong_phat">Nông Phát</option>
+								          
+								            <option value="nong_sinh">Nông Sinh</option>
+								          
+								            <option value="nong_thinh">Nông Thịnh</option>
+								          
+								            <option value="nong_tien">Nông Tiến</option>
+								          
+								            <option value="nong_tin_ag">Nông Tín AG</option>
+								          
+								            <option value="nong_trang">Nông Trang</option>
+								          
+								            <option value="nong_viet">Nông Việt</option>
+								          
+								            <option value="nufarm">Nufarm</option>
+								          
+								            <option value="oci_viet_nam">OCI Việt Nam</option>
+								          
+								            <option value="omega">Omega</option>
+								          
+								            <option value="otsuka">Otsuka</option>
+								          
+								            <option value="ph">P-H</option>
+								          
+								            <option value="pac">PAC</option>
+								          
+								            <option value="pace">Pace</option>
+								          
+								            <option value="phan_le">Phan Lê</option>
+								          
+								            <option value="phap_thuy_si">Pháp Thụy Sĩ</option>
+								          
+								            <option value="phat_an">Phát An</option>
+								          
+								            <option value="phat_trien_ky_thuat_va_chuyen_giao_cong_nghe">Phát triển kỹ thuật và chuyển giao công nghệ</option>
+								          
+								            <option value="phesol">Phesol</option>
+								          
+								            <option value="phong_phu">Phong Phú</option>
+								          
+								            <option value="phosphorus">Phosphorus</option>
+								          
+								            <option value="phong_tru_moi">Phòng trừ mối</option>
+								          
+								            <option value="phu_nong">Phú Nông</option>
+								          
+								            <option value="phuong_dong">Phương Đông</option>
+								          
+								            <option value="phuong_mai">Phương Mai</option>
+								          
+								            <option value="phuong_mai_xnk">Phương Mai XNK</option>
+								          
+								            <option value="phuong_nam">Phương Nam</option>
+								          
+								            <option value="phuoc_hung">Phước Hưng</option>
+								          
+								            <option value="psc_1">PSC 1</option>
+								          
+								            <option value="punjab">Punjab</option>
+								          
+								            <option value="quoc_te">Quốc tế</option>
+								          
+								            <option value="quynh_giao">Quỳnh Giao</option>
+								          
+								            <option value="rainbow">Rainbow</option>
+								          
+								            <option value="rallis">Rallis</option>
+								          
+								            <option value="rangsit">Rangsit</option>
+								          
+								            <option value="real_chemical">Real Chemical</option>
+								          
+								            <option value="rotam">Rotam</option>
+								          
+								            <option value="rvac">RVAC</option>
+								          
+								            <option value="sam">Sam</option>
+								          
+								            <option value="sankyo">Sankyo</option>
+								          
+								            <option value="sara">SARA</option>
+								          
+								            <option value="sai_gon">Sài Gòn</option>
+								          
+								            <option value="sds">SDS</option>
+								          
+								            <option value="search_chem">Search Chem</option>
+								          
+								            <option value="shandong">Shandong</option>
+								          
+								            <option value="siam">SIAM</option>
+								          
+								            <option value="sinh_nong">Sinh nông</option>
+								          
+								            <option value="sinh_thanh">Sinh Thành</option>
+								          
+								            <option value="sino">Sino</option>
+								          
+								            <option value="sinochem">Sinochem</option>
+								          
+								            <option value="sinon">Sinon</option>
+								          
+								            <option value="sitto">Sitto</option>
+								          
+								            <option value="sivex">Sivex</option>
+								          
+								            <option value="sk">SK</option>
+								          
+								            <option value="sny">SNY</option>
+								          
+								            <option value="soda">Soda</option>
+								          
+								            <option value="sojitz">Sojitz</option>
+								          
+								            <option value="song_ma">Song Mã</option>
+								          
+								            <option value="song_lam">Sông Lam</option>
+								          
+								            <option value="son_thanh">Sơn Thành</option>
+								          
+								            <option value="sumitomo">Sumitomo</option>
+								          
+								            <option value="summit">Summit</option>
+								          
+								            <option value="sundat">Sundat</option>
+								          
+								            <option value="sunseaco">Sunseaco</option>
+								          
+								            <option value="syngenta">Syngenta</option>
+								          
+								            <option value="syngenta_dong_nai">Syngenta Đồng Nai</option>
+								          
+								            <option value="tam_lap_thanh">Tam Lập Thành</option>
+								          
+								            <option value="tam_nong">Tam Nông</option>
+								          
+								            <option value="taminco">Taminco</option>
+								          
+								            <option value="tan_khanh_hung">Tân Khánh Hưng</option>
+								          
+								            <option value="tan_quy">Tân Quy</option>
+								          
+								            <option value="tan_thanh">Tân Thành</option>
+								          
+								            <option value="tan_hung">Tấn Hưng</option>
+								          
+								            <option value="thanh_dien">Thanh Điền</option>
+								          
+								            <option value="thanh_son">Thanh Sơn</option>
+								          
+								            <option value="thanh_xuan">Thanh Xuân</option>
+								          
+								            <option value="thanh_phuong">Thành Phương</option>
+								          
+								            <option value="thai_binh">Thái Bình</option>
+								          
+								            <option value="thai_binh_duong">Thái Bình Dương</option>
+								          
+								            <option value="thai_nam_viet">Thái Nam Việt</option>
+								          
+								            <option value="thai_nong">Thái Nông</option>
+								          
+								            <option value="thai_phong">Thái Phong</option>
+								          
+								            <option value="thanh_hung">Thạnh Hưng</option>
+								          
+								            <option value="thang_long">Thăng Long</option>
+								          
+								            <option value="than_nong_viet">Thần Nông Việt</option>
+								          
+								            <option value="thien_an">Thiên An</option>
+								          
+								            <option value="thien_nong">Thiên Nông</option>
+								          
+								            <option value="tho_khang">Thọ Khang</option>
+								          
+								            <option value="thon_trang">Thôn Trang</option>
+								          
+								            <option value="thu_loan">Thu Loan</option>
+								          
+								            <option value="thuan_hung">Thuận Hưng</option>
+								          
+								            <option value="thuan_thanh">Thuận Thành</option>
+								          
+								            <option value="thuoc_bvtv_mekong">Thuốc BVTV Mekong</option>
+								          
+								            <option value="thuoc_bvtv_usa">Thuốc BVTV USA</option>
+								          
+								            <option value="thuy_loi">Thuỷ lơi</option>
+								          
+								            <option value="tien_giang">Tiền Giang</option>
+								          
+								            <option value="tien_nong">Tiến Nông</option>
+								          
+								            <option value="toan_dien">Toàn Diện</option>
+								          
+								            <option value="toan_phat">Toàn Phát</option>
+								          
+								            <option value="to_ba">Tô Ba</option>
+								          
+								            <option value="to_dang_khoa">Tô Đăng Khoa</option>
+								          
+								            <option value="trang_nong">Trang Nông</option>
+								          
+								            <option value="trai_dat_xanh">Trái Đất Xanh</option>
+								          
+								            <option value="tran_vu">Trần Vũ</option>
+								          
+								            <option value="tri_van_nong">Trí Văn Nông</option>
+								          
+								            <option value="truong_danh">Trường Danh</option>
+								          
+								            <option value="truong_son">Trường Sơn</option>
+								          
+								            <option value="truong_thinh">Trường Thịnh</option>
+								          
+								            <option value="tuan_lam">Tuấn Lâm</option>
+								          
+								            <option value="tung_duong">Tùng Dương</option>
+								          
+								            <option value="upl">UPL</option>
+								          
+								            <option value="urania">Urania</option>
+								          
+								            <option value="us_agro">Us Agro</option>
+								          
+								            <option value="us_chemical">US Chemical</option>
+								          
+								            <option value="valent">Valent</option>
+								          
+								            <option value="van_nhat">Vân Nhất</option>
+								          
+								            <option value="vi_dan">Vi Dan</option>
+								          
+								            <option value="vicowin">Vicowin</option>
+								          
+								            <option value="vien_khang">Viễn Khang</option>
+								          
+								            <option value="vien_phat">Viễn Phát</option>
+								          
+								            <option value="vien_bong">Viện Bông</option>
+								          
+								            <option value="vien_bvtv">Viện BVTV</option>
+								          
+								            <option value="vien_cntp">Viện CNTP</option>
+								          
+								            <option value="vien_cong_nghe_sinh_hoc">Viện Công nghệ sinh học</option>
+								          
+								            <option value="vien_di_truyen">Viện Di truyền</option>
+								          
+								            <option value="vien_hat_nhan">Viện hạt nhân</option>
+								          
+								            <option value="vien_khktnn">Viện KHKTNN</option>
+								          
+								            <option value="vien_khoa_hoc_lam_ngiep">Viện Khoa học Lâm ngiệp</option>
+								          
+								            <option value="vien_lam_nghiep">Viện Lâm Nghiệp</option>
+								          
+								            <option value="vien_lua">Viện lúa</option>
+								          
+								            <option value="vien_phong_tru_moi">Viện phòng trừ mối</option>
+								          
+								            <option value="vien_sinh_thai">Viện Sinh thái</option>
+								          
+								            <option value="vien_vat_lieu">Viện Vật liệu</option>
+								          
+								            <option value="viet_binh_phat">Việt Bình Phát</option>
+								          
+								            <option value="viet_duc">Việt Đức</option>
+								          
+								            <option value="viet_duc_my">Việt Đức Mỹ</option>
+								          
+								            <option value="viet_ha">Việt Hà</option>
+								          
+								            <option value="viet_hoa_nong">Việt Hoá Nông</option>
+								          
+								            <option value="viet_hoa">Việt Hóa</option>
+								          
+								            <option value="viet_hoa_nong_1">Việt Hóa Nông</option>
+								          
+								            <option value="viet_nong">Việt Nông</option>
+								          
+								            <option value="viet_thanh">Việt Thành</option>
+								          
+								            <option value="viet_thang_ts">Việt Thăng TS</option>
+								          
+								            <option value="viet_thang">Việt Thắng</option>
+								          
+								            <option value="viet_thang_oto">Việt Thắng Ôtô</option>
+								          
+								            <option value="viet_tien">Việt Tiến</option>
+								          
+								            <option value="viet_trung">Việt Trung</option>
+								          
+								            <option value="viguato">Viguato</option>
+								          
+								            <option value="vina_suzuki">Vina Suzuki</option>
+								          
+								            <option value="vipes">Vipes</option>
+								          
+								            <option value="vipesco">Vipesco</option>
+								          
+								            <option value="vision">Vision</option>
+								          
+								            <option value="vinh_phuc">Vĩnh Phúc</option>
+								          
+								            <option value="vinh_thinh">Vĩnh Thịnh</option>
+								          
+								            <option value="voi_trang">Voi Trắng</option>
+								          
+								            <option value="vtnn_sai_gon">VTNN Sài Gòn</option>
+								          
+								            <option value="vy_tam">Vỹ Tâm</option>
+								          
+								            <option value="wonderful">Wonderful</option>
+								          
+								            <option value="xcel">X.C.E.L</option>
+								          
+								            <option value="zagro">Zagro</option>
+								          
+								            <option value="zeneca">Zeneca</option>
+								          
+								            <option value="zhejiang">Zhejiang</option>
+								          
+								            <option value="zhejiang_h">Zhejiang H</option>
+								          
+								            <option value="zhejiang_r">Zhejiang R</option>
+								          
+								            <option value="zicos">Zicos</option>
+								          
+								            <option value="zuellig">Zuellig</option> 
+										</select>
+									</div>
+								</div>
+
+								<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<div class="form-group">
+										<label for="">Dạng thuốc</label>
+										<select class="form-control selectpicker" id="select-country" data-live-search="true">
+											<option>-- Dạng thuốc --</option> 
+							              	<option>AB</option>
+							            
+							              	<option>AC</option>
+							            
+							              	<option>AL</option>
+							            
+							              	<option>AP</option>
+							            
+							              	<option>AS</option>
+							            
+							              	<optionoption>B</optionoption>optionoption
+							            
+							              	<optionoption>BFC</optionoption>
+							            
+							              	<optionoption>BR</optionoption>
+							            
+							              	<optionoption>CB</optionoption>
+							            
+							              	<optionoption>CP</optionoption>
+							            
+							              	<optionoption>CS</optionoption>
+							            
+							              	<optionoption>D</optionoption>
+							            
+							              	<optionoption>DC</optionoption>
+							            
+							              	<optionoption>DF</optionoption>
+							            
+							              	<optionoption>DG</optionoption>
+							            
+							              	<optionoption>DP</optionoption>
+							            
+							              	<optionoption>DS</optionoption>
+							            
+							              	<optionoption>E</optionoption>
+							            
+							              	<optionoption>EC</optionoption>
+							            
+							              	<optionoption>ES</optionoption>
+							            
+							              	<optionoption>EW</optionoption>
+							            
+							              	<optionoption>F</optionoption>
+							            
+							              	<optionoption>FC</optionoption>
+							            
+							              	<optionoption>FG</optionoption>
+							            
+							              	<option>FL</option>
+							            
+							              	<option>FS</option>
+							            
+							              	<option>FW</option>
+							            
+							              	<option>G</option>
+							            
+							              	<option>GB</option>
+							            
+							              	<option>GE</option>
+							            
+							              	<option>HP</option>
+							            
+							              	<option>IU</option>
+							            
+							              	<option>L</option>
+							            
+							              	<option>LA</option>
+							            
+							              	<option>LS</option>
+							            
+							              	<option>ME</option>
+							            
+							              	<option>MG</option>
+							            
+							              	<option>OD</option>
+							            
+							              	<option>OF</option>
+							            
+							              	<option>OL</option>
+							            
+							              	<option>P</option>
+							            
+							              	<option>PA</option>
+							            
+							              	<option>paste</option>
+							            
+							              	<option>PC</option>
+							            
+							              	<option>Pellet</option>
+							            
+							              	<option>pellete</option>
+							            
+							              	<option>RB</option>
+							            
+							              	<option>S</option>
+							            
+							              	<option>SC</option>
+							            
+							              	<option>SD</option>
+							            
+							              	<option>SE</option>
+							            
+							              	<option>SG</div>
+							            
+							              	<option>SL</option>
+							            
+							              	<option>SP</option>
+							            
+							              	<option>T</option>
+							            
+							              	<optionoption>Tab</option>
+							            
+							              	<option>TB</option>
+							            
+							              	<option >ULV</option>
+							            
+							              	<option>WG</option>
+							            
+							              	<option>WP</option>
+							            
+							              	<option>WS</option>
+							            
+							              	<option>WSC</option>
+							            
+							              	<option>WSG</option>
+							            
+							              	<option>WSP</option>
+							            
+							              	<option>WT</option>
+							            
+							              	<option>ZC</option> 
+										</select>
+									</div>
+								</div>
+		
+								<!-- <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+									<div class="form-group">
+										<label for="">Nhập mã số thuốc bvtv</label>
+										<input type="text" name="" id="input" class="form-control" placeholder="nhập mã số thuốc bvtv đầy đủ">
+									</div>
+								</div> -->
+
+								<a style="margin-right: 15px;" href="" class="btn btn-success navbar-right"><span class="glyphicon glyphicon-search"></span> Tra cứu</a>
+
+								<a style="margin-right: 10px;" href="" class="btn btn-default navbar-right"><span class="glyphicon glyphicon-refresh"></span></a>
+							</form>
+
+						</div><hr>
+						
+						
+						<div class="row result">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<table class="table table-bordered table-customize table-responsive table-hover">
+							    <thead>
+							        <tr>
+							            <th>STT</th>
+							            <th>Loại thuốc bvtv</th>
+							            <th>Tên thuốc bvtv</th>
+							            <th>Mã số thuốc bvtv</th>
+							            <th>Chỉ tiêu chất lượng/Thành phần hàm lượng dinh dưỡng</th>
+							            <th>Phương thức sử dụng</th>
+							            <th>Hướng dẫn sử dụng</th>
+							            <th>Thời gian sử dụng</th>
+							        </tr>
+							    </thead>
+							    <tbody>
+							        <tr>
+							            <td data-title="STT">1</td>
+							            <td data-title="Loại thuốc">Thuốc trừ mối</td>
+							            <td data-title="Tên thuốc">Thuốc ABC</td>
+							            <td data-title="Mã số" >T0001</td>
+							            <td data-title="CTCL">
+							            	Đạm kali ....
+							            </td>
+							            <td data-title="PTSD">Sử dụng ...</td>
+							            <td data-title="HDSD">Sử dụng ...</td>
+							            <td data-title="TGSD"> 1 tháng</td>
+							        </tr>
+
+							    </tbody>
+							</table>
+							</div>
+							
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br><br>
+
+	<footer class="page-footer font-small blue pt-4"
+		style="background-color:#e7e9ec;box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">
+		  	<!-- Footer Links -->
+		  	<div class="container text-center text-md-left">
+			    <!-- Grid row -->
+			    <div class="row">
+			      	<!-- Grid column -->
+			      	<div class="col-md-6 mt-md-0 mt-3 text-left">
+				        <!-- Content -->
+				        <h5 class="text-uppercase" style="color:#068142">
+				          <a href="#">
+				            <img src="../public/images/LOGO_WEB.png" alt="Logo" style="width:122px;height:40px;">
+				          </a>
+				        </h5>
+				        <p style="text-align: justify;">
+				          AGRIMATE được thành lập bởi những người trẻ tâm huyến sẵn sàng chia sẻ. Chúng tôi đề cao sự thay đổi, rèn luyện và luôn mong muốn mang đến một môi trường rèn luyện tốt hơn cho sinh viên học tại Hòa An nói riêng và CTU nói chung. Tại AGRIMATE, chúng tôi truyền cảm hứng cho những trái tim nhiệt huyết để trở thành những cá nhân tiên phong trong đổi mới, những nhà lãnh đạo hiệu quả trong tương lai đồng thời biết quan tâm sâu sắc đến vấn đề con người và có một tấm lòng khao khát cống hiến cho xã hội, cho quê hương.
+				        </p>
+			      	</div>
+			      <!-- Grid column -->
+
+			      	<!-- Grid column -->
+			      	<div class="col-md-3 mb-md-0 mb-3 text-left">
+				        <!-- Links -->
+				        <h5 class="text-uppercase" style="color:#068142"><strong>Địa chỉ</strong></h5>
+				        <ul class="list-unstyled">
+				          <li>
+				            <a href="#!" style="text-decoration:none;text-align: justify;">
+				              <i class="fa fa-map-marker"></i>&ensp;
+				              Đại học Cần Thơ Khu Hòa An - Số 554, Quốc lộ 61, Hòa Đức, Hòa An, Phụng Hiệp, Hậu Giang
+				            </a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;text-align: justify;">
+				              <i class="fa fa-phone"></i>&ensp;
+				              0901211249
+				            </a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;text-align: justify;">
+				              <i class="fa fa-envelope"></i>&ensp;
+				              hoaanteam@gmail.com
+				            </a>
+				          </li>
+				        </ul>
+
+			      	</div>
+			      	<!-- Grid column -->
+
+
+			      	<!-- Grid column -->
+			      	<div class="col-md-3 mb-md-0 mb-3 text-left">
+				        <!-- Links -->
+				        <h5 class="text-uppercase" style="color:#068142"><strong>Liên kết</strong></h5>
+				        <ul class="list-unstyled">
+				          <li>
+				            <a href="#!" style="text-decoration:none;">Trồng trọt</a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;">Thủy sản</a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;">Chăn nuôi</a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;">Luật</a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;">Giá thị trường</a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;">Tra cứu</a>
+				          </li>
+				        </ul>
+
+			      	</div>
+			      	<!-- Grid column -->
+
+			    </div>
+			    <!-- Grid row -->
+		  	</div>
+		  	<!-- Footer Links -->
+
+		  	<!-- Copyright -->
+		  	<div class="footer-copyright text-center py-3">© 2019 Copyright:
+		    	<a href="https://mdbootstrap.com/education/bootstrap/">Bootstrap.com</a>
+		  	</div>
+		  	<!-- Copyright -->
+
+		  	<style type="text/css" media="screen">
+			    #myBtn {
+			      	display: none;
+			      	position: fixed;
+			      	bottom: 10px;
+			      	right: 10px;
+			      	z-index: 99;
+			      	border:none;
+			      	outline: none;
+			      	background-color: orange;
+			      	color: white;
+			      	cursor: pointer;
+			      	padding: 5px;
+			      	border-radius: 5px;
+			      	font-size: 18px;
+			      	width:33px;
+			    }
+
+			    #myBtn:hover {
+			      background-color: rgba(0,0,0,0.5);/* Add a dark-grey background on hover */
+			    }
+		  	</style>
+		  
+		  	<!-- back_to_top -->
+		  	<button onclick="topFunction()" id="myBtn" title="Về đầu trang"><i class="fa fa-arrow-up"></i></button>
+		  	<!-- back_to_top -->
+
+		  	<script type="text/javascript">
+			    //Get the button:
+			    mybutton = document.getElementById("myBtn");
+
+			    // When the user scrolls down 20px from the top of the document, show the button
+			    window.onscroll = function() {scrollFunction()};
+
+			    function scrollFunction() {
+			      	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			        	mybutton.style.display = "block";
+			      	} else {
+			        	mybutton.style.display = "none";
+			      	}
+			    }
+
+			    // When the user clicks on the button, scroll to the top of the document
+			    function topFunction() {
+			      	document.body.scrollTop = 0; // For Safari
+			      	document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+			    }
+		  	</script>
+	</footer>
+
+	<script>
+		$('.select2').select2();
+	</script>
+	
+</body>
+</html>
+
+
+

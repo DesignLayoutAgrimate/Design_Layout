@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Đăng ký thành viên nhà nông - Agrimate</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="public/images/icon.png">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" rel="stylesheet" />
+</head>
+<body style="background-color: #177418;">
+
+	<style>
+		h2{
+			text-align: center;
+			font-family: arial;
+			font-weight: bold;
+			color: white;
+		}
+
+		.panel .panel-heading{
+			background-color: white;
+			border-bottom: 1px solid black;
+			border-bottom-style: 80%;
+		}
+
+		.panel{
+			border:1px solid black;
+			box-shadow: 1px 1px black;
+		}
+		
+		.panel .panel-heading h3{
+			text-align: center;
+			font-family: arial;
+			font-weight: bold;
+			color:#177418;
+		}
+
+		.panel .panel-body .form-group strong{
+			color:red;
+			font-size: 10px;
+		}
+
+		@media(max-width: 600px){
+			.panel .panel-body  input{
+				width: 100%;
+			}
+		}
+		
+	</style>
+	<br>
+	<div class="row">
+		<div class="container">
+			<h2>ĐĂNG KÝ THÀNH VIÊN NHÀ NÔNG AGRIMATE</h2>
+			<br>
+
+			<div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-md-push-1">
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title">THÔNG TIN NHÀ NÔNG</h3>
+					</div>
+					<div class="panel-body">
+						<form action="" method="POST" role="form">
+							
+							<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+								<div class="form-group">
+									<label for="">Tên nhà nông <strong><i class="glyphicon glyphicon-asterisk"></i></strong></label>
+									<input type="text" class="form-control" id="txt_ten" placeholder="Nhập tên nhà nông">
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+								<div class="form-group">
+									<label for="">Số điện thoại </label>
+									<input type="text" class="form-control" id="txt_sdt" placeholder="0859 123 234">
+								</div>
+							</div>
+							
+							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+								<div class="form-group">
+									<label for="">Email </label>
+									<input type="text" class="form-control" id="txt_email" placeholder="Someone@gmail.com">
+								</div>
+							</div>
+							
+							<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+								<div class="form-group">
+									<label for="">Địa chỉ </label>
+									<input type="text" class="form-control" id="txt_dia_chi" placeholder="Nhập số nhà và tên đường">
+								</div>
+							</div>
+							
+							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+								<div class="form-group">
+									<select class="form-control selectpicker" id="select-country" data-live-search="true">
+										<option>-- Chọn Tỉnh / Thành phố --</option> 
+							           	<option>Cà Mau</option> 
+							           	<option>Bạc Liêu</option> 
+							           	<option>Sóc Trăng</option> 
+							           	<option>Kiêng Giang</option> 
+							           	<option>Trà Vinh</option> 
+							           	<option>Cần Thơ</option> 
+							           	<option>Tp HCM</option> 
+									</select>
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+								<div class="form-group">
+									<select class="form-control selectpicker" id="select-country" data-live-search="true">
+										<option>-- Chọn Quận / Huyện --</option> 
+							           	<option>Cà Mau</option> 
+							           	<option>Bạc Liêu</option> 
+							           	<option>Sóc Trăng</option> 
+							           	<option>Kiêng Giang</option> 
+							           	<option>Trà Vinh</option> 
+							           	<option>Cần Thơ</option> 
+							           	<option>Tp HCM</option> 
+									</select>
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+								<div class="form-group">
+									<select class="form-control selectpicker" id="select-country" data-live-search="true">
+										<option>-- Chọn Xã / Phường --</option> 
+							           	<option>Cà Mau</option> 
+							           	<option>Bạc Liêu</option> 
+							           	<option>Sóc Trăng</option> 
+							           	<option>Kiêng Giang</option> 
+							           	<option>Trà Vinh</option> 
+							           	<option>Cần Thơ</option> 
+							           	<option>Tp HCM</option> 
+									</select>
+								</div>
+							</div>
+							
+							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+								<div class="form-group">
+									<label for="">Tạo mật khẩu <strong><i class="glyphicon glyphicon-asterisk"></i></strong></label>
+									<input type="password" class="form-control" id="txt_mk" placeholder="Nhập mật khẩu">
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+								<div class="form-group">
+									<label for="">Xác nhận mật khẩu <strong><i class="glyphicon glyphicon-asterisk"></i></strong></label>
+									<input type="password" class="form-control" id="txt_xnmk" placeholder="Nhập lại mật khẩu">
+								</div>
+							</div>
+							
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

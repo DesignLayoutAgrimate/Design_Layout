@@ -1,418 +1,1117 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="description" content="">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <!-- Title -->
-  <title>Agrimate - Nhà nông {{-- &amp; --}} | Home</title>
-  <!-- Favicon -->
-  <link rel="icon" href="public/img/core-img/favicon.ico">
-  <!-- Core Stylesheet -->
-  <link rel="stylesheet" href="public/style.css">
-  <link rel="shortcut icon" href="public/images/icon.png">
+	<meta charset="UTF-8">
+	<title>The Farmer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="public/images/icon.png">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+	<style>
+	    footer {
+	      background-color: #f2f2f2;
+	      padding: 25px;
+	    }
 
+	    .carousel-inner img {
+	      width: 100%;
+	      min-height: 200px;
+	    }
+	    
+	    /* reponsive_mobile */
+	    @media (max-width: 600px) {
+	      .carousel-caption {
+	        display: none; 
+	      }
+	      #myNavbar{
+	        border-top:2px solid #068142;
+	      }
+	      #search{
+	        display: none;
+	      }
+	      #icon_home{
+	        background-color: white;
+	      }
+	      #navbar{
+	        border-top:2px solid #068142;
+	      }
+	      #button_icon:hover{
+	        background-color: yellow;
+	      }
+	    }
+	    /* reponsive_mobile */
+
+	    /* reponsive_mobile_dropdown_menu */
+	    @media only screen and (min-width: 768px) {
+	      .dropdown:hover .dropdown-menu {
+	        display: block;
+	      }
+	    }
+	    /* reponsive_mobile_dropdown_menu */
+
+	    .responsive {
+	      max-width: 95%;
+	      height: 60px;
+	      margin:5px;
+	    }
+	    .dropdown #button_dropdown{
+	      border-radius: 2px;
+	      background-color:white;
+	    }
+  	</style>
+
+	<script type="text/javascript">
+	    $('.dropdown-toggle').click(function(e) {
+	      if ($(document).width() > 768) {
+	        e.preventDefault();
+	        var url = $(this).attr('href');
+	        if (url !== '#') {
+	          window.location.href = url;
+	        }
+	      }
+	    });
+
+	    $(document).ready(function(){
+	      $(".navbar-toggle").hover(function(){
+	        $(this).css("background-color", "yellow");
+	        }, function(){
+	        $(this).css("background-color", "white");
+	      });
+	    });
+	</script>
 </head>
 
-<body>
-  <!-- Preloader -->
-  <div class="preloader d-flex align-items-center justify-content-center">
-    <div class="spinner"></div>
-  </div>
+<body style="font-family: 'Roboto Slab', sans-serif;">
 
-  <!-- ##### Header Area Start ##### -->
-  <style>
-    .header-area .top-header-area p,span{
-      font-weight: bold;
-      font-size: 12px;
-      font-family: arial;
-    }
+	<style>
+		.navbar-inverse{
+			background-color:#dee3de;
+			border:0px solid white;
+			box-shadow: 0 2px 5px rgba(0,0,0,0.14), 0 2px 5px rgba(0,0,0,0.20);
+		}
 
-    .header-area .famie-main-menu .classynav li a{
-      font-weight: bold;
-      font-family: Times New Roman;
-      color: #52c548;
-    }
-  </style>
-  <header class="header-area">
-    <!-- Top Header Area -->
-    <div class="top-header-area">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="top-header-content d-flex align-items-center justify-content-between">
-              <!-- Top Header Content -->
-              <div class="top-header-meta">
-                <p>Chào mừng đến với <span>Agrimate/Nhà-nông</span>, Cầu nối bốn nhà</p>
-              </div>
-              <!-- Top Header Content -->
-              <div class="top-header-meta text-right">
-                <a href="#" data-toggle="tooltip" data-placement="bottom" title="infodeercreative@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> <span>Email: Hoaanteam@gmail.com</span></a>
-                <a href="#" data-toggle="tooltip" data-placement="bottom" title="+1 234 122 122"><i class="fa fa-phone" aria-hidden="true"></i> <span>Call Us: +84 123 456</span></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+		.navbar-inverse .navbar-nav li a{
+			height:70px;
+			color:#349031;
+			font-size:15px;
+			padding-top:22px;
+			font-weight: 700;
+		}
+	</style>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	  	<div class="container">
+		    <div class="navbar-header" id="navbar_border">
+		      	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"
+		      	style="margin-top:20px;border:2px solid #068142;background-color:white;">
+			        <span class="icon-bar" style="background-color:#068142"></span>
+			        <span class="icon-bar" style="background-color:#068142"></span>
+			        <span class="icon-bar" style="background-color:#068142"></span>                        
+		      	</button>
 
-    <!-- Navbar Area -->
-    <div class="famie-main-menu">
-      <div class="classy-nav-container breakpoint-off">
-        <div class="container">
-          <!-- Menu -->
-          <nav class="classy-navbar justify-content-between" id="famieNav">
-            <!-- Nav Brand -->
-            <a href="index.html" class="nav-brand"><img src="public/images/LOGO_WEB.png" alt=""></a>
-            <!-- Navbar Toggler -->
-            <div class="classy-navbar-toggler">
-              <span class="navbarToggler"><span></span><span></span><span></span></span>
-            </div>
-            <!-- Menu -->
-            <div class="classy-menu">
-              <!-- Close Button -->
-              <div class="classycloseIcon">
-                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-              </div>
-              <!-- Navbar Start -->
-              <div class="classynav">
-                <ul>
-                  <li class="active"><a href="">Trang chủ</a></li>
-                  <li><a href="">Cổng thông tin</a></li>
-                  <li><a href="">Kỹ thuật</a></li>
-                  <li><a href="">Phân bón</a></li>
-                  <li><a href="">Thuốc</a></li>
-                  <li><a href="">Luật</a></li>
-                  <li><a href="">Giá cả thị trường</a></li>
-                </ul>
-                <!-- Search Icon -->
-                <div id="searchIcon">
-                  <i class="icon_search" aria-hidden="true"></i>
-                </div>
-              </div>
-              <!-- Navbar End -->
-            </div>
-          </nav>
+		      	<button type="button" class="navbar-toggle" onclick="openSearch()"
+		      	style="margin-top:20px;border:2px solid #068142;padding:5.2px;background-color:white;">
+		        	<i class="fa fa-search" style="font-size:20px;color:#068142;width:25px;"></i>
+		      	</button>
 
-          <!-- Search Form -->
-          <div class="search-form">
-            <form action="#" method="get">
-              <input type="search" name="search" id="search" placeholder="Type keywords &amp; press enter...">
-              <button type="submit" class="d-none"></button>
-            </form>
-            <!-- Close Icon -->
-            <div class="closeIcon"><i class="fa fa-times" aria-hidden="true"></i></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-  <!-- ##### Header Area End ##### -->
+		      	<a href="index.html">
+		        	<img src="./public/image_icon/LOGO_WEB.png" class="responsive" alt="Logo">
+		      	</a>
+		    </div>
 
-  <!-- ##### Hero Area Start ##### -->
-  <div class="hero-area">
-    <div class="welcome-slides owl-carousel">
+		    <div id="navbar" class="navbar-collapse collapse">
+		      	<ul class="nav navbar-nav">
 
-      <!-- Single Welcome Slides -->
-      <div class="single-welcome-slides bg-img bg-overlay jarallax" style="background-image: url(public/img/bg-img/1.jpg);">
-        <div class="container h-100">
-          <div class="row h-100 align-items-center">
-            <div class="col-12 col-lg-10">
-              <div class="welcome-content">
-                <h2 data-animation="fadeInUp" data-delay="200ms">Nông nghiệp là một ngành kinh tế quan trọng trong nền kinh tế của nhiều nước.</h2>
-                <p data-animation="fadeInUp" data-delay="400ms">Nông nghiệp thuần túy hay còn gọi là nông nghiệp sinh nhai, đặc điểm là sản xuất có đầu vào thô sơ đầu ra chủ yếu phục vụ cho cá nhân hay gia đỉnh của người sản xuất.</p>
-                <a href="#" class="btn famie-btn mt-4" data-animation="bounceInUp" data-delay="600ms">Tìm hiểu thêm</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+			        <li style="background-color:#068142;border-radius:2px;">
+			          	<a href="index.html" style="height:70px;color:white;" id=> 
+			            	<i class="fa fa-home" style="font-size:33px;"></i>
+			          	</a>
+			        </li>
 
-      <!-- Single Welcome Slides -->
-      <div class="single-welcome-slides bg-img bg-overlay jarallax" style="background-image: url(public/img/bg-img/7.jpg);">
-        <div class="container h-100">
-          <div class="row h-100 align-items-center">
-            <div class="col-12 col-lg-10">
-              <div class="welcome-content">
-                <h2 data-animation="fadeInDown" data-delay="200ms">Nông nghiệp là một ngành kinh tế quan trọng trong nền kinh tế của nhiều nước.</h2>
-                <p data-animation="fadeInDown" data-delay="400ms">Nông nghiệp chuyên sâu là lĩnh vực nông nghiệp được chuyên môn hóa và chuyên biệt hóa hầu hết ở tất cả các khâu, có sử dụng máy móc hiện đại.</p>
-                <a href="#" class="btn famie-btn mt-4" data-animation="bounceInDown" data-delay="600ms">Tìm hiểu thêm</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+			        <li class="dropdown">
+			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="button_dropdown"aria-haspopup="true" aria-expanded="false" style="height:70px;color:#068142;font-size:15px;padding-top:22px; background-color: #dee3de">
+			            	<span>Trồng trọt</span> <span class="caret"></span>
+			          	</a>
 
-    </div>
-  </div>
-  <!-- ##### Hero Area End ##### -->
+			          	<ul class="dropdown-menu" style="border:1px solid #068142;font-size:14px;">
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Thuốc BVTV
+				              	</a>
+				            </li>
 
-  <!-- ##### Famie Benefits Area Start ##### -->
-  <style>
-    .famie-benefits-area h5{
-      font-family: arial;
-    }
-  </style>
-  <section class="famie-benefits-area section-padding-100-0 pb-5">
-    <div class="container">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align: center;
-      font-family: arial; color:black;">
-          <strong style="font-size: 30px; font-weight: 700;">Góc tra cứu</strong><br>
-          <img src="public/img/core-img/decor2.png" alt="">
-        </div><br><br>
-      <div class="row justify-content-center">
-        <!-- Single Benefits Area -->
-        <div class="col-12 col-sm-4 col-lg">
-          <div class="single-benefits-area wow fadeInUp mb-50" data-wow-delay="100ms">
-            <a href=""><img src="public/img/core-img/6.png" alt=""></a>
-            <h5>Kỹ thuật</h5>
-          </div>
-        </div>
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Phân bón
+				              	</a>
+				            </li>
 
-        <!-- Single Benefits Area -->
-        <div class="col-12 col-sm-4 col-lg">
-          <div class="single-benefits-area wow fadeInUp mb-50" data-wow-delay="300ms">
-            <a href=""><img src="public/img/core-img/4.png" alt=""></a>
-            <h5>Phân bón</h5>
-          </div>
-        </div>
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Kỹ thuật
+				              	</a>
+				            </li>
+			          	</ul>
+			        </li>
 
-        <!-- Single Benefits Area -->
-        <div class="col-12 col-sm-4 col-lg">
-          <div class="single-benefits-area wow fadeInUp mb-50" data-wow-delay="500ms">
-            <a href="{{ route('getFarmerTracuubvtv') }}"><img src="public/img/core-img/3.png" alt=""></a>
-            <h5>Thuốc bvtv</h5>
-          </div>
-        </div>
+			        <li class="dropdown">
+			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="button_dropdown"aria-haspopup="true" aria-expanded="false" style="height:70px;color:#068142;font-size:15px;padding-top:22px; background-color: #dee3de">
+			            	<span>Thủy sản</span> <span class="caret"></span>
+			          	</a>
 
-        <!-- Single Benefits Area -->
-        <div class="col-12 col-sm-4 col-lg">
-          <div class="single-benefits-area wow fadeInUp mb-50" data-wow-delay="700ms">
-            <a href=""><img src="public/img/core-img/1.png" alt=""></a>
-            <h5>Luật</h5>
-          </div>
-        </div>
+			          	<ul class="dropdown-menu" style="border:1px solid #068142;font-size:14px;">
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Thuốc thủy sản
+				              	</a>
+				            </li>
 
-        <!-- Single Benefits Area -->
-        <div class="col-12 col-sm-4 col-lg">
-          <div class="single-benefits-area wow fadeInUp mb-50" data-wow-delay="900ms">
-            <a href=""><img src="public/img/core-img/5.png" alt=""></a>
-            <h5>Giá cả thị trường</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Thức ăn 
+				              	</a>
+				            </li>
 
-  <!-- ##### Our Products Area Start ##### -->
-  <section class="our-products-area section-padding-100">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <!-- Section Heading -->
-          <div class="section-heading text-center">
-            <h2>Tin nhà nông nỗi bật</h2>
-            <img src="public/img/core-img/decor2.png" alt="">
-          </div>
-        </div>
-      </div>
-      
-      <style>
-        @media only screen and (max-width: 767px){
-          .an{
-            display: none;
-          }
-        }
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Kỹ thuật 
+				              	</a>
+				            </li>
+			          	</ul>
+			        </li>
 
-        .an h6{
-          font-family: arial;
+			        <li class="dropdown">
+			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="button_dropdown"aria-haspopup="true" aria-expanded="false" style="height:70px;color:#068142;font-size:15px;padding-top:22px; background-color: #dee3de">
+			            	<span>Chăn nuôi</span> <span class="caret"></span>
+			          	</a>
 
-        }
+			          	<ul class="dropdown-menu" style="border:1px solid #068142;font-size:14px;">
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Thuốc thú y
+				              	</a>
+				            </li>
 
-        .tin h6,p{
-          font-family: arial;
-        }
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Thức ăn
+				              	</a>
+				            </li>
 
-      </style>
-      <div class="row">
-        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 tin">
-          <div class="row">
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-              <img src="public/img/core-img/1.jpg" class="img-responsive" alt="Image">
-            </div>
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Kỹ thuật
+				              	</a>
+				            </li>
+			          	</ul>
+			        </li>
 
-            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-              <h6>Đà Lạt: Một nông dân lời 5 tỷ đồng mỗi năm từ 5ha trồng đủ thứ hoa</h6><br>
-              <p>Với 5ha nhà kính trồng các loại hoa như hoa cúc, cát tường, cẩm chướng, phi yến, hoa chuông đã giúp cho gia đình ông Bùi Văn Sỹ (54 tuổi, phường 11, TP. Đà Lạt, Lâm Đồng) có thu nhập 5 tỷ đồng mỗi năm. Trang trại hoa của ông Sỹ đã xuất khẩu hoa ra nước ngoài, góp phần nâng cao giá trị hoa Đà Lạt.</p>
-            </div>
+			        <li>
+			          	<a href="#">
+			            	<!-- <img src="./public/core-img/5.png" style="width:25px;height:25px;"> -->
+			            	<span>Luật</span>
+			          	</a>
+			        </li>
 
-          </div>
-          <hr>
+			        <li>
+			          	<a href="#">
+			            	<!-- <img src="./public/core-img/5.png" style="width:25px;height:25px;"> -->
+			            	<span>Giá thị trường</span>
+			          	</a>
+			        </li>
 
-          <div class="row">
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-              <img src="public/img/core-img/3.jpg" class="img-responsive" alt="Image">
-            </div>
+			        <li class="dropdown">
+			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="button_dropdown"aria-haspopup="true" aria-expanded="false" style="height:70px;color:#068142;font-size:15px;padding-top:22px; background-color: #dee3de">
+			            	<span>Tra cứu</span> <span class="caret"></span>
+			          	</a>
 
-            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-              <h6>Hòa Bình: Trồng thứ cây 'bán tất' từ lá, hạt, cành đến rễ</h6><br>
-              <p>Cây shachi mới được trồng ở Hòa Bình được 3 năm, nhưng nó đã bước đầu mang lại thu nhập cho người trồng. Cái hay là trồng cây shachi "bán được tất" từ lá, hoa, thân, cành cho đến rễ và vòng đời của nó kéo dài tới 20 năm.</p>
-            </div>
-          </div><hr>
-          
-          <div class="row">
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-              <img src="public/img/core-img/3.jpg" class="img-responsive" alt="Image">
-            </div>
+			          	<ul class="dropdown-menu" style="border:1px solid #068142;font-size:14px;">
+				            <li>
+				              	<a href="search_pesticides_on_plants.html" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Thuốc BVTV
+				              	</a>
+				            </li>
 
-            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-              <h6>Hòa Bình: Trồng thứ cây 'bán tất' từ lá, hạt, cành đến rễ</h6><br>
-              <p>Cây shachi mới được trồng ở Hòa Bình được 3 năm, nhưng nó đã bước đầu mang lại thu nhập cho người trồng. Cái hay là trồng cây shachi "bán được tất" từ lá, hoa, thân, cành cho đến rễ và vòng đời của nó kéo dài tới 20 năm.</p>
-            </div>
-          </div><hr>
+				            <li>
+				              	<a href="search_fertilizer.html" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Phân bón
+				              	</a>
+				            </li>
 
-          <div class="row">
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-              <img src="public/img/core-img/4.jpg" class="img-responsive" alt="Image">
-            </div>
+				            <li>
+				              	<a href="search_aquatic_drugs.html" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Thuốc thủy sản
+				              	</a>
+				            </li>
 
-            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-              <h6>Liên kết nuôi gà lãi 50.000 đồng/con, nông dân xin vào HTX</h6><br>
-              <p>Trước tình hình dịch tả lợn châu Phi diễn biến phức tạp, nhiều mô hình chăn nuôi gia cầm đã nở rộ tại nhiều địa phương trong thời gian gần đây. Đáng chú ý, ở một số nơi bà con nông dân đã nhìn ra những lợi ích lâu dài từ liên kết chăn nuôi theo chuỗi, chủ động xin tham gia HTX, bắt tay với doanh nghiệp để tiến...</p>
-            </div>
-          </div><hr>
-          
-        </div>
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Thuốc thú y
+				              	</a>
+				            </li>
 
-        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 an">
-          <img src="public/img/core-img/2.jpg" class="img-responsive" alt="Image">
-          <a href=""><h6>Kiên Giang: Nuôi tôm công nghệ cao, nông dân 'hốt bạc'</h6></a>
-          <br>
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Thức ăn
+				              	</a>
+				            </li>
 
-          <img src="public/img/core-img/2.jpg" class="img-responsive" alt="Image">
-          <a href=""><h6>Kiên Giang: Nuôi tôm công nghệ cao, nông dân 'hốt bạc'</h6></a>
-          <br>
+			          	</ul>
+			        </li>
 
-          <img src="public/img/core-img/2.jpg" class="img-responsive" alt="Image">
-          <a href=""><h6>Kiên Giang: Nuôi tôm công nghệ cao, nông dân 'hốt bạc'</h6></a>
-          <br>
-        </div>
+		      	</ul>
+		      <!-- end_ul -->
 
-      </div>
+		      	<ul class="nav navbar-nav navbar-right">
+		      		<li>
+			          	<a href="#" >
+			            	<img src="./public/image_icon/icon_dang_ky.png" style="width:25px;height:25px;">
+			            	Đăng ký
+			          	</a>
+			        </li>
 
-    </div>
-  </section>
-  <!-- ##### Our Products Area End ##### -->
+		        	<li>
+			          	<a href="#" >
+			            	<img src="./public/image_icon/icon_login.png" style="width:25px;height:25px;">
+			            	Đăng nhập
+			          	</a>
+			        </li>
+		      	</ul>
 
-  <!-- ##### Footer Area Start ##### -->
-  <footer class="footer-area">
-    <!-- Main Footer Area -->
-    <div class="main-footer bg-img bg-overlay section-padding-80-0" style="background-image: url(public/img/bg-img/3.jpg);">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-sm-6 col-lg-6">
-            <p style="color: white; font-weight: 500;">HOA AN TEAM được thành lập bởi những người trẻ tâm huyến sẵn sàng chia sẻ. Chúng tôi đề cao sự thay đổi, rèn luyện và luôn mong muốn mang đến một môi trường rèn luyện tốt hơn cho sinh viên học tại Hòa An nói riêng và CTU nói chung. Tại HOA AN TEAM, chúng tôi truyền cảm hứng cho những trái tim nhiệt huyết để trở thành những cá nhân tiên phong trong đổi mới, những nhà lãnh đạo hiệu quả trong tương lai đồng thời biết quan tâm sâu sắc đến vấn đề con người và có một tấm lòng khao khát cống hiến cho xã hội, cho quê hương.</p>
-          </div>
+		    </div>
+	    <!--/.nav-collapse -->
+	  </div>
+	</nav>
+	<br><br><br><br><br>
 
-          <!-- Single Footer Widget Area -->
-          <div class="col-12 col-sm-6 col-lg-3">
-            
-          </div>
 
-          <!-- Single Footer Widget Area -->
-          <div class="col-12 col-sm-6 col-lg-3">
-            <div class="footer-widget mb-80">
-              <h5 class="widget-title">KẾT NỐI VỚI CHÚNG TÔI</h5>
-              <!-- Footer Social Info -->
-              <div class="footer-social-info">
-                <a href="#">
-                  <i class="fa fa-facebook" aria-hidden="true"></i>
-                  <span>Facebook: </span>
-                </a>
-                <a href="#">
-                  <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                  <span>Email: Hoaanteam@gmail.com</span>
-                </a>
-                <a href="#">
-                  <i class="fa fa-phone" aria-hidden="true"></i>
-                  <span>Call Us: +84 123 456</span>
-                </a>
-              </div>
-            </div>
-          </div>
 
-        </div>
-      </div>
-    </div>
+	<style>
+		.tin_noi_bat .row1 h4{
+			font-weight: 700;
+			color: #2d7e2a;
+			padding-right: 10px;
+		}
 
-    <!-- Copywrite Area  -->
-    <div class="copywrite-area">
-      <div class="container">
-        <div class="copywrite-text">
-          <div class="row align-items-center">
-            <div class="col-md-4">
-              <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> Hoaanteam | Nhà-Nông-Agrimate</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</p>
-            </div>
-            <style>
-              .footer-nav ul li a{
-                font-weight: bold;
-                font-family: Times New Roman;
-                color: #52c548;
-              }
-            </style>
-            <div class="col-md-8">
-              <div class="footer-nav">
-                <nav>
-                  <ul>
-                    <li class="active"><a href="">Trang chủ</a></li>
-                    <li><a href="">Cổng thông tin</a></li>
-                    <li><a href="">Kỹ thuật</a></li>
-                    <li><a href="">Phân bón</a></li>
-                    <li><a href="">Thuốc</a></li>
-                    <li><a href="">Luật</a></li>
-                    <li><a href="">Giá cả thị trường</a></li>
-                  </ul>
-                </nav>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- ##### Footer Area End ##### -->
+		.tin_noi_bat .row1 a{
+			text-decoration: none;
+			color: #2d7e2a;
+			padding-top: 15px;
+			padding-right: 5px;
+		}
 
-  <!-- ##### All Javascript Files ##### -->
-  <!-- jquery 2.2.4  -->
-  <script src="public/js/jquery.min.js"></script>
-  <!-- Popper js -->
-  <script src="public/js/popper.min.js"></script>
-  <!-- Bootstrap js -->
-  <script src="public/js/bootstrap.min.js"></script>
-  <!-- Owl Carousel js -->
-  <script src="public/js/owl.carousel.min.js"></script>
-  <!-- Classynav -->
-  <script src="public/js/classynav.js"></script>
-  <!-- Wow js -->
-  <script src="public/js/wow.min.js"></script>
-  <!-- Sticky js -->
-  <script src="public/js/jquery.sticky.js"></script>
-  <!-- Magnific Popup js -->
-  <script src="public/js/jquery.magnific-popup.min.js"></script>
-  <!-- Scrollup js -->
-  <script src="public/js/jquery.scrollup.min.js"></script>
-  <!-- Jarallax js -->
-  <script src="public/js/jarallax.min.js"></script>
-  <!-- Jarallax Video js -->
-  <script src="public/js/jarallax-video.min.js"></script>
-  <!-- Active js -->
-  <script src="public/js/active.js"></script>
+		.tin_noi_bat hr{
+			margin-top: 0px;
+		}
+
+		@media (max-width: 600px){
+			.tin_noi_bat .row1 .col-xs-4{
+				padding-top: 10px;
+			}
+		}
+		
+		.tin_noi_bat .row2 .panel-body a{
+			text-decoration: none;
+		}
+	</style>
+	<div class="row tin_noi_bat">
+		<div class="container">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+				<div class="row row1">
+					<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+						<h4 class="navbar-left">Tin nhà nông nỗi bật</h4>
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<a href="" class="navbar-right">Xem thêm >></a>
+					</div>
+				</div><hr>
+
+				<div class="row row2">
+					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<img src="public/core-img/3.jpg" class="img-responsive" alt="Image">
+								<a href="">
+									<h4>Hòa Bình: Trồng thứ cây 'bán tất' từ lá, hạt, cành đến rễ</h4>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<img src="public/core-img/1.jpg" class="img-responsive" alt="Image">
+								<a href="">
+									<h4>Đà Lạt: Một nông dân lời 5 tỷ đồng mỗi năm từ 5ha trồng đủ thứ hoa</h4>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<img src="public/core-img/4.jpg" class="img-responsive" alt="Image">
+								<a href="">
+									<h4>Liên kết nuôi gà lãi 50.000 đồng/con, nông dân xin vào HTX</h4>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<img src="public/core-img/4.jpg" class="img-responsive" alt="Image">
+								<a href="">
+									<h4>Liên kết nuôi gà lãi 50.000 đồng/con, nông dân xin vào HTX</h4>
+								</a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				
+			</div>
+		</div>		
+	</div>
+	<br>
+
+
+	<style>
+		.tin_chuyen_muc .tin_ky_thuat .row .col-lg-9 p{
+			padding-top: 0px;
+		}
+		
+		.tin_chuyen_muc .tin_ky_thuat hr{
+			margin-top: 0px;
+		}
+		
+		#tieu_de{
+			font-weight: 700;
+			color: #2d7e2a;
+		}
+		
+		.tin_chuyen_muc .tin_phan_bon hr{
+			margin-top: 0px;
+		}
+		
+	</style>
+	<div class="row tin_chuyen_muc">
+		<div class="container">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+				<div class="row row1">
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 tin_ky_thuat">
+						<h4 class="navbar-left" id="tieu_de">Tin thủy sản nỗi bật</h4><br><br>
+						<hr>
+						
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="public/image_cac_muc/img_ky_thuat/1.jpg" class="img-responsive" alt="Image">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href="">
+									<h5><strong>Kỹ thuật phòng bệnh tổng hợp cho cá nuôi</strong></h5>
+								</a>
+								<p>Bài viết cung cấp những biện pháp kỹ thuật phòng bệnh tổng hợp cho cá nuôi để bà con tham khảo.</p>
+							</div>
+						</div><hr>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="public/image_cac_muc/img_ky_thuat/1.jpg" class="img-responsive" alt="Image">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href="">
+									<h5><strong>Kỹ thuật phòng bệnh tổng hợp cho cá nuôi</strong></h5>
+								</a>
+								<p>Bài viết cung cấp những biện pháp kỹ thuật phòng bệnh tổng hợp cho cá nuôi để bà con tham khảo.</p>
+							</div>
+						</div><hr>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="public/image_cac_muc/img_ky_thuat/1.jpg" class="img-responsive" alt="Image">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href="">
+									<h5><strong>Kỹ thuật phòng bệnh tổng hợp cho cá nuôi</strong></h5>
+								</a>
+								<p>Bài viết cung cấp những biện pháp kỹ thuật phòng bệnh tổng hợp cho cá nuôi để bà con tham khảo.</p>
+							</div>
+						</div><hr>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="public/image_cac_muc/img_ky_thuat/1.jpg" class="img-responsive" alt="Image">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href="">
+									<h5><strong>Kỹ thuật phòng bệnh tổng hợp cho cá nuôi</strong></h5>
+								</a>
+								<p>Bài viết cung cấp những biện pháp kỹ thuật phòng bệnh tổng hợp cho cá nuôi để bà con tham khảo.</p>
+							</div>
+						</div><hr>
+
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 tin_phan_bon">
+						<h4 class="navbar-left" id="tieu_de">Tin trồng trọt nỗi bật</h4><br><br>
+						<hr>
+						
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="public/image_cac_muc/img_phan_bon/1.jpg" class="img-responsive" alt="Image">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href="">
+									<h5><strong>Đa dạng thiết bị thông minh tự động tưới vườn cây</strong></h5>
+								</a>
+								<p>Hiện trên thị trường có rất nhiều thiết bị thông minh phục vụ cho việc tưới vườn như thiết bị điều khiển bằng tin nhắn</p>
+							</div>
+						</div><hr>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="public/image_cac_muc/img_phan_bon/1.jpg" class="img-responsive" alt="Image">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href="">
+									<h5><strong>Đa dạng thiết bị thông minh tự động tưới vườn cây</strong></h5>
+								</a>
+								<p>Hiện trên thị trường có rất nhiều thiết bị thông minh phục vụ cho việc tưới vườn như thiết bị điều khiển bằng tin nhắn</p>
+							</div>
+						</div><hr>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="public/image_cac_muc/img_phan_bon/1.jpg" class="img-responsive" alt="Image">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href="">
+									<h5><strong>Đa dạng thiết bị thông minh tự động tưới vườn cây</strong></h5>
+								</a>
+								<p>Hiện trên thị trường có rất nhiều thiết bị thông minh phục vụ cho việc tưới vườn như thiết bị điều khiển bằng tin nhắn</p>
+							</div>
+						</div><hr>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="public/image_cac_muc/img_phan_bon/1.jpg" class="img-responsive" alt="Image">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href="">
+									<h5><strong>Đa dạng thiết bị thông minh tự động tưới vườn cây</strong></h5>
+								</a>
+								<p>Hiện trên thị trường có rất nhiều thiết bị thông minh phục vụ cho việc tưới vườn như thiết bị điều khiển bằng tin nhắn</p>
+							</div>
+						</div><hr>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+
+	<style>
+		.tin_chuyen_muc .thuoc .row .col-lg-9 p{
+			padding-top: 0px;
+		}
+		
+		.tin_chuyen_muc .thuoc hr{
+			margin-top: 0px;
+		}
+
+		#tieu_de{
+			font-weight: 700;
+			color: #2d7e2a;
+		}
+
+		.tin_chuyen_muc .luat hr{
+			margin-top: 0px;
+		}
+		
+	</style>
+	<div class="row tin_chuyen_muc">
+		<div class="container">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+				<div class="row row1">
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 tin_thuoc">
+						<h4 class="navbar-left" id="tieu_de">Tin chăn nuôi nỗi bật</h4><br><br>
+						<hr>
+						
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="public/image_cac_muc/chan_nuoi/nong-dan-gioi.jpg" class="img-responsive" alt="Image" style="height: 100px;">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href="">
+									<h5><strong>Phú Thọ: Làm giàu từ nuôi thỏ New Zealand</strong></h5>
+								</a>
+								<p>Anh Hoàng Trung Tình, hội viên nông dân khu Đồng Hàng, xã Sơn Nga, huyện Cẩm Khê, Phú Thọ được nhiều ...</p>
+							</div>
+						</div><hr>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="public/image_cac_muc/chan_nuoi/nong-dan-gioi.jpg" class="img-responsive" alt="Image" style="height: 100px;">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href="">
+									<h5><strong>Phú Thọ: Làm giàu từ nuôi thỏ New Zealand</strong></h5>
+								</a>
+								<p>Anh Hoàng Trung Tình, hội viên nông dân khu Đồng Hàng, xã Sơn Nga, huyện Cẩm Khê, Phú Thọ được nhiều ...</p>
+							</div>
+						</div><hr>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="public/image_cac_muc/chan_nuoi/nong-dan-gioi.jpg" class="img-responsive" alt="Image" style="height: 100px;">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href="">
+									<h5><strong>Phú Thọ: Làm giàu từ nuôi thỏ New Zealand</strong></h5>
+								</a>
+								<p>Anh Hoàng Trung Tình, hội viên nông dân khu Đồng Hàng, xã Sơn Nga, huyện Cẩm Khê, Phú Thọ được nhiều ...</p>
+							</div>
+						</div><hr>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="public/image_cac_muc/chan_nuoi/nong-dan-gioi.jpg" class="img-responsive" alt="Image" style="height: 100px;">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href="">
+									<h5><strong>Phú Thọ: Làm giàu từ nuôi thỏ New Zealand</strong></h5>
+								</a>
+								<p>Anh Hoàng Trung Tình, hội viên nông dân khu Đồng Hàng, xã Sơn Nga, huyện Cẩm Khê, Phú Thọ được nhiều ...</p>
+							</div>
+						</div><hr>
+
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 tin_luat">
+						<h4 class="navbar-left" id="tieu_de">Tin luật nỗi bật</h4><br><br>
+						<hr>
+						
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="public/image_cac_muc/luat/1.jpg" class="img-responsive" alt="Image">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href="">
+									<h5><strong>NHIỀU ĐIỂM MỚI TRONG DỰ THẢO BỘ LUẬT LAO ĐỘNG (SỬA ĐỔI)</strong></h5>
+								</a>
+								<p>Bộ Lao động – Thương binh và Xã hội đang dự thảo Bộ luật Lao động (sửa đổi) với nhiều nội dung quan trọng</p>
+							</div>
+						</div><hr>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="public/image_cac_muc/luat/1.jpg" class="img-responsive" alt="Image">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href="">
+									<h5><strong>NHIỀU ĐIỂM MỚI TRONG DỰ THẢO BỘ LUẬT LAO ĐỘNG (SỬA ĐỔI)</strong></h5>
+								</a>
+								<p>Bộ Lao động – Thương binh và Xã hội đang dự thảo Bộ luật Lao động (sửa đổi) với nhiều nội dung quan trọng</p>
+							</div>
+						</div><hr>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="public/image_cac_muc/luat/1.jpg" class="img-responsive" alt="Image">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href="">
+									<h5><strong>NHIỀU ĐIỂM MỚI TRONG DỰ THẢO BỘ LUẬT LAO ĐỘNG (SỬA ĐỔI)</strong></h5>
+								</a>
+								<p>Bộ Lao động – Thương binh và Xã hội đang dự thảo Bộ luật Lao động (sửa đổi) với nhiều nội dung quan trọng</p>
+							</div>
+						</div><hr>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="public/image_cac_muc/luat/1.jpg" class="img-responsive" alt="Image">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href="">
+									<h5><strong>NHIỀU ĐIỂM MỚI TRONG DỰ THẢO BỘ LUẬT LAO ĐỘNG (SỬA ĐỔI)</strong></h5>
+								</a>
+								<p>Bộ Lao động – Thương binh và Xã hội đang dự thảo Bộ luật Lao động (sửa đổi) với nhiều nội dung quan trọng</p>
+							</div>
+						</div><hr>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	
+	<style>
+		.table-customize {
+			margin: 0;
+			border-radius: 4px;
+			overflow: hidden;
+			box-shadow: 0 0 0 1px #ccc inset;
+		}
+		.table-customize > thead > tr {
+			background-color: #535353;
+			border-radius: 3px 3px 0 0;
+		}
+		.table-customize > thead > tr > th {
+			color: #fff;
+			border-bottom: none;
+			padding: 10px 14px;
+			font-size: 14px;
+			font-weight: 400;
+			border: 1px solid rgba(0, 0, 0, 0.2);
+		}
+		.table-customize > thead > tr > th:first-child {
+			border-radius: 3px 0 0 0;
+			border-top: 1px solid rgba(0, 0, 0, 0.2);
+		}
+		.table-customize > thead > tr > th:last-child {
+			border-radius: 0 3px 0 0;
+		}
+		.table-customize > tbody > tr > td {
+			vertical-align: middle;
+			padding: 15px 14px;
+			color: #ccc;
+			font-size: 14px;
+			color: #000;
+			border: 1px solid #ccc;
+		}
+		.table-customize > tbody > tr > td a {
+			text-decoration: none;
+		}
+
+		.table-order > tbody > tr:nth-child(-n + 3) > td:first-child {
+			position: relative;
+			font-size: 10px;
+			font-weight: 700;
+		}
+		.table-order > tbody > tr:nth-child(-n + 3) > td:first-child span {
+			position: absolute;
+			left: 0;
+			right: 0;
+			margin: auto;
+			top: 14px;
+		}
+		.table-order > tbody > tr td:first-child, .table-order > tbody > tr th:first-child {
+			text-align: center;
+		}
+		@media (min-width: 320px) and (max-width: 767px) {
+			.table-responsive,
+			.table-responsive thead,
+			.table-responsive tbody,
+			.table-responsive th,
+			.table-responsive td,
+			.table-responsive tr {
+		    	display: block;
+		  	}
+		  	.table-responsive > thead > tr {
+		    	position: absolute;
+		    	top: -9999px;
+		    	left: -9999px;
+		  	}
+		  	.table-responsive > tbody > tr {
+		    	border-top: 1px solid #ccc;
+		    	border-bottom: 1px solid #ccc;
+		  	}
+		  	.table-responsive > tbody > tr:first-child {
+		    	border-radius: 3px 3px 0 0;
+		    	border-top: none;
+		  	}
+		  	.table-responsive > tbody > tr:last-child {
+		    	border-radius: 0 0 3px 3px;
+		    	border-bottom: none;
+		  	}
+		  	.table-responsive > tbody > tr td {
+			    border: none;
+			    border-bottom: 1px solid #ccc;
+			    position: relative;
+			    padding-left: 40% !important;
+			    width: 100%;
+			    overflow: hidden;
+		  	}
+		  	.table-responsive > tbody > tr td:before {
+			    content: attr(data-title);
+			    position: absolute;
+			    top: 15px;
+			    left: 14px;
+			    width: 30%;
+			    padding-right: 10px;
+			    white-space: nowrap;
+			    font-size: 14px;
+		  	}
+		  	.table-responsive > tbody > tr td:first-child {
+		    	text-align: left;
+		  	}
+		  	.table-responsive.table-order > tbody > tr:nth-child(-n + 3) > td:first-child {
+			    padding: 25px 0 25px 30% !important;
+			    background-position: left 32% center;
+		  	}
+			.table-responsive.table-order > tbody > tr:nth-child(-n + 3) > td:first-child span {
+		    	left: 32%;
+		  	}
+		}
+
+		.gia_thi_truong h4{
+			font-weight: 700;
+			color: #2d7e2a;
+		}
+
+		.gia_thi_truong .dongmo .nhom_gia ul li{
+			list-style-type: none;
+		}
+	</style>
+	<div class="row gia_thi_truong">
+		<div class="container">
+			
+			<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+				<h4>Giá thị trường mới cập nhật</h4>
+				<hr>
+
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<table class="table table-bordered table-customize table-responsive table-hover">
+						    <thead>
+						        <tr>
+						            <th>Tên</th>
+						            <th>Giá</th>
+						            <th>Xu hướng</th>
+						            <th>Ngày</th>
+						        </tr>
+						    </thead>
+						    <tbody>
+						        <tr>
+						            <td data-title="Tên">Tôm sú 40 con (ao)</td>
+						            <td data-title="Giá"><strong>150.000 đ</strong></td>
+						            <td data-title="Xu hướng" style="color: red;">
+						            	<span class="glyphicon glyphicon-arrow-up"></span> 5.000
+						            </td>
+						            <td data-title="Ngày">
+						            	<span class="glyphicon glyphicon-calendar"></span> 12-8-2019
+						            </td>
+						        </tr>
+
+						        <tr>
+						            <td data-title="Tên">Tôm thẻ 50 con/kg tại ao</td>
+						            <td data-title="Giá"><strong>133.000 đ</strong></td>
+						            <td data-title="Xu hướng" style="color: red;">
+						            	<span class="glyphicon glyphicon-arrow-down"></span> -2.000
+						            </td>
+						            <td data-title="Ngày">
+						            	<span class="glyphicon glyphicon-calendar"></span> 12-8-2019
+						            </td>
+						        </tr>
+
+						        <tr>
+						            <td data-title="Tên">Tôm sú loại 20 con tại ao</td>
+						            <td data-title="Giá"><strong>250.000 đ</strong></td>
+						            <td data-title="Xu hướng" style="color: red;">
+						            	<span class="glyphicon glyphicon-arrow-up"></span> 10.000
+						            </td>
+						            <td data-title="Ngày">
+						            	<span class="glyphicon glyphicon-calendar"></span> 12-8-2019
+						            </td>
+						        </tr>
+
+						        <tr>
+						            <td data-title="Tên">Tôm thẻ (100con/kg) tại ao</td>
+						            <td data-title="Giá"><strong>97.000 đ</strong></td>
+						            <td data-title="Xu hướng" style="color: red;">
+						            	<span class="glyphicon glyphicon-arrow-down"></span> -2.000
+						            </td>
+						            <td data-title="Ngày">
+						            	<span class="glyphicon glyphicon-calendar"></span> 12-8-2019
+						            </td>
+						        </tr>
+
+						    </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<!-- <style>
+				.dongmo .collapsible {
+				    background-color: #777;
+				    color: white;
+				    cursor: pointer;
+				    padding: 10px;
+				    width: 100%;
+				    border: none;
+				    text-align: left;
+				    outline: none;
+				    font-size: 16px;
+				    font-weight: bold;
+				}
+			
+				.dongmo .active, .collapsible:hover {
+				    background-color: #555;
+				}
+			
+				.dongmo .collapsible:after {
+				    content: '\002B';
+				    color: white;
+				    font-weight: bold;
+				    float: right;
+				    margin-left: 5px;
+				}
+			
+				.dongmo .active:after {
+				    content: "\2212";
+				}
+			
+				.content {
+				    padding-top: 10px;
+				    overflow: hidden;
+				    transition: max-height 0.2s ease-out;
+				    background-color: white;
+				    height: auto;
+				}
+			
+				.dongmo .content ul li{
+				    font-size: 16px;
+				}
+			
+			
+				.dongmo .content ul li a{
+				    text-decoration: none;
+				}
+			</style> -->
+			<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+				<h4>Nhóm giá thị trường</h4>
+				<hr>
+				<table class="table table-bordered table-customize table-responsive table-hover">
+					    <thead>
+					        <tr>
+					            <th>Nhóm</th>
+					        </tr>
+					    </thead>
+					    <tbody>
+					        <tr>
+					            <td data-title="Nhóm"><a href="">Trồng trọt</a></td>
+					        </tr>
+				
+					        <tr>
+					            <td data-title="Nhóm"><a href="">Thủy sản</a></td>
+					        </tr>
+				
+					        <tr>
+					            <td data-title="Nhóm"><a href="">Chăn nuôi</a></td>
+					        </tr>
+				
+					    </tbody>
+				</table>
+
+				<!-- <div class="dongmo">
+					<div class="panel-group" id="accordion">
+					    <div class="panel panel-default">
+					      	<div class="panel-heading" style="padding: 0px;">
+						        <h4 class="panel-title">
+						          	<button class="collapsible" data-toggle="collapse" data-parent="#accordion" href="#collapse1">Trồng trọt</button>
+						        </h4>
+					      	</div>
+					      	<div id="collapse1" class="panel-collapse collapse in nhom_gia">
+						        <div class="panel-body content">
+						        	<ul class="list-group">
+										<li class="list-group-item"><a href="">Thuốc BVTV</a></li>
+										<li class="list-group-item"><a href="">Phân bón</a></li>
+									</ul>
+						        </div>
+					      	</div>
+					    </div> Trồng trọt
+				
+					    <div class="panel panel-default">
+					      	<div class="panel-heading" style="padding: 0px;">
+						        <h4 class="panel-title">
+						          	<button class="collapsible" data-toggle="collapse" data-parent="#accordion" href="#collapse2">Thủy sản</button>
+						        </h4>
+					      	</div>
+					      	<div id="collapse2" class="panel-collapse collapse in">
+						        <div class="panel-body content">
+						        	<ul>
+										<li>Thuốc thủy sản</li>
+										<li>Thức ăn</li>
+									</ul>
+						        </div>
+					      	</div>
+					    </div> Thủy sản
+				
+					    <div class="panel panel-default">
+					      	<div class="panel-heading" style="padding: 0px;">
+						        <h4 class="panel-title">
+						          	<button class="collapsible" data-toggle="collapse" data-parent="#accordion" href="#collapse3">Chăn nuôi</button>
+						        </h4>
+					      	</div>
+					      	<div id="collapse3" class="panel-collapse collapse in">
+						        <div class="panel-body content">
+						        	<ul>
+										<li>Thuốc thú y</li>
+				
+										<li>Thức ăn</li>
+									</ul>
+						        </div>
+					      	</div>
+					    </div> Chăn nuôi
+					</div>  panel-group
+				</div> -->
+			</div>
+
+		</div>
+	</div>
+	<br><br>
+
+
+	<footer class="page-footer font-small blue pt-4"
+		style="background-color:#e7e9ec;box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">
+		  	<!-- Footer Links -->
+		  	<div class="container text-center text-md-left">
+			    <!-- Grid row -->
+			    <div class="row">
+			      	<!-- Grid column -->
+			      	<div class="col-md-6 mt-md-0 mt-3 text-left">
+				        <!-- Content -->
+				        <h5 class="text-uppercase" style="color:#068142">
+				          <a href="#">
+				            <img src="../public/images/LOGO_WEB.png" alt="Logo" style="width:122px;height:40px;">
+				          </a>
+				        </h5>
+				        <p style="text-align: justify;">
+				          AGRIMATE được thành lập bởi những người trẻ tâm huyến sẵn sàng chia sẻ. Chúng tôi đề cao sự thay đổi, rèn luyện và luôn mong muốn mang đến một môi trường rèn luyện tốt hơn cho sinh viên học tại Hòa An nói riêng và CTU nói chung. Tại AGRIMATE, chúng tôi truyền cảm hứng cho những trái tim nhiệt huyết để trở thành những cá nhân tiên phong trong đổi mới, những nhà lãnh đạo hiệu quả trong tương lai đồng thời biết quan tâm sâu sắc đến vấn đề con người và có một tấm lòng khao khát cống hiến cho xã hội, cho quê hương.
+				        </p>
+			      	</div>
+			      <!-- Grid column -->
+
+			      	<!-- Grid column -->
+			      	<div class="col-md-3 mb-md-0 mb-3 text-left">
+				        <!-- Links -->
+				        <h5 class="text-uppercase" style="color:#068142"><strong>Địa chỉ</strong></h5>
+				        <ul class="list-unstyled">
+				          <li>
+				            <a href="#!" style="text-decoration:none;text-align: justify;">
+				              <i class="fa fa-map-marker"></i>&ensp;
+				              Đại học Cần Thơ Khu Hòa An - Số 554, Quốc lộ 61, Hòa Đức, Hòa An, Phụng Hiệp, Hậu Giang
+				            </a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;text-align: justify;">
+				              <i class="fa fa-phone"></i>&ensp;
+				              0901211249
+				            </a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;text-align: justify;">
+				              <i class="fa fa-envelope"></i>&ensp;
+				              hoaanteam@gmail.com
+				            </a>
+				          </li>
+				        </ul>
+
+			      	</div>
+			      	<!-- Grid column -->
+
+
+			      	<!-- Grid column -->
+			      	<div class="col-md-3 mb-md-0 mb-3 text-left">
+				        <!-- Links -->
+				        <h5 class="text-uppercase" style="color:#068142"><strong>Liên kết</strong></h5>
+				        <ul class="list-unstyled">
+				          <li>
+				            <a href="#!" style="text-decoration:none;">Trồng trọt</a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;">Thủy sản</a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;">Chăn nuôi</a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;">Luật</a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;">Giá thị trường</a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;">Tra cứu</a>
+				          </li>
+				        </ul>
+
+			      	</div>
+			      	<!-- Grid column -->
+
+			    </div>
+			    <!-- Grid row -->
+		  	</div>
+		  	<!-- Footer Links -->
+
+		  	<!-- Copyright -->
+		  	<div class="footer-copyright text-center py-3">© 2019 Copyright:
+		    	<a href="https://mdbootstrap.com/education/bootstrap/">Bootstrap.com</a>
+		  	</div>
+		  	<!-- Copyright -->
+
+		  	<style type="text/css" media="screen">
+			    #myBtn {
+			      	display: none;
+			      	position: fixed;
+			      	bottom: 10px;
+			      	right: 10px;
+			      	z-index: 99;
+			      	border:none;
+			      	outline: none;
+			      	background-color: orange;
+			      	color: white;
+			      	cursor: pointer;
+			      	padding: 5px;
+			      	border-radius: 5px;
+			      	font-size: 18px;
+			      	width:33px;
+			    }
+
+			    #myBtn:hover {
+			      background-color: rgba(0,0,0,0.5);/* Add a dark-grey background on hover */
+			    }
+		  	</style>
+		  
+		  	<!-- back_to_top -->
+		  	<button onclick="topFunction()" id="myBtn" title="Về đầu trang"><i class="fa fa-arrow-up"></i></button>
+		  	<!-- back_to_top -->
+
+		  	<script type="text/javascript">
+			    //Get the button:
+			    mybutton = document.getElementById("myBtn");
+
+			    // When the user scrolls down 20px from the top of the document, show the button
+			    window.onscroll = function() {scrollFunction()};
+
+			    function scrollFunction() {
+			      	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			        	mybutton.style.display = "block";
+			      	} else {
+			        	mybutton.style.display = "none";
+			      	}
+			    }
+
+			    // When the user clicks on the button, scroll to the top of the document
+			    function topFunction() {
+			      	document.body.scrollTop = 0; // For Safari
+			      	document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+			    }
+		  	</script>
+	</footer>
+	
 </body>
-
 </html>

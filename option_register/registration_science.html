@@ -1,0 +1,628 @@
+<html>
+<head>
+	<title>Đăng ký thành viên Khoa Học Agrimate</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="images/icon.png">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+
+  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+  	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  	<script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+  
+  <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.css"> -->
+  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker.min.css"> 
+  	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker-standalone.css"> 
+  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.43/js/bootstrap-datetimepicker.min.js"></script>
+
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  	<link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
+
+  	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" rel="stylesheet" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+
+  	<link rel="stylesheet" href="./css/style.css">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin:auto;
+  margin-bottom: 15px;
+  text-align: center;
+  font-family: arial;
+}
+.title {
+  color: grey;
+  font-size: 18px;
+}
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+a{
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+button:hover, a:hover {
+  opacity: 0.7;
+}
+</style>
+</head>
+<body style="background-color:#004788;font-family: 'Roboto Condensed', sans-serif;">
+
+<div class="close-and-heavy" align="center">
+  <h2><b>ĐĂNG KÝ THÀNH VIÊN NHÀ KHOA HỌC AGRIMATE</b></h2>
+</div>
+
+<div class="container" style="border-radius:3px;background-color:white; margin-bottom:10px;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);padding-top:15px;padding-bottom:5px;"
+ng-app="myApp" ng-controller="myCtrl">
+
+  <fieldset class="scheduler-border">
+    <div class="control-group">
+      <form action="" method="POST" role="form">
+      	<legend style="color:#004788;">THÔNG TIN ĐĂNG KÝ</legend>
+        <!-- ------------------------- -->
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              <span style="font-size:18px;text-align:right;">Tên nhà khoa học</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <input type="text" class="form-control" id="" placeholder="Nhập tên nhà khoa học">
+            </div>
+          </div>
+          <!-- -- -->
+        </div>
+        <!-- ------------------------- -->
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              <span style="font-size:18px;text-align:right;">Ngày sinh</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+              <input type="date" name="" id="input" class="form-control" value="" required="required" title="">
+            </div>
+          </div>
+          <!-- -- -->
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              <span style="font-size:18px;text-align:right;">Quê quán</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+              	<select class="form-control selectpicker" id="select-country" data-live-search="true">
+					<option>-- Chọn Tỉnh / Thành phố --</option> 
+		           	<option>Cà Mau</option> 
+		           	<option>Bạc Liêu</option> 
+		           	<option>Sóc Trăng</option> 
+		           	<option>Kiêng Giang</option> 
+		           	<option>Trà Vinh</option> 
+		           	<option>Cần Thơ</option> 
+		           	<option>Tp HCM</option> 
+				</select>
+            </div>
+          </div>
+          <!-- -- -->
+        </div>
+		
+		<div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              <span style="font-size:18px;text-align:right;">Giới tính</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+              	<select name="txt_sex" value="txt_sex" id="input" class="form-control" 
+              	>
+					<option value="nam">Nam</option>
+					<option value="nu">Nữ</option>
+				</select>
+            </div>
+          </div>
+          <!-- -- -->
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              <span style="font-size:18px;text-align:right;">Dân tộc</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+              	<select class="form-control selectpicker" id="select-country" data-live-search="true">
+					<option>-- Chọn dân tộc --</option> 
+		           	<option>Kinh</option> 
+		           	<option>Hoa</option> 
+		           	<option>Khmer</option> 
+		           	<option>Chăm</option> 
+		           	<option>Tày</option> 
+		           	<option>Mông</option> 
+				</select>
+            </div>
+          </div>
+          <!-- -- -->
+        </div>
+
+        <!-- ------------------------- -->
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              <span style="font-size:18px;text-align:right;">Email</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <input type="text" class="form-control" id="" placeholder="Nhập email cá nhân">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
+          </div>
+          <!-- -- -->
+        </div>
+        <!-- ------------------------- -->
+
+
+        <!-- ------------------------- -->
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              <span style="font-size:18px;text-align:right;">Chức vụ</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <input type="text" class="form-control" id="" placeholder="Nhập chức vụ">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
+          </div>
+          <!-- -- -->
+        </div>
+        <!-- ------------------------- -->
+
+        <!-- ------------------------- -->
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              <span style="font-size:18px;text-align:right;">Điện thoại</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+               <input type="number" class="form-control" id="" placeholder="Nhập điện thoại di động cá nhân">
+            </div>
+          </div>
+          <!-- -- -->
+        </div>
+        <!-- ------------------------- -->
+
+
+        <!-- ------------------------- -->
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              <span style="font-size:18px;text-align:right;">Số Fax</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <input type="text" class="form-control" id="" placeholder="Nhập số fax">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
+          </div>
+          <!-- -- -->
+        </div>
+        <!-- ------------------------- -->
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              <span style="font-size:18px;text-align:right;">Địa chỉ cá nhân</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              	<input type="text" class="form-control" id="txt_dia_chi" placeholder="Nhập số nhà và tên đường">
+            </div>
+
+          </div>
+          <!-- -- -->
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+              	<select class="form-control selectpicker" id="select-country" data-live-search="true">
+					<option>-- Chọn Tỉnh / Thành phố --</option> 
+		           	<option>Cà Mau</option> 
+		           	<option>Bạc Liêu</option> 
+		           	<option>Sóc Trăng</option> 
+		           	<option>Kiêng Giang</option> 
+		           	<option>Trà Vinh</option> 
+		           	<option>Cần Thơ</option> 
+		           	<option>Tp HCM</option> 
+				</select>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+              	<select class="form-control selectpicker" id="select-country" data-live-search="true">
+					<option>-- Chọn Quận / Huyện --</option> 
+		           	<option>Cà Mau</option> 
+		           	<option>Bạc Liêu</option> 
+		           	<option>Sóc Trăng</option> 
+		           	<option>Kiêng Giang</option> 
+		           	<option>Trà Vinh</option> 
+		           	<option>Cần Thơ</option> 
+		           	<option>Tp HCM</option> 
+				</select>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            	<select class="form-control selectpicker" id="select-country" data-live-search="true">
+					<option>-- Chọn Xã / Phường --</option> 
+		           	<option>Cà Mau</option> 
+		           	<option>Bạc Liêu</option> 
+		           	<option>Sóc Trăng</option> 
+		           	<option>Kiêng Giang</option> 
+		           	<option>Trà Vinh</option> 
+		           	<option>Cần Thơ</option> 
+		           	<option>Tp HCM</option> 
+				</select>
+            </div>
+            
+          </div>
+          <!-- -- -->
+        </div>
+        <br>
+
+        <legend style="color:#004788;">XÁC THỰC CƠ QUAN NHÀ KHOA HỌC</legend>
+		<div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              <span style="font-size:18px;text-align:right;">Tên cơ quan làm việc</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <input type="text" class="form-control" id="" placeholder="Nhập tên cơ quan làm việc">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
+          </div>
+          <!-- -- -->
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              <span style="font-size:18px;text-align:right;">Email cơ quan</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <input type="text" class="form-control" id="" placeholder="Nhập email cơ quan">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
+          </div>
+          <!-- -- -->
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              <span style="font-size:18px;text-align:right;">Điện thoại cơ quan</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+               <input type="number" class="form-control" id="" placeholder="Nhập điện thoại di động cơ quan">
+            </div>
+          </div>
+          <!-- -- -->
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              <span style="font-size:18px;text-align:right;">Học hàm/Học vị</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+               <select class="form-control selectpicker" id="select-country" data-live-search="true">
+					<option>-- Chọn Học hàm / Học vị --</option> 
+		           	<option>Kỹ sư</option> 
+		           	<option>Thạc sỹ</option> 
+		           	<option>Tiến sỹ</option> 
+		           	<option>Phó giáo sư</option> 
+		           	<option>Giáo sư</option> 
+				</select>
+            </div>
+          </div>
+          <!-- -- -->
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              <span style="font-size:18px;text-align:right;">Địa chỉ cơ quan làm việc</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              	<input type="text" class="form-control" id="txt_dia_chi" placeholder="Nhập số nhà và tên đường">
+            </div>
+
+          </div>
+          <!-- -- -->
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+              	<select class="form-control selectpicker" id="select-country" data-live-search="true">
+					<option>-- Chọn Tỉnh / Thành phố --</option> 
+		           	<option>Cà Mau</option> 
+		           	<option>Bạc Liêu</option> 
+		           	<option>Sóc Trăng</option> 
+		           	<option>Kiêng Giang</option> 
+		           	<option>Trà Vinh</option> 
+		           	<option>Cần Thơ</option> 
+		           	<option>Tp HCM</option> 
+				</select>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+              	<select class="form-control selectpicker" id="select-country" data-live-search="true">
+					<option>-- Chọn Quận / Huyện --</option> 
+		           	<option>Cà Mau</option> 
+		           	<option>Bạc Liêu</option> 
+		           	<option>Sóc Trăng</option> 
+		           	<option>Kiêng Giang</option> 
+		           	<option>Trà Vinh</option> 
+		           	<option>Cần Thơ</option> 
+		           	<option>Tp HCM</option> 
+				</select>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            	<select class="form-control selectpicker" id="select-country" data-live-search="true">
+					<option>-- Chọn Xã / Phường --</option> 
+		           	<option>Cà Mau</option> 
+		           	<option>Bạc Liêu</option> 
+		           	<option>Sóc Trăng</option> 
+		           	<option>Kiêng Giang</option> 
+		           	<option>Trà Vinh</option> 
+		           	<option>Cần Thơ</option> 
+		           	<option>Tp HCM</option> 
+				</select>
+            </div>
+            
+          </div>
+          <!-- -- -->
+        </div>
+        <br>
+		
+		<legend style="color:#004788;">XÁC THỰC NHÀ KHOA HỌC</legend>
+		<div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              	<span style="font-size:18px;text-align:right;">Bằng cấp</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              	<input type='file'>
+              	<span class='button'><i class='far fa-file-image' style='font-size:20px'></i> Chọn ảnh</span>
+              	<span class='label' data-js-label></label>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
+          </div>
+          <!-- -- -->
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              	<span style="font-size:18px;text-align:right;">Chứng nhận / Chứng chỉ</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              	<input type='file'>
+              	<span class='button'><i class='far fa-file-image' style='font-size:20px'></i> Chọn ảnh</span>
+              	<span class='label' data-js-label></label>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
+          </div>
+          <!-- -- -->
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              	<span style="font-size:18px;text-align:right;">Ngoại ngữ</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              	<input type='file'>
+              	<span class='button'><i class='far fa-file-image' style='font-size:20px'></i> Chọn ảnh</span>
+              	<span class='label' data-js-label></label>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
+          </div>
+          <!-- -- -->
+        </div>
+
+        <!-- <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              	<span style="font-size:18px;text-align:right;">Cơ quan đã công tác chuyên môn gần đây nhất</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+              	<input type="text" class="form-control" placeholder="Tên cơ quan">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            	<input type="text" class="form-control" placeholder="2010 - nay">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            	<input type="text" class="form-control" placeholder="Tên công việc đảm trách">
+            </div>
+          </div>
+          --
+        </div>
+        
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              	<span style="font-size:18px;text-align:right;">Đề tài nghiên cứu khoa học thực hiện gần đây</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+              	<input type="text" class="form-control" placeholder="Tên đề tài">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            	<select class="form-control selectpicker" id="select-country" data-live-search="true">
+        					<option>-- Năm hoàn thành --</option> 
+        		           	<option>2010</option> 
+        		           	<option>2011</option> 
+        		           	<option>2012</option> 
+        		           	<option>2013</option> 
+        		           	<option>2014</option> 
+        		           	<option>2015</option> 
+        		           	<option>2016</option> 
+        		           	<option>2017</option> 
+        		           	<option>2018</option> 
+        		           	<option>2019</option> 
+        				</select>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            	<select class="form-control selectpicker" id="select-country" data-live-search="true">
+        					<option>-- Đề tài cấp --</option> 
+        		           	<option>Trường</option> 
+        		           	<option>Địa phương</option> 
+        		           	<option>Quận huyện</option> 
+        		           	<option>Thành phố</option> 
+        		           	<option>Tỉnh</option> 
+        		           	<option>Nhà nước</option> 
+        				</select>
+            </div>
+          </div>
+          --
+        </div>
+        
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              	<span style="font-size:18px;text-align:right;">Sách hoặc giáo trình xuất bản gần đây</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+              	<input type="text" class="form-control" placeholder="Tên sách">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            	<select class="form-control selectpicker" id="select-country" data-live-search="true">
+        					<option>-- Năm xuất bản --</option> 
+        		           	<option>2010</option> 
+        		           	<option>2011</option> 
+        		           	<option>2012</option> 
+        		           	<option>2013</option> 
+        		           	<option>2014</option> 
+        		           	<option>2015</option> 
+        		           	<option>2016</option> 
+        		           	<option>2017</option> 
+        		           	<option>2018</option> 
+        		           	<option>2019</option> 
+        				</select>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            	<select class="form-control selectpicker" id="select-country" data-live-search="true">
+        					<option>-- Nhà xuất bản --</option> 
+        		           	<option>Đại học cần thơ</option> 
+        		           	<option>Kim đồng</option> 
+        		           	<option>NXB khoa học</option> 
+        				</select>
+            </div>
+          </div>
+          --
+        </div>
+        
+        <div class="form-group">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col_3_label">
+              	<span style="font-size:18px;text-align:right;">Lĩnh vực nghiên cứu khoa học chính</span>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+              	<input type="text" class="form-control" placeholder="tên lĩnh vực">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            	<input type="text" class="form-control" placeholder="tên lĩnh vực">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            	<input type="text" class="form-control" placeholder="tên lĩnh vực">
+            </div>
+          </div>
+          --
+        </div> -->
+
+
+        <hr style="border:1px solid orange;">
+  <fieldset class="scheduler-border">
+    <legend class="scheduler-border" style="color:orange;">CHÚ Ý *****</legend>
+    <div class="control-group">
+        <p style="text-align:justify;line-height:30px;">
+          ✔ Trang Agrimate sẽ email đến cơ quan hiện tại để xác nhận lại những thông tin đăng ký là đúng trước khi đăng tải.
+          <br>
+    
+          ✔ Nhà khoa học có thể TẢI FORM ĐĂNG KÝ về, điền đẩy đủ thông tin và gửi về Trang Agrimate 
+          <span style="background-color:#fff176;">(Sẽ được ưu tiên hiển thị cao hơn, được cập nhật nhanh hơn ).</span><br>
+
+          ➦ Hỗ trợ trực tiếp, Hotline: 0901211249<br>
+
+          ➦ Scan hoặc chụp ảnh và gửi về địa chỉ email: hoaanteam@gmail.com; agrimate.vn@gmail.com<br>
+
+          ➦ Fax nội dung về số Fax: 04. 3636 9371 <br>
+
+          ➦ Gửi chuyển phát nhanh EMS hoặc thư về địa chỉ phía bên dưới.
+        </p>
+        <p style="text-align:justify;line-height:30px;font-size:18px;">
+          <span style="color:green;"><b>TRANG AGRIMATE</b></span><br>
+
+          Hậu Giang:  Đại học Cần Thơ Khu Hòa An - Số 554, Quốc lộ 61, Hòa Đức, Hòa An, Phụng Hiệp, Hậu Giang. <br>
+
+          Hotline: 0901211249 <br>
+
+          Email: hoaanteam@gmail.com; agrimate.vn@gmail.com
+        </p>
+    </div>
+  </fieldset>
+
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block">ĐĂNG KÝ</button>
+      </form>
+    </div>
+  </fieldset>
+
+  
+
+
+</div>
+
+
+<script type="text/javascript" src="js/script.js"></script>
+
+<a id="button"></a>
+
+<script type="text/javascript">
+  var btn = $('#button');
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > 300) {
+      btn.addClass('show');
+    } else {
+      btn.removeClass('show');
+    }
+  });
+  btn.on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({scrollTop:0}, '300');
+  });
+</script>
+
+</body>
+</html>

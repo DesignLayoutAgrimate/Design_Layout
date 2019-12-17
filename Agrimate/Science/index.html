@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Science</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="public/images/icon.png">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+
+	<style>
+	    footer {
+	      background-color: #f2f2f2;
+	      padding: 25px;
+	    }
+
+	    .carousel-inner img {
+	      width: 100%;
+	      min-height: 200px;
+	    }
+	    
+	    /* reponsive_mobile */
+	    @media (max-width: 600px) {
+	      .carousel-caption {
+	        display: none; 
+	      }
+	      #myNavbar{
+	        border-top:2px solid #068142;
+	      }
+	      #search{
+	        display: none;
+	      }
+	      #icon_home{
+	        background-color: white;
+	      }
+	      #navbar{
+	        border-top:2px solid #068142;
+	      }
+	      #button_icon:hover{
+	        background-color: yellow;
+	      }
+	    }
+	    /* reponsive_mobile */
+
+	    /* reponsive_mobile_dropdown_menu */
+	    @media only screen and (min-width: 768px) {
+	      .dropdown:hover .dropdown-menu {
+	        display: block;
+	      }
+	    }
+	    /* reponsive_mobile_dropdown_menu */
+
+	    .responsive {
+	      max-width: 95%;
+	      height: 60px;
+	      margin:5px;
+	    }
+	    .dropdown #button_dropdown{
+	      border-radius: 2px;
+	      background-color:white;
+	    }
+  	</style>
+
+	<script type="text/javascript">
+	    $('.dropdown-toggle').click(function(e) {
+	      if ($(document).width() > 768) {
+	        e.preventDefault();
+	        var url = $(this).attr('href');
+	        if (url !== '#') {
+	          window.location.href = url;
+	        }
+	      }
+	    });
+
+	    $(document).ready(function(){
+	      $(".navbar-toggle").hover(function(){
+	        $(this).css("background-color", "yellow");
+	        }, function(){
+	        $(this).css("background-color", "white");
+	      });
+	    });
+	</script>
+</head>
+<body style="font-family: 'Roboto Slab', sans-serif;">
+	
+	<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color:#e7e9ec;border:0px solid white;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.14), 0 2px 5px rgba(0,0,0,0.20);">
+	  	<div class="container">
+		    <div class="navbar-header" id="navbar_border">
+		      	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar"
+		      	style="margin-top:20px;border:2px solid #068142;background-color:white;">
+			        <span class="icon-bar" style="background-color:#068142"></span>
+			        <span class="icon-bar" style="background-color:#068142"></span>
+			        <span class="icon-bar" style="background-color:#068142"></span>                        
+		      	</button>
+
+		      	<button type="button" class="navbar-toggle" onclick="openSearch()"
+		      	style="margin-top:20px;border:2px solid #068142;padding:5.2px;background-color:white;">
+		        	<i class="fa fa-search" style="font-size:20px;color:#068142;width:25px;"></i>
+		      	</button>
+
+		      	<a href="index.html">
+		        	<img src="../public/images/LOGO_WEB.png" class="responsive" alt="Logo">
+		      	</a>
+		    </div>
+
+		    <div id="navbar" class="navbar-collapse collapse">
+		      	<ul class="nav navbar-nav">
+
+			        <li style="background-color:#068142;border-radius:2px;">
+			          	<a href="#" style="height:70px;color:white;" id=> 
+			            	<i class="fa fa-home" style="font-size:33px;"></i>
+			          	</a>
+			        </li>
+
+			        <li class="dropdown">
+			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="button_dropdown"aria-haspopup="true" aria-expanded="false" style="height:70px;color:#068142;font-size:16px;padding-top:22px; background-color: #e7e9ec">
+			            	<img src="../public/images/icon_khoa_hoc.png" style="width:28px;height:28px;">
+			            	<span>Xuất bản khoa học</span> <span class="caret"></span>
+			          	</a>
+
+			          	<ul class="dropdown-menu" style="border:1px solid #068142;font-size:14px;">
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Báo cáo
+				              	</a>
+				            </li>
+
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Đề tài
+				              	</a>
+				            </li>
+			          	</ul>
+			        </li>
+
+			        <!-- <li class="dropdown">
+			          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" id="button_dropdown"aria-haspopup="true" aria-expanded="false" style="height:70px;color:#068142;font-size:16px;padding-top:22px;">
+			            	<img src="public/images/icon_doanh_nghiep.png" style="width:28px;height:28px;">
+			            	<span>Nhà doanh nghiệp</span> <span class="caret"></span>
+			          	</a>
+			          	<ul class="dropdown-menu" style="border:1px solid #068142;font-size:14px;">
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Công ty/ doanh nghiệp
+				              	</a>
+				            </li>
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Nhà phân phối/Đại lý
+				              	</a>
+				            </li>
+				            <li>
+				              	<a href="#" style="color:#068142;">
+				                	<i class="fa fa-arrow-circle-right"></i> Hợp tác xã
+				              	</a>
+				            </li>
+			          	</ul>
+			        </li> -->
+
+			        <li>
+			          	<a href="#" style="height:70px;color:#068142;font-size:16px;padding-top:22px;">
+			            	<img src="./public/image/image_icon/icon_ly_lich_1.png" style="width:28px;height:28px;">
+			            	<span>Lý lịch</span>
+			          	</a>
+			        </li>
+
+			        <li>
+			          	<a href="#" style="height:70px;color:#068142;font-size:16px;padding-top:22px;">
+			            	<img src="./public/image/image_icon/icon_tin_tuc_1.png" style="width:28px;height:28px;">
+			            	<span>Tin tức</span>
+			          	</a>
+			        </li>
+
+			        <li>
+			          	<a href="#" style="height:70px;color:#068142;font-size:16px;padding-top:22px;" data-toggle="tooltip" title="Tìm kiếm" id="search"> 
+			            	<img src="../public/images/icon_search.png" style="width:28px;height:28px;">
+			            	<span>Tra cứu thông tin</span>
+			          	</a>
+			        </li>
+		      	</ul>
+		      <!-- end_ul -->
+
+		      	<ul class="nav navbar-nav navbar-right">
+		      		<li>
+			          	<a href="#" style="height:50px;color:#068142;font-size:15px;padding-top:22px;">
+			            	<img src="./public/image/image_icon/icon_dang_ky.png" style="width:25px;height:25px;">
+			            	Đăng ký
+			          	</a>
+			        </li>
+
+		        	<li>
+			          	<a href="#" style="height:50px;color:#068142;font-size:15px;padding-top:22px;">
+			            	<img src="./public/image/image_icon/icon_login.png" style="width:25px;height:25px;">
+			            	Đăng nhập
+			          	</a>
+			        </li>
+		      	</ul>
+
+		    </div>
+	    <!--/.nav-collapse -->
+	  </div>
+	</nav><br><br><br>
+
+	<style>
+		.pro_search {
+			background-color: #245481; 
+			text-align: center;
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+
+		.pro_search h4{
+			color: white;
+			font-size: 20px; 
+			padding-top: 10px;
+			font-weight: bold;
+		}
+		
+		.pro_search p{
+			font-size: 16px;
+			color: white;
+			font-weight: 500;
+		}
+
+		.pro_search strong{
+			color: #ffa500;
+		}
+	</style>
+	<div class="row pro_search">
+		<div class="container">
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-md-push-3">
+				<h4>Cổng thông tin nhà Khoa học</h4>
+
+				<form action="" method="POST" role="form">
+					<div class="input-group">
+		                <div class="input-group-btn search-panel">
+		                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+		                    	<span id="search_concept">Nâng cao</span> <span class="caret"></span>
+		                    </button>
+		                    <ul class="dropdown-menu" role="menu">
+		                      <li><a href="">Tất cả dữ liệu</a></li>
+		                      <li><a href="">Thông tin nhà khoa học</a></li>
+		                      <li><a href="">Dữ liệu đề tài</a></li>
+		                      <li><a href="">Dữ liệu báo cáo</a></li>
+		                      <li><a href="">Dữ liệu báo cáo</a></li>
+		                      <li class="divider"></li>
+		                      <li><a href="note">Để tìm kiếm thông tin nhanh chóng, bạn cần chọn một trong các mục trên.</a></li>
+		                    </ul>
+		                </div>
+		                <input type="hidden" name="search_param" value="all" id="search_param">         
+		                <input type="text" class="form-control" name="x" placeholder="Tiềm kiếm thông tin...">
+		                <span class="input-group-btn">
+		                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+		                </span>
+		            </div>
+				</form>
+				<br>
+				<p>Agrimate | Khoa học là một trong những cổng thông tin hàng về lĩnh vực khoa học và các chuyên gia <br>
+				Hiện đang có <strong>12000</strong> nhà khoa học, <strong>23000</strong> báo cáo và <strong>25000</strong> đề tài và kho dữ liệu về khoa học rất lớn.</p>
+			</div> <!-- end col 6 -->
+		</div> <!-- end container -->
+	</div> <!-- end row -->
+
+	<br><br>
+	
+	<style>
+		@media (max-width: 600px){
+			.khoa_hoc_tien_tien p{
+				display: none;
+			}
+		}
+
+		.khoa_hoc_tien_tien h4{
+			color: green; 
+			font-size: 20px;
+			font-weight: 700;
+		}
+
+		.khoa_hoc_tien_tien h5{
+			color: #008080; 
+			font-weight: 700;
+			font-size: 16px;
+		}
+
+		.khoa_hoc_tien_tien a{
+			text-decoration: none;
+		}
+
+		.khoa_hoc_tien_tien .col-lg-9 strong{
+			padding-left: 10px;
+		}
+
+		.khoa_hoc_tien_tien .col-lg-9 .navbar-right{
+			padding-right: 10px;
+		}
+
+		.khoa_hoc_tien_tien .col-lg-3 h4{
+			color: green; 
+			font-size: 15px;
+			font-weight: 700;
+		}
+		
+	</style>
+	<div class="row khoa_hoc_tien_tien">
+		<div class="container">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<h4>Bài báo khoa học</h4>
+				<hr>
+				
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+						<div>
+							<strong style="padding-left: 0px;">Tác giả: </strong>GS.TS.Phan Văn Tân
+							<strong>Xuất bản: </strong>10-04-2019
+							<div class="navbar-right">
+								<strong>Lượt xem: </strong>200
+								<strong>Lượt tải: </strong>100
+							</div>
+							
+							<a href=""><h5>Biến đổi gen của hệ thống rễ giúp cây tìm ra nguồn nước</h5></a>
+							<p>Các cuộc khủng hoảng lương thực toàn cầu 1 phần là do các phương pháp tưới nước hiện thời không hiệu quả. Nước được tưới bốc hơi nhiều hơn là thấm xuống rễ cây, điều này chẳng khác gì là đang lãng phí nguồn nước và nguồn năng lượng rất lớn. </p>
+						</div><hr>
+						
+						<div>
+							<strong style="padding-left: 0px;">Tác giả: </strong>GS.TS.Phan Văn Tân
+							<strong>Xuất bản: </strong>10-04-2019
+							<div class="navbar-right">
+								<strong>Lượt xem: </strong>200
+								<strong>Lượt tải: </strong>100
+							</div>
+							<a href=""><h5>Chất giảm khả năng nhiễm cúm được tìm thấy trong rau quả</h5></a>
+							<p>Theo một nghiên cứu được Hội Tâm lý học Mỹ xuất bản thì những con chuột được tiêm quercetin, một chất có trong rau quả, dường như ít bị nhiễm cúm hơn. Nghiên cứu này cũng phát hiện thấy rằng việc phải vận động quá sức dẫn đến stress sẽ làm tăng khả năng mắc cúm ở chuột, nhưng quercelin đã loại bỏ được tác động xấu đó.</p>
+						</div><hr>
+
+						<div>
+							<strong style="padding-left: 0px;">Tác giả: </strong>GS.TS.Phan Văn Tân
+							<strong>Xuất bản: </strong>10-04-2019
+							<div class="navbar-right">
+								<strong>Lượt xem: </strong>200
+								<strong>Lượt tải: </strong>100
+							</div>
+							<a href=""><h5>Bước đầu ứng dụng kỹ thuật khí canh trong việc trồng một số loại rau xanh</h5></a>
+							<p>Trong thực tế, chúng ta đã có nhiều cải tiến và giải pháp được đưa ra như trồng rau trong nhà lưới đơn giản, nhà lưới kiên cố, bán kiên cố, sử dụng vòm che di động trên đồng ruộng hay sản xuất trên nền giá thể, sản xuất rau mầm, sản xuất trên hệ thống điều khiển tự động trong nhà lưới đã được áp dụng, song mỗi công nghệ đều có những ưu điểm và bộc lộ những hạn chế nhất định.</p>
+						</div><hr>
+
+						<div>
+							<strong style="padding-left: 0px;">Tác giả: </strong>GS.TS.Phan Văn Tân
+							<strong>Xuất bản: </strong>10-04-2019
+							<div class="navbar-right">
+								<strong>Lượt xem: </strong>200
+								<strong>Lượt tải: </strong>100
+							</div>
+							<a href=""><h5>Expert tells how to market inventions</h5></a>
+							<p>Inventors, facing increased scrutiny from angel investors because of the slowed economy, must be specific in describing their product's purpose when seeking grant money, said Merrie London, manager of Small Business Innovation Research with the Hartford-based Connecticut Center for Advanced Technology.</p>
+						</div><hr>
+					</div>
+
+
+					<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+
+						<h4>Tin tức báo cáo khoa học mới</h4><hr>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="./public/image_khoa_hoc_tien_tien/phim-tat-tren-excel-200-size-80x80-znd.jpg" class="img-responsive" alt="Image">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href=""><strong>Báo thức cho đồng hồ sinh học của cơ thể</strong></a>
+							</div>
+						</div><hr>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="./public/image_khoa_hoc_tien_tien/phim-tat-tren-excel-200-size-80x80-znd.jpg" class="img-responsive" alt="Image">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href=""><strong>Báo thức cho đồng hồ sinh học của cơ thể</strong></a>
+							</div>
+						</div><hr>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="./public/image_khoa_hoc_tien_tien/phim-tat-tren-excel-200-size-80x80-znd.jpg" class="img-responsive" alt="Image">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href=""><strong>Báo thức cho đồng hồ sinh học của cơ thể</strong></a>
+							</div>
+						</div><hr>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="./public/image_khoa_hoc_tien_tien/phim-tat-tren-excel-200-size-80x80-znd.jpg" class="img-responsive" alt="Image">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href=""><strong>Báo thức cho đồng hồ sinh học của cơ thể</strong></a>
+							</div>
+						</div><hr>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br><br>
+
+	<div class="row khoa_hoc_tien_tien">
+		<div class="container">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<h4>Đề tài khoa học</h4>
+				<hr>
+				
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+						<div>
+							<strong style="padding-left: 0px;">Tác giả: </strong>GS.TS.Phan Văn Tân
+							<strong>Xuất bản: </strong>10-04-2019
+							<div class="navbar-right">
+								<strong>Lượt xem: </strong>200
+								<strong>Lượt tải: </strong>100
+							</div>
+							
+							<a href=""><h5>Biến đổi gen của hệ thống rễ giúp cây tìm ra nguồn nước</h5></a>
+							<p>Các cuộc khủng hoảng lương thực toàn cầu 1 phần là do các phương pháp tưới nước hiện thời không hiệu quả. Nước được tưới bốc hơi nhiều hơn là thấm xuống rễ cây, điều này chẳng khác gì là đang lãng phí nguồn nước và nguồn năng lượng rất lớn. </p>
+						</div><hr>
+						
+						<div>
+							<strong style="padding-left: 0px;">Tác giả: </strong>GS.TS.Phan Văn Tân
+							<strong>Xuất bản: </strong>10-04-2019
+							<div class="navbar-right">
+								<strong>Lượt xem: </strong>200
+								<strong>Lượt tải: </strong>100
+							</div>
+							<a href=""><h5>Chất giảm khả năng nhiễm cúm được tìm thấy trong rau quả</h5></a>
+							<p>Theo một nghiên cứu được Hội Tâm lý học Mỹ xuất bản thì những con chuột được tiêm quercetin, một chất có trong rau quả, dường như ít bị nhiễm cúm hơn. Nghiên cứu này cũng phát hiện thấy rằng việc phải vận động quá sức dẫn đến stress sẽ làm tăng khả năng mắc cúm ở chuột, nhưng quercelin đã loại bỏ được tác động xấu đó.</p>
+						</div><hr>
+
+						<div>
+							<strong style="padding-left: 0px;">Tác giả: </strong>GS.TS.Phan Văn Tân
+							<strong>Xuất bản: </strong>10-04-2019
+							<div class="navbar-right">
+								<strong>Lượt xem: </strong>200
+								<strong>Lượt tải: </strong>100
+							</div>
+							<a href=""><h5>Bước đầu ứng dụng kỹ thuật khí canh trong việc trồng một số loại rau xanh</h5></a>
+							<p>Trong thực tế, chúng ta đã có nhiều cải tiến và giải pháp được đưa ra như trồng rau trong nhà lưới đơn giản, nhà lưới kiên cố, bán kiên cố, sử dụng vòm che di động trên đồng ruộng hay sản xuất trên nền giá thể, sản xuất rau mầm, sản xuất trên hệ thống điều khiển tự động trong nhà lưới đã được áp dụng, song mỗi công nghệ đều có những ưu điểm và bộc lộ những hạn chế nhất định.</p>
+						</div><hr>
+
+						<div>
+							<strong style="padding-left: 0px;">Tác giả: </strong>GS.TS.Phan Văn Tân
+							<strong>Xuất bản: </strong>10-04-2019
+							<div class="navbar-right">
+								<strong>Lượt xem: </strong>200
+								<strong>Lượt tải: </strong>100
+							</div>
+							<a href=""><h5>Expert tells how to market inventions</h5></a>
+							<p>Inventors, facing increased scrutiny from angel investors because of the slowed economy, must be specific in describing their product's purpose when seeking grant money, said Merrie London, manager of Small Business Innovation Research with the Hartford-based Connecticut Center for Advanced Technology.</p>
+						</div><hr>
+					</div>
+
+
+					<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+
+						<h4>Tin tức đề tài khoa học mới</h4><hr>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="./public/image_khoa_hoc_tien_tien/phim-tat-tren-excel-200-size-80x80-znd.jpg" class="img-responsive" alt="Image">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href=""><strong>Báo thức cho đồng hồ sinh học của cơ thể</strong></a>
+							</div>
+						</div><hr>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="./public/image_khoa_hoc_tien_tien/phim-tat-tren-excel-200-size-80x80-znd.jpg" class="img-responsive" alt="Image">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href=""><strong>Báo thức cho đồng hồ sinh học của cơ thể</strong></a>
+							</div>
+						</div><hr>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="./public/image_khoa_hoc_tien_tien/phim-tat-tren-excel-200-size-80x80-znd.jpg" class="img-responsive" alt="Image">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href=""><strong>Báo thức cho đồng hồ sinh học của cơ thể</strong></a>
+							</div>
+						</div><hr>
+
+						<div class="row">
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<img src="./public/image_khoa_hoc_tien_tien/phim-tat-tren-excel-200-size-80x80-znd.jpg" class="img-responsive" alt="Image">
+							</div>
+							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+								<a href=""><strong>Báo thức cho đồng hồ sinh học của cơ thể</strong></a>
+							</div>
+						</div><hr>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br><br>
+
+
+	<style>
+		.chuyen_gia h4{
+			color: green; 
+			font-size: 20px;
+			font-weight: 700;
+		}
+
+		.chuyen_gia a{
+			text-decoration: none;
+		}
+
+		.chuyen_gia img{
+			border-radius: 50%; 
+			margin-left: 30px;
+		}
+
+		.chueyn_gia .panel-footer{
+			text-align: center;
+		}
+
+		@media (max-width: 600px){
+	      	.chuyen_gia img{
+	        	margin-left: 60px;
+	      	}
+	    }
+
+	</style>
+
+
+	<div class="row chuyen_gia">
+		<div class="container">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<h4>Các nhà khoa học hàng đầu</h4>
+				<hr>
+				<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<img src="./public/image/dts.jpg" class="img-responsive" alt="Image"><br>
+							<p style="text-align: center;"><strong>GS.Đàm Thanh Sơn</strong></p>
+							<p><a href=""><i class="fa fa-chevron-right"></i> Thần đồng nhà vật lý</a></p>
+							<p><a href=""><i class="fa fa-chevron-right"></i> ĐH Chicago vinh danh</a></p>
+						</div>
+						<div class="panel-footer" style="text-align: center;">
+							<a class="btn btn-default" href="">Xem chi tiết <i class="fa fa-chevron-right"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<img src="./public/image/pvt.jpg" class="img-responsive" alt="Image" style="border-radius: 50%;"><br>
+							<p style="text-align: center;"><strong>GS.TS.Phan Văn Tân</strong></p>
+							<p><a href=""><i class="fa fa-chevron-right"></i> Thần đồng nhà vật lý</a></p>
+							<p><a href=""><i class="fa fa-chevron-right"></i> ĐH Chicago vinh danh</a></p>
+						</div>
+						<div class="panel-footer" style="text-align: center;">
+							<a class="btn btn-default" href="">Xem chi tiết <i class="fa fa-chevron-right"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<img src="./public/image/ptt.png" class="img-responsive" alt="Image" style="border-radius: 50%;"><br>
+							<p style="text-align: center;"><strong>PGS.Phan Toàn Thắng</strong></p>
+							<p><a href=""><i class="fa fa-chevron-right"></i> Thần đồng nhà vật lý</a></p>
+							<p><a href=""><i class="fa fa-chevron-right"></i> ĐH Chicago vinh danh</a></p>
+						</div>
+						<div class="panel-footer" style="text-align: center;">
+							<a class="btn btn-default" href="">Xem chi tiết <i class="fa fa-chevron-right"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<img src="./public/image/nvt.jpg" class="img-responsive" alt="Image" style="border-radius: 50%;"><br>
+							<p style="text-align: center;"><strong>GS.TS.Nguyễn Văn Tuấn</strong></p>
+							<p><a href=""><i class="fa fa-chevron-right"></i> Thần đồng nhà vật lý</a></p>
+							<p><a href=""><i class="fa fa-chevron-right"></i> ĐH Chicago vinh danh</a></p>
+						</div>
+						<div class="panel-footer" style="text-align: center;">
+							<a class="btn btn-default" href="">Xem chi tiết <i class="fa fa-chevron-right"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="row chuyen_gia">
+		<div class="container">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<h4>Các nhà khoa học mới</h4>
+				<hr>
+				<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<img src="./public/image/dts.jpg" class="img-responsive" alt="Image"><br>
+							<p style="text-align: center;"><strong>GS.Đàm Thanh Sơn</strong></p>
+							<p><a href=""><i class="fa fa-chevron-right"></i> Thần đồng nhà vật lý</a></p>
+							<p><a href=""><i class="fa fa-chevron-right"></i> ĐH Chicago vinh danh</a></p>
+						</div>
+						<div class="panel-footer">
+							<a class="btn btn-default" href="">Xem chi tiết <i class="fa fa-chevron-right"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<img src="./public/image/pvt.jpg" class="img-responsive" alt="Image" style="border-radius: 50%;"><br>
+							<p style="text-align: center;"><strong>GS.TS.Phan Văn Tân</strong></p>
+							<p><a href=""><i class="fa fa-chevron-right"></i> Thần đồng nhà vật lý</a></p>
+							<p><a href=""><i class="fa fa-chevron-right"></i> ĐH Chicago vinh danh</a></p>
+						</div>
+						<div class="panel-footer" style="text-align: center;">
+							<a class="btn btn-default" href="">Xem chi tiết <i class="fa fa-chevron-right"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<img src="./public/image/ptt.png" class="img-responsive" alt="Image" style="border-radius: 50%;"><br>
+							<p style="text-align: center;"><strong>PGS.Phan Toàn Thắng</strong></p>
+							<p><a href=""><i class="fa fa-chevron-right"></i> Thần đồng nhà vật lý</a></p>
+							<p><a href=""><i class="fa fa-chevron-right"></i> ĐH Chicago vinh danh</a></p>
+						</div>
+						<div class="panel-footer" style="text-align: center;">
+							<a class="btn btn-default" href="">Xem chi tiết <i class="fa fa-chevron-right"></i></a>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<img src="./public/image/nvt.jpg" class="img-responsive" alt="Image" style="border-radius: 50%;"><br>
+							<p style="text-align: center;"><strong>GS.TS.Nguyễn Văn Tuấn</strong></p>
+							<p><a href=""><i class="fa fa-chevron-right"></i> Thần đồng nhà vật lý</a></p>
+							<p><a href=""><i class="fa fa-chevron-right"></i> ĐH Chicago vinh danh</a></p>
+						</div>
+						<div class="panel-footer" style="text-align: center;">
+							<a class="btn btn-default" href="">Xem chi tiết <i class="fa fa-chevron-right"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+	<footer class="page-footer font-small blue pt-4"
+		style="background-color:#e7e9ec;box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">
+		  	<!-- Footer Links -->
+		  	<div class="container text-center text-md-left">
+			    <!-- Grid row -->
+			    <div class="row">
+			      	<!-- Grid column -->
+			      	<div class="col-md-6 mt-md-0 mt-3 text-left">
+				        <!-- Content -->
+				        <h5 class="text-uppercase" style="color:#068142">
+				          <a href="#">
+				            <img src="../public/images/LOGO_WEB.png" alt="Logo" style="width:122px;height:40px;">
+				          </a>
+				        </h5>
+				        <p style="text-align: justify;">
+				          AGRIMATE được thành lập bởi những người trẻ tâm huyến sẵn sàng chia sẻ. Chúng tôi đề cao sự thay đổi, rèn luyện và luôn mong muốn mang đến một môi trường rèn luyện tốt hơn cho sinh viên học tại Hòa An nói riêng và CTU nói chung. Tại AGRIMATE, chúng tôi truyền cảm hứng cho những trái tim nhiệt huyết để trở thành những cá nhân tiên phong trong đổi mới, những nhà lãnh đạo hiệu quả trong tương lai đồng thời biết quan tâm sâu sắc đến vấn đề con người và có một tấm lòng khao khát cống hiến cho xã hội, cho quê hương.
+				        </p>
+			      	</div>
+			      <!-- Grid column -->
+
+			      	<!-- Grid column -->
+			      	<div class="col-md-3 mb-md-0 mb-3 text-left">
+				        <!-- Links -->
+				        <h5 class="text-uppercase" style="color:#068142"><strong>Địa chỉ</strong></h5>
+				        <ul class="list-unstyled">
+				          <li>
+				            <a href="#!" style="text-decoration:none;text-align: justify;">
+				              <i class="fa fa-map-marker"></i>&ensp;
+				              Đại học Cần Thơ Khu Hòa An - Số 554, Quốc lộ 61, Hòa Đức, Hòa An, Phụng Hiệp, Hậu Giang
+				            </a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;text-align: justify;">
+				              <i class="fa fa-phone"></i>&ensp;
+				              0901211249
+				            </a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;text-align: justify;">
+				              <i class="fa fa-envelope"></i>&ensp;
+				              hoaanteam@gmail.com
+				            </a>
+				          </li>
+				        </ul>
+
+			      	</div>
+			      	<!-- Grid column -->
+
+
+			      	<!-- Grid column -->
+			      	<div class="col-md-3 mb-md-0 mb-3 text-left">
+				        <!-- Links -->
+				        <h5 class="text-uppercase" style="color:#068142"><strong>Liên kết</strong></h5>
+				        <ul class="list-unstyled">
+				          <li>
+				            <a href="#!" style="text-decoration:none;">Xuất bản khoa học</a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;">Lý lịch</a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;">Tin tức</a>
+				          </li>
+				          <li>
+				            <a href="#!" style="text-decoration:none;">Tra cứu thông tin</a>
+				          </li>
+				        </ul>
+
+			      	</div>
+			      	<!-- Grid column -->
+
+			    </div>
+			    <!-- Grid row -->
+		  	</div>
+		  	<!-- Footer Links -->
+
+		  	<!-- Copyright -->
+		  	<div class="footer-copyright text-center py-3">© 2019 Copyright:
+		    	<a href="https://mdbootstrap.com/education/bootstrap/">Bootstrap.com</a>
+		  	</div>
+		  	<!-- Copyright -->
+
+		  	<style type="text/css" media="screen">
+			    #myBtn {
+			      	display: none;
+			      	position: fixed;
+			      	bottom: 10px;
+			      	right: 10px;
+			      	z-index: 99;
+			      	border:none;
+			      	outline: none;
+			      	background-color: orange;
+			      	color: white;
+			      	cursor: pointer;
+			      	padding: 5px;
+			      	border-radius: 5px;
+			      	font-size: 18px;
+			      	width:33px;
+			    }
+
+			    #myBtn:hover {
+			      background-color: rgba(0,0,0,0.5);/* Add a dark-grey background on hover */
+			    }
+		  	</style>
+		  
+		  	<!-- back_to_top -->
+		  	<button onclick="topFunction()" id="myBtn" title="Về đầu trang"><i class="fa fa-arrow-up"></i></button>
+		  	<!-- back_to_top -->
+
+		  	<script type="text/javascript">
+			    //Get the button:
+			    mybutton = document.getElementById("myBtn");
+
+			    // When the user scrolls down 20px from the top of the document, show the button
+			    window.onscroll = function() {scrollFunction()};
+
+			    function scrollFunction() {
+			      	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+			        	mybutton.style.display = "block";
+			      	} else {
+			        	mybutton.style.display = "none";
+			      	}
+			    }
+
+			    // When the user clicks on the button, scroll to the top of the document
+			    function topFunction() {
+			      	document.body.scrollTop = 0; // For Safari
+			      	document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+			    }
+		  	</script>
+	</footer>
+	<!-- Footer -->
+
+</body>
+</html>
